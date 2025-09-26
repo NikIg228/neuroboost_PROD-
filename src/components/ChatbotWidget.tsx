@@ -106,10 +106,10 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
 
   return (
     <>
-      {/* Кнопка открытия чата */}
+      {/* Кнопка открытия чата - скрыта на мобильных устройствах */}
       <motion.button
         onClick={() => setIsOpen(true)}
-        className={`fixed right-6 top-1/2 transform -translate-y-1/2 z-40 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${className} ${isOpen ? 'hidden' : 'block'}`}
+        className={`hidden md:block fixed right-6 top-1/2 transform -translate-y-1/2 z-40 bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 ${className} ${isOpen ? 'hidden' : 'block'}`}
         whileHover={{ 
           scale: 1.1, 
           y: -5,

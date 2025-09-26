@@ -3,13 +3,15 @@ import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
-import { Brain, MessageCircle } from 'lucide-react';
+import { useChatbot } from '@/contexts/ChatbotContext';
+import { Brain, MessageCircle, Bot } from 'lucide-react';
 import ConsultationModal from './ConsultationModal';
 
 const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const { user, signOut } = useAuth();
+  const { setIsOpen: setChatbotOpen } = useChatbot();
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -30,6 +32,11 @@ const Header: React.FC = () => {
       return;
     }
     setIsConsultationModalOpen(true);
+  };
+
+  const handleChatbotOpen = () => {
+    setChatbotOpen(true);
+    setIsMobileMenuOpen(false);
   };
 
   const handleLinkClick = (path: string) => {
@@ -236,18 +243,31 @@ const Header: React.FC = () => {
             {/* Кнопки действий */}
             <div className="p-4 border-t border-gray-200">
               <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                Помощь
+              </div>
+              <div className="space-y-3 mb-6">
+                <button 
+                  onClick={handleChatbotOpen} 
+                  className="w-full flex items-center justify-center px-4 py-3 text-base font-medium text-blue-600 border border-blue-600 rounded-xl hover:bg-blue-50 transition-colors"
+                >
+                  <Bot className="h-5 w-5 mr-2" />
+                  Умный помощник
+                </button>
+                <button 
+                  onClick={handleConsultation} 
+                  className="w-full flex items-center justify-center px-4 py-3 text-base font-medium text-green-600 border border-green-600 rounded-xl hover:bg-green-50 transition-colors"
+                >
+                  <MessageCircle className="h-5 w-5 mr-2" />
+                  Консультация
+                </button>
+              </div>
+              
+              <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
                 Аккаунт
               </div>
               <div className="space-y-3">
                 {user ? (
                   <>
-                    <button 
-                      onClick={handleConsultation} 
-                      className="w-full flex items-center justify-center px-4 py-3 text-base font-medium text-green-600 border border-green-600 rounded-xl hover:bg-green-50 transition-colors"
-                    >
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      Консультация
-                    </button>
                     <button 
                       onClick={() => handleLinkClick('/lk')} 
                       className="w-full px-4 py-3 text-base font-medium text-gray-700 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors"
@@ -263,13 +283,6 @@ const Header: React.FC = () => {
                   </>
                 ) : (
                   <>
-                    <button 
-                      onClick={() => window.location.href = '/login'} 
-                      className="w-full flex items-center justify-center px-4 py-3 text-base font-medium text-green-600 border border-green-600 rounded-xl hover:bg-green-50 transition-colors"
-                    >
-                      <MessageCircle className="h-5 w-5 mr-2" />
-                      Консультация
-                    </button>
                     <button 
                       onClick={() => handleLinkClick('/login')} 
                       className="w-full px-4 py-3 text-base font-medium text-gray-700 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors"

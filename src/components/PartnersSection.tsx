@@ -34,29 +34,28 @@ const PartnersSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Бегущая строка с логотипами */}
-        <div className="relative overflow-hidden">
+        {/* Мобильная бегущая строка с логотипами */}
+        <div className="block md:hidden relative overflow-hidden">
           {/* Градиентные края для плавного исчезновения */}
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           
           <div className="flex animate-scroll hover:pause-scroll">
             {doublePartners.map((partner, index) => (
               <div
-                key={`${partner.name}-${index}`}
-                className="group flex-shrink-0 flex items-center justify-center p-3 sm:p-4 lg:p-6 bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl border border-white/50 hover:bg-white/80 transition-all duration-500 hover:scale-105 hover:shadow-lg mx-2 sm:mx-3 lg:mx-4"
-                style={{ minWidth: '140px', maxWidth: '200px' }}
+                key={`mobile-${partner.name}-${index}`}
+                className="group flex-shrink-0 flex items-center justify-center p-2 bg-white/60 backdrop-blur-sm rounded-lg border border-white/50 hover:bg-white/80 transition-all duration-500 hover:scale-105 hover:shadow-lg mx-1"
+                style={{ minWidth: '100px', maxWidth: '120px' }}
               >
                 <img
                   src={partner.logo}
                   alt={`${partner.name} logo`}
-                  className={`h-6 sm:h-8 lg:h-12 w-auto object-contain opacity-100 transition-all duration-300 ${enlargedLogos.has(partner.name) ? 'scale-[1.3]' : ''}`}
+                  className={`h-6 w-auto object-contain opacity-100 transition-all duration-300 ${enlargedLogos.has(partner.name) ? 'scale-[1.2]' : ''}`}
                   onError={(e) => {
-                    // Fallback to text if image fails to load
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
                     const textElement = document.createElement('div');
-                    textElement.className = 'text-gray-600 font-semibold text-xs sm:text-sm lg:text-base text-center group-hover:text-gray-800 transition-colors duration-300';
+                    textElement.className = 'text-gray-600 font-semibold text-xs text-center group-hover:text-gray-800 transition-colors duration-300';
                     textElement.textContent = partner.name;
                     target.parentNode?.appendChild(textElement);
                   }}
@@ -66,27 +65,89 @@ const PartnersSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Дополнительная бегущая строка с разной скоростью */}
-        <div className="relative overflow-hidden mt-6 sm:mt-8">
-          <div className="absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
+        {/* Мобильная дополнительная бегущая строка с разной скоростью */}
+        <div className="block md:hidden relative overflow-hidden mt-4">
+          <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
+          
+          <div className="flex animate-scroll-reverse hover:pause-scroll">
+            {doublePartners.map((partner, index) => (
+              <div
+                key={`mobile-reverse-${partner.name}-${index}`}
+                className="group flex-shrink-0 flex items-center justify-center p-1.5 bg-white/40 backdrop-blur-sm rounded-md border border-white/30 hover:bg-white/60 transition-all duration-500 hover:scale-105 hover:shadow-md mx-0.5"
+                style={{ minWidth: '80px', maxWidth: '100px' }}
+              >
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  className={`h-5 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 ${enlargedLogos.has(partner.name) ? 'scale-[1.2]' : ''}`}
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const textElement = document.createElement('div');
+                    textElement.className = 'text-gray-500 font-medium text-xs text-center group-hover:text-gray-700 transition-colors duration-300';
+                    textElement.textContent = partner.name;
+                    target.parentNode?.appendChild(textElement);
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Десктопная бегущая строка с логотипами */}
+        <div className="hidden md:block relative overflow-hidden">
+          {/* Градиентные края для плавного исчезновения */}
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
+          
+          <div className="flex animate-scroll hover:pause-scroll">
+            {doublePartners.map((partner, index) => (
+              <div
+                key={`${partner.name}-${index}`}
+                className="group flex-shrink-0 flex items-center justify-center p-4 lg:p-6 bg-white/60 backdrop-blur-sm rounded-2xl border border-white/50 hover:bg-white/80 transition-all duration-500 hover:scale-105 hover:shadow-lg mx-3 lg:mx-4"
+                style={{ minWidth: '140px', maxWidth: '200px' }}
+              >
+                <img
+                  src={partner.logo}
+                  alt={`${partner.name} logo`}
+                  className={`h-8 lg:h-12 w-auto object-contain opacity-100 transition-all duration-300 ${enlargedLogos.has(partner.name) ? 'scale-[1.3]' : ''}`}
+                  onError={(e) => {
+                    // Fallback to text if image fails to load
+                    const target = e.target as HTMLImageElement;
+                    target.style.display = 'none';
+                    const textElement = document.createElement('div');
+                    textElement.className = 'text-gray-600 font-semibold text-sm lg:text-base text-center group-hover:text-gray-800 transition-colors duration-300';
+                    textElement.textContent = partner.name;
+                    target.parentNode?.appendChild(textElement);
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Дополнительная бегущая строка с разной скоростью - только для десктопа */}
+        <div className="hidden md:block relative overflow-hidden mt-6 sm:mt-8">
+          <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           
           <div className="flex animate-scroll-reverse hover:pause-scroll">
             {doublePartners.map((partner, index) => (
               <div
                 key={`reverse-${partner.name}-${index}`}
-                className="group flex-shrink-0 flex items-center justify-center p-2 sm:p-3 lg:p-4 bg-white/40 backdrop-blur-sm rounded-lg sm:rounded-xl border border-white/30 hover:bg-white/60 transition-all duration-500 hover:scale-105 hover:shadow-md mx-1 sm:mx-2 lg:mx-3"
+                className="group flex-shrink-0 flex items-center justify-center p-3 lg:p-4 bg-white/40 backdrop-blur-sm rounded-xl border border-white/30 hover:bg-white/60 transition-all duration-500 hover:scale-105 hover:shadow-md mx-2 lg:mx-3"
                 style={{ minWidth: '120px', maxWidth: '150px' }}
               >
                 <img
                   src={partner.logo}
                   alt={`${partner.name} logo`}
-                  className={`h-5 sm:h-6 lg:h-8 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 ${enlargedLogos.has(partner.name) ? 'scale-[1.3]' : ''}`}
+                  className={`h-6 lg:h-8 w-auto object-contain opacity-90 group-hover:opacity-100 transition-all duration-300 ${enlargedLogos.has(partner.name) ? 'scale-[1.3]' : ''}`}
                   onError={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.display = 'none';
                     const textElement = document.createElement('div');
-                    textElement.className = 'text-gray-500 font-medium text-xs sm:text-sm text-center group-hover:text-gray-700 transition-colors duration-300';
+                    textElement.className = 'text-gray-500 font-medium text-sm text-center group-hover:text-gray-700 transition-colors duration-300';
                     textElement.textContent = partner.name;
                     target.parentNode?.appendChild(textElement);
                   }}

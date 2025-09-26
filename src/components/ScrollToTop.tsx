@@ -11,16 +11,18 @@ const ScrollToTopButton: React.FC = () => {
 
   useEffect(() => {
     const toggleVisibility = () => {
-      // На мобильных показываем кнопку раньше
-      const threshold = window.innerWidth < 768 ? 200 : 300;
-      if (window.pageYOffset > threshold) {
+      // Показываем кнопку при скролле больше 300px
+      if (window.pageYOffset > 300) {
         setIsVisible(true);
       } else {
         setIsVisible(false);
       }
     };
 
-    window.addEventListener('scroll', toggleVisibility);
+    // Проверяем сразу при загрузке
+    toggleVisibility();
+    
+    window.addEventListener('scroll', toggleVisibility, { passive: true });
     return () => window.removeEventListener('scroll', toggleVisibility);
   }, []);
 
@@ -34,7 +36,7 @@ const ScrollToTopButton: React.FC = () => {
       {isVisible && !isOpen && (
         <motion.button
           onClick={handleScrollToTop}
-          className="fixed bottom-16 sm:bottom-20 right-4 sm:right-6 z-[60] p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl sm:rounded-2xl shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 backdrop-blur-sm border border-white/20"
+          className="fixed bottom-4 right-4 z-[60] p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl sm:rounded-2xl shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 backdrop-blur-sm border border-white/20"
           aria-label="Scroll to top"
           initial={{ scale: 0, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
