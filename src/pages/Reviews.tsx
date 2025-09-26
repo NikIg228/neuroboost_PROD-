@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { reviews } from '@/data/reviews';
-import { services } from '@/data/services';
-import ReviewCard from '@/components/ReviewCard';
-import ServiceModal from '@/components/ServiceModal';
-import AnimatedSection from '@/components/AnimatedSection';
-import { Service } from '@/types';
+import { reviews } from '@/data/reviews.ts';
+import { services } from '@/data/services.ts';
+import ReviewCard from '@/components/ReviewCard.tsx';
+import ServiceModal from '@/components/ServiceModal.tsx';
+import AnimatedSection from '@/components/AnimatedSection.tsx';
+import { Service } from '@/types/index';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const Reviews: React.FC = () => {

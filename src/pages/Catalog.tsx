@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
-import { useAuth } from '@/contexts/AuthContext';
-import { supabase, Favorite } from '@/lib/supabase';
-import { services } from '@/data/services';
-import ServiceCard from '@/components/ServiceCard';
-import ServiceModal from '@/components/ServiceModal';
-import PurchaseModal from '@/components/PurchaseModal';
-import ConsultationModal from '@/components/ConsultationModal';
-import AnimatedSection from '@/components/AnimatedSection';
-import { Service } from '@/types';
+import { useAuth } from '@/contexts/AuthContext.tsx';
+import { supabase, Favorite } from '@/lib/supabase.ts';
+import { services } from '@/data/services.ts';
+import ServiceCard from '@/components/ServiceCard.tsx';
+import ServiceModal from '@/components/ServiceModal.tsx';
+import PurchaseModal from '@/components/PurchaseModal.tsx';
+import ConsultationModal from '@/components/ConsultationModal.tsx';
+import AnimatedSection from '@/components/AnimatedSection.tsx';
+import { Service } from '@/types/index';
 import { Search, Filter } from 'lucide-react';
 
 const Catalog: React.FC = () => {

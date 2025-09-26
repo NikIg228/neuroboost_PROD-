@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AnimatedSection from '@/components/AnimatedSection';
+import AnimatedSection from '@/components/AnimatedSection.tsx';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {

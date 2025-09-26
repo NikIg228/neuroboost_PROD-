@@ -1,5 +1,5 @@
 import React from 'react';
-import AnimatedSection from '@/components/AnimatedSection';
+import AnimatedSection from '@/components/AnimatedSection.tsx';
 
 const TelegramAgreement: React.FC = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Review } from '@/types';
+import { Review } from '@/types/index';
 import { User, Calendar } from 'lucide-react';
 
 interface ReviewCardProps {

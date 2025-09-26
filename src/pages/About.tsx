@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import AnimatedSection from '@/components/AnimatedSection';
+import AnimatedSection from '@/components/AnimatedSection.tsx';
 import { Users, Target, Award, Globe, TrendingUp, Shield, Clock, Lightbulb, X, Send, CheckCircle } from 'lucide-react';
 
 const About: React.FC = () => {

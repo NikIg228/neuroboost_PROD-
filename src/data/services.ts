@@ -1,4 +1,4 @@
-import { Service } from '@/types';
+import { Service } from '@/types/index';
 
 export const services: Service[] = [
   {

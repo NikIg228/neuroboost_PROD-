@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Bot, User, Loader2, Maximize2, Minimize2 } from 'lucide-react';
-import { useChatbot } from '@/contexts/ChatbotContext';
+import { useChatbot } from '@/contexts/ChatbotContext.tsx';
 
 interface ChatbotWidgetProps {
   className?: string;

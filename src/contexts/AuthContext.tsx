@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { User, Session } from '@supabase/supabase-js'
-import { supabase } from '@/lib/supabase'
+import { supabase } from '@/lib/supabase.ts'
 
 interface AuthContextType {
   user: User | null
@@ -29,6 +29,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
+    let timeoutId: NodeJS.Timeout | null = null
+
     // Get initial session
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
@@ -41,23 +43,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
+      (_event, session) => {
         setSession(session)
         setUser(session?.user ?? null)
         setLoading(false)
 
+        // Clear existing timeout
+        if (timeoutId) {
+          clearTimeout(timeoutId)
+        }
+
         // Auto logout after 1 hour of inactivity
         if (session) {
-          const timeout = setTimeout(() => {
+          timeoutId = setTimeout(() => {
             signOut()
           }, 60 * 60 * 1000) // 1 hour
-
-          return () => clearTimeout(timeout)
         }
       }
     )
 
-    return () => subscription.unsubscribe()
+    return () => {
+      subscription.unsubscribe()
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+    }
   }, [])
 
   const signUp = async (email: string, password: string, name: string) => {
