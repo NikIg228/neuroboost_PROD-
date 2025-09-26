@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scroll styles */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* Отступ для фиксированной шапки */
+}
+
+/* Улучшенный плавный скролл для всех браузеров */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Оптимизация производительности скролла */
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Плавный скролл для якорных ссылок */
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 60px; /* Меньший отступ для мобильных */
+  }
+}
+
+/* Дополнительные стили для плавного скролла */
+.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+/* Улучшенная производительность анимаций */
+* {
+  will-change: auto;
+}
+
+/* Оптимизация для мобильных устройств */
+@media (max-width: 768px) {
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+}
+
+/* Анимация бегущей строки */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.hover\:pause-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Обратная анимация */
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-scroll-reverse {
+  animation: scroll-reverse 25s linear infinite;
+}
+
+/* Адаптивная скорость для мобильных устройств */
+@media (max-width: 640px) {
+  .animate-scroll {
+    animation-duration: 15s;
+  }
+  
+  .animate-scroll-reverse {
+    animation-duration: 12s;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .animate-scroll {
+    animation-duration: 20s;
+  }
+  
+  .animate-scroll-reverse {
+    animation-duration: 15s;
+  }
+}
+
+/* Дополнительные стили для плавного скролла на мобильных */
+@media (max-width: 768px) {
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  /* Оптимизация производительности для мобильных */
+  .animate-scroll,
+  .animate-scroll-reverse {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+  
+  /* Улучшенная производительность скролла на мобильных */
+  * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  /* Оптимизация для touch устройств */
+  body {
+    touch-action: pan-y;
+  }
+}
+
+/* Дополнительные стили для очень маленьких экранов */
+@media (max-width: 480px) {
+  .animate-scroll {
+    animation-duration: 12s;
+  }
+  
+  .animate-scroll-reverse {
+    animation-duration: 10s;
+  }
+  
+  /* Уменьшаем отступы для очень маленьких экранов */
+  html {
+    scroll-padding-top: 50px;
+  }
+}

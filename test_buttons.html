@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест позиционирования кнопок</title>
+    <style>
+        body {
+            height: 200vh;
+            background: linear-gradient(to bottom, #f0f0f0, #e0e0e0);
+            margin: 0;
+            padding: 20px;
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 80px; /* bottom-20 = 80px */
+            right: 24px;  /* right-6 = 24px */
+            z-index: 60;
+            padding: 16px;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            color: white;
+            border-radius: 16px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+        
+        .chatbot-button {
+            position: fixed;
+            bottom: 24px;  /* bottom-6 = 24px */
+            right: 24px;   /* right-6 = 24px */
+            z-index: 40;
+            padding: 16px;
+            background: linear-gradient(to right, #2563eb, #9333ea);
+            color: white;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .info {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <h3>Тест позиционирования кнопок</h3>
+        <p><strong>ScrollToTop:</strong> bottom-20 right-6 (80px, 24px)</p>
+        <p><strong>Chatbot:</strong> bottom-6 right-6 (24px, 24px)</p>
+        <p><strong>Расстояние:</strong> 56px между кнопками</p>
+        <p><strong>Z-index:</strong> ScrollToTop=60, Chatbot=40</p>
+    </div>
+    
+    <button class="scroll-to-top" onclick="alert('ScrollToTop работает!')">
+        ↑
+    </button>
+    
+    <button class="chatbot-button" onclick="alert('Chatbot работает!')">
+        💬
+    </button>
+    
+    <div style="margin-top: 100px; padding: 20px;">
+        <h1>Прокрутите вниз для тестирования</h1>
+        <p>Кнопки должны быть видны в правом нижнем углу:</p>
+        <ul>
+            <li>ScrollToTop - выше (квадратная)</li>
+            <li>Chatbot - ниже (круглая)</li>
+        </ul>
+        <p>Они не должны накладываться друг на друга.</p>
+    </div>
+</body>
+</html>
