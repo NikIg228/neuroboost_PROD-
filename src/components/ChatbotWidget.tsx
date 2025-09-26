@@ -28,6 +28,36 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
     }
   }, [isOpen]);
 
+  // Управление скроллом body при открытии/закрытии чат-бота
+  useEffect(() => {
+    if (isOpen) {
+      // Сохраняем текущую позицию скролла
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+      document.body.style.overflow = 'hidden';
+    } else {
+      // Восстанавливаем скролл
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      }
+    }
+
+    // Cleanup при размонтировании
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   const sendMessage = async () => {
     if (!inputValue.trim() || isLoading) return;
 
@@ -89,8 +119,8 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
   };
 
   const handleClose = () => {
-    setIsOpen(false);
     setIsExpanded(false);
+    setIsOpen(false);
   };
 
   const handleExpand = () => {
@@ -175,11 +205,21 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
       {/* Чат-окно */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
+          <>
+            {/* Оверлей для мобильных устройств */}
+            <motion.div
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={handleClose}
+            />
+            
+            <motion.div
             className={`fixed z-50 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col ${
               isExpanded 
-                ? 'w-[640px] h-[768px] sm:max-w-[calc(100vw-3rem)] sm:max-h-[calc(100vh-3rem)] max-w-[100vw] max-h-[100vh] bottom-0 right-0 sm:bottom-6 sm:right-6' 
-                : 'w-80 h-96 sm:max-w-[calc(100vw-3rem)] sm:max-h-[calc(100vh-3rem)] max-w-[100vw] max-h-[100vh] bottom-0 right-0 sm:bottom-6 sm:right-6'
+                ? 'w-[640px] h-[768px] sm:max-w-[calc(100vw-3rem)] sm:max-h-[calc(100vh-3rem)] max-w-[100vw] max-h-[100vh] top-0 left-0 sm:bottom-6 sm:right-6 sm:top-auto sm:left-auto' 
+                : 'w-80 h-96 sm:max-w-[calc(100vw-3rem)] sm:max-h-[calc(100vh-3rem)] max-w-[100vw] max-h-[100vh] top-0 left-0 sm:bottom-6 sm:right-6 sm:top-auto sm:left-auto'
             }`}
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ 
@@ -310,6 +350,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
               </p>
             </div>
           </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>
