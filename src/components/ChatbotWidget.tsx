@@ -237,34 +237,14 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Оверлей для мобильных устройств */}
+            {/* Мобильная версия - полноэкранная */}
             <motion.div
-              className="fixed inset-0 bg-black/50 z-40 md:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={handleClose}
-            />
-            
-            {/* Мобильная версия - полноэкранная для iOS */}
-            <motion.div
-              className="fixed inset-0 z-[80] bg-black/40 backdrop-blur-sm overscroll-contain touch-pan-y md:hidden"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={handleClose}
-              aria-modal="true"
-              role="dialog"
+              className="fixed inset-0 z-[80] bg-white flex flex-col md:hidden"
+              initial={{ opacity: 0, y: '100%' }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: '100%' }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
             >
-              <motion.div
-                className="absolute right-0 bottom-0 left-0 bg-white rounded-t-2xl shadow-xl flex flex-col h-[100dvh] [height:var(--vvh,100dvh)]"
-                initial={{ y: '100%' }}
-                animate={{ y: 0 }}
-                exit={{ y: '100%' }}
-                transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                onClick={(e) => e.stopPropagation()}
-              >
               {/* Заголовок чата - фиксированный */}
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between sticky top-0 z-10">
                 <div className="flex items-center space-x-3">
@@ -369,7 +349,6 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                     Нажмите Enter для отправки
                   </p>
                 </div>
-              </motion.div>
             </motion.div>
 
             {/* Десктопная версия */}
