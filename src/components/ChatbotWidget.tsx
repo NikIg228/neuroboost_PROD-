@@ -43,32 +43,50 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
 
   // Управление скроллом body при открытии/закрытии чат-бота
   useEffect(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    
     if (isOpen) {
-      // Сохраняем текущую позицию скролла
       const scrollY = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollY}px`;
-      document.body.style.width = '100%';
-      document.body.style.overflow = 'hidden';
+      body.style.position = 'fixed';
+      body.style.top = `-${scrollY}px`;
+      body.style.left = '0';
+      body.style.right = '0';
+      html.classList.add('overflow-hidden');
     } else {
-      // Восстанавливаем скролл
-      const scrollY = document.body.style.top;
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || '0') * -1);
+      const top = body.style.top;
+      html.classList.remove('overflow-hidden');
+      body.style.position = '';
+      body.style.top = '';
+      body.style.left = '';
+      body.style.right = '';
+      if (top) {
+        window.scrollTo(0, parseInt(top || '0') * -1);
       }
     }
 
-    // Cleanup при размонтировании
     return () => {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      document.body.style.overflow = '';
+      html.classList.remove('overflow-hidden');
+      body.style.position = '';
+      body.style.top = '';
+      body.style.left = '';
+      body.style.right = '';
     };
+  }, [isOpen]);
+
+  // Поддержка iOS клавиатуры: двигаем нижнюю панель, если visualViewport меняется
+  useEffect(() => {
+    if (!isOpen || !window.visualViewport) return;
+    
+    const onResize = () => {
+      const vh = window.visualViewport!.height;
+      document.documentElement.style.setProperty('--vvh', `${vh}px`);
+    };
+    
+    onResize();
+    window.visualViewport.addEventListener('resize', onResize);
+    
+    return () => window.visualViewport?.removeEventListener('resize', onResize);
   }, [isOpen]);
 
   const sendMessage = async () => {
@@ -228,14 +246,25 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
               onClick={handleClose}
             />
             
-            {/* Мобильная версия - полноэкранная */}
+            {/* Мобильная версия - полноэкранная для iOS */}
             <motion.div
-              className="fixed inset-0 z-50 bg-white flex flex-col md:hidden chatbot-mobile"
-              initial={{ opacity: 0, y: '100%' }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: '100%' }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed inset-0 z-[80] bg-black/40 backdrop-blur-sm overscroll-contain touch-pan-y md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={handleClose}
+              aria-modal="true"
+              role="dialog"
             >
+              <motion.div
+                className="absolute right-0 bottom-0 left-0 bg-white rounded-t-2xl shadow-xl flex flex-col h-[100dvh] [height:var(--vvh,100dvh)]"
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100%' }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                onClick={(e) => e.stopPropagation()}
+              >
               {/* Заголовок чата - фиксированный */}
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between sticky top-0 z-10">
                 <div className="flex items-center space-x-3">
@@ -311,39 +340,41 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                 <div ref={messagesEndRef} />
               </div>
 
-              {/* Поле ввода - фиксированное внизу */}
-              <div className="border-t border-gray-200 p-4 flex-shrink-0 bg-white sticky bottom-0 chatbot-input-mobile">
-                <div className="flex items-center space-x-2">
-                  <input
-                    ref={inputRef}
-                    type="text"
-                    value={inputValue}
-                    onChange={(e) => setInputValue(e.target.value)}
-                    onKeyPress={handleKeyPress}
-                    placeholder={isLoading ? "Думает... (можно продолжать писать)" : "Напишите ваш вопрос..."}
-                    className={`flex-1 px-3 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base transition-all duration-200 ${
-                      isLoading 
-                        ? 'border-blue-300 bg-blue-50' 
-                        : 'border-gray-300 bg-white'
-                    }`}
-                  />
-                  <button
-                    onClick={sendMessage}
-                    disabled={!inputValue.trim() || isLoading}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 min-w-[48px]"
-                  >
-                    <Send className="h-5 w-5" />
-                  </button>
+                {/* Поле ввода - sticky с safe-area для iOS */}
+                <div className="sticky bottom-0 px-3 py-2 border-t border-gray-200 bg-white/95 backdrop-blur pb-[calc(env(safe-area-inset-bottom,0px)+8px)]">
+                  <div className="flex gap-2">
+                    <input
+                      ref={inputRef}
+                      type="text"
+                      value={inputValue}
+                      onChange={(e) => setInputValue(e.target.value)}
+                      onKeyPress={handleKeyPress}
+                      placeholder={isLoading ? "Думает... (можно продолжать писать)" : "Напишите ваш вопрос..."}
+                      className={`flex-1 rounded-xl border px-3 py-2 outline-none border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition-all duration-200 ${
+                        isLoading 
+                          ? 'border-blue-300 bg-blue-50 opacity-60' 
+                          : 'border-gray-300 bg-white'
+                      }`}
+                      disabled={isLoading}
+                    />
+                    <button
+                      onClick={sendMessage}
+                      disabled={!inputValue.trim() || isLoading}
+                      className="px-3 py-2 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white disabled:opacity-60 transition-all duration-200"
+                    >
+                      <Send className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <p className="text-xs text-gray-500 mt-2 text-center">
+                    Нажмите Enter для отправки
+                  </p>
                 </div>
-                <p className="text-xs text-gray-500 mt-2 text-center">
-                  Нажмите Enter для отправки
-                </p>
-              </div>
+              </motion.div>
             </motion.div>
 
             {/* Десктопная версия */}
             <motion.div
-              className={`fixed z-50 bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col hidden md:flex ${
+              className={`fixed z-[80] bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden flex flex-col hidden md:flex ${
                 isExpanded 
                   ? 'w-[640px] h-[768px] max-w-[calc(100vw-3rem)] max-h-[calc(100vh-3rem)] bottom-6 right-6' 
                   : 'w-80 h-96 max-w-[calc(100vw-3rem)] max-h-[calc(100vh-3rem)] bottom-6 right-6'

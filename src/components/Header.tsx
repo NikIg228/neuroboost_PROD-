@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
@@ -49,6 +49,83 @@ const Header: React.FC = () => {
     navigate(path);
     setIsMobileMenuOpen(false);
   };
+
+  // Блокируем скролл при открытии мобильного меню
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    
+    const html = document.documentElement;
+    const body = document.body;
+    const y = window.scrollY;
+    
+    body.style.position = 'fixed';
+    body.style.top = `-${y}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    html.classList.add('overflow-hidden');
+    
+    return () => {
+      html.classList.remove('overflow-hidden');
+      body.style.position = '';
+      body.style.top = '';
+      body.style.left = '';
+      body.style.right = '';
+      if (y) {
+        window.scrollTo(0, y);
+      }
+    };
+  }, [isMobileMenuOpen]);
+
+  // Обработка клавиши Esc для закрытия меню
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMobileMenuOpen) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+
+    if (isMobileMenuOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+      return () => document.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isMobileMenuOpen]);
+
+  // Ловушка фокуса для мобильного меню
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+
+    const menuElement = document.querySelector('[role="dialog"]') as HTMLElement;
+    if (!menuElement) return;
+
+    const focusableElements = menuElement.querySelectorAll(
+      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+    const firstElement = focusableElements[0] as HTMLElement;
+    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+
+    const handleTabKey = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab') return;
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstElement) {
+          lastElement?.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastElement) {
+          firstElement?.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    firstElement?.focus();
+    document.addEventListener('keydown', handleTabKey);
+
+    return () => {
+      document.removeEventListener('keydown', handleTabKey);
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <>
@@ -173,28 +250,26 @@ const Header: React.FC = () => {
       </div>
       </motion.header>
 
-      {/* Мобильное меню - полноэкранный оверлей */}
+      {/* Мобильное меню - off-canvas оверлей */}
       {isMobileMenuOpen && (
         <motion.div 
-          className="fixed inset-0 z-50 md:hidden"
+          className="fixed inset-0 z-[90] bg-black/40 backdrop-blur-[2px] overscroll-contain md:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
+          onClick={() => setIsMobileMenuOpen(false)}
+          role="dialog"
+          aria-modal="true"
         >
-          {/* Затемненный фон */}
-          <div 
-            className="absolute inset-0 bg-black/50 backdrop-blur-sm"
-            onClick={() => setIsMobileMenuOpen(false)}
-          />
-          
-          {/* Меню панель - зафиксированная, не прокручивается */}
+          {/* Меню панель - off-canvas справа */}
           <motion.div 
-            className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl overflow-y-auto"
+            className="absolute inset-y-0 right-0 w-80 max-w-[85vw] bg-white shadow-2xl mobile-menu-offcanvas"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Заголовок с кнопкой закрытия */}
             <div className="flex items-center justify-between p-4 border-b border-gray-200">
@@ -220,8 +295,10 @@ const Header: React.FC = () => {
               </button>
             </div>
 
-            {/* Навигация */}
-            <div className="p-4 space-y-2">
+            {/* Контент меню - только внутренний скролл */}
+            <div className="mobile-menu-content">
+              {/* Навигация */}
+              <div className="p-4 space-y-2">
               <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
                 Навигация
               </div>
@@ -298,6 +375,7 @@ const Header: React.FC = () => {
                   </>
                 )}
               </div>
+            </div>
             </div>
           </motion.div>
         </motion.div>
