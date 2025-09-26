@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { useAuth } from '../contexts/AuthContext'
-import AnimatedSection from '../components/AnimatedSection'
-import GoogleButton from '../components/GoogleButton'
+import { useAuth } from '@/contexts/AuthContext'
+import AnimatedSection from '@/components/AnimatedSection'
+import GoogleButton from '@/components/GoogleButton'
 import { Mail, Lock, User, Eye, EyeOff } from 'lucide-react'
 
 const Register: React.FC = () => {

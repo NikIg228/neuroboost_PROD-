@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import { supabase } from '../lib/supabase';
-import { Service } from '../types';
+import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/lib/supabase';
+import { Service } from '@/types';
 import { X, Building, Hash, User, Mail, Phone, Globe, MessageSquare, CreditCard } from 'lucide-react';
 
 interface PurchaseModalProps {

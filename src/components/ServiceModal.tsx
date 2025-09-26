@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import { useAuth } from '../contexts/AuthContext';
-import { Service } from '../types';
+import { useAuth } from '@/contexts/AuthContext';
+import { Service } from '@/types';
 import { X, CheckCircle, Star, MessageCircle } from 'lucide-react';
 import PurchaseModal from './PurchaseModal';
 import ConsultationModal from './ConsultationModal';

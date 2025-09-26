@@ -4,9 +4,9 @@ import { ArrowRight, Users, Clock, Headphones, Globe, Sparkles, Star, MessageCir
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import PremiumAnimatedSection from '../components/PremiumAnimatedSection';
-import CasesSection from '../components/CasesSection';
-import PartnersSection from '../components/PartnersSection';
+import PremiumAnimatedSection from '@/components/PremiumAnimatedSection';
+import CasesSection from '@/components/CasesSection';
+import PartnersSection from '@/components/PartnersSection';
 
 // ScrollTrigger is registered globally
 

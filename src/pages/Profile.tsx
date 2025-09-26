@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { useAuth } from '../contexts/AuthContext'
-import { supabase, Order, Favorite } from '../lib/supabase'
-import { services } from '../data/services'
-import AnimatedSection from '../components/AnimatedSection'
-import PurchaseModal from '../components/PurchaseModal'
+import { useAuth } from '@/contexts/AuthContext'
+import { supabase, Order, Favorite } from '@/lib/supabase'
+import { services } from '@/data/services'
+import AnimatedSection from '@/components/AnimatedSection'
+import PurchaseModal from '@/components/PurchaseModal'
 import { User, Mail, Lock, LogOut, Package, Calendar, DollarSign, Heart, Trash2 } from 'lucide-react'
-import { Service } from '../types'
+import { Service } from '@/types'
 
 const Profile: React.FC = () => {
   const { user, signOut, updateProfile, updatePassword } = useAuth()

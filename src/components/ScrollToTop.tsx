@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronUp } from 'lucide-react';
-import { useChatbot } from '../contexts/ChatbotContext';
+import { useChatbot } from '@/contexts/ChatbotContext';
 // Используем нативный smooth scroll, чтобы избежать задержек
 
 const ScrollToTopButton: React.FC = () => {

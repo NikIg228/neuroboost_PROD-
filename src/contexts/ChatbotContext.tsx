@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { sendChatMessage } from '../utils/api.ts';
+import { sendChatMessage } from '@/utils/api.ts';
 
 export interface Message {
   id: string;
