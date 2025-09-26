@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAuth } from '@/contexts/AuthContext.tsx'
-import { supabase, Order, Favorite } from '@/lib/supabase.ts'
+import { supabase, Order, Favorite } from '@/lib/supabase'
 import { services } from '@/data/services.ts'
 import AnimatedSection from '@/components/AnimatedSection.tsx'
 import PurchaseModal from '@/components/PurchaseModal.tsx'

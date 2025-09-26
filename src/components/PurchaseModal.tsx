@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext.tsx';
-import { supabase } from '@/lib/supabase.ts';
+import { supabase } from '@/lib/supabase';
 import { Service } from '@/types/index';
 import { X, Building, Hash, User, Mail, Phone, Globe, MessageSquare, CreditCard } from 'lucide-react';
 

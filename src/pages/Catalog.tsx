@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext.tsx';
-import { supabase, Favorite } from '@/lib/supabase.ts';
+import { supabase, Favorite } from '@/lib/supabase';
 import { services } from '@/data/services.ts';
 import ServiceCard from '@/components/ServiceCard.tsx';
 import ServiceModal from '@/components/ServiceModal.tsx';
