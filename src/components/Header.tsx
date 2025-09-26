@@ -188,9 +188,9 @@ const Header: React.FC = () => {
             onClick={() => setIsMobileMenuOpen(false)}
           />
           
-          {/* Меню панель */}
+          {/* Меню панель - зафиксированная, не прокручивается */}
           <motion.div 
-            className="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl"
+            className="fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl overflow-y-auto"
             initial={{ x: '100%' }}
             animate={{ x: 0 }}
             exit={{ x: '100%' }}

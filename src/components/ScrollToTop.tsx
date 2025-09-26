@@ -33,10 +33,10 @@ const ScrollToTopButton: React.FC = () => {
 
   return (
     <AnimatePresence>
-      {isVisible && !isOpen && (
+      {isVisible && (
         <motion.button
           onClick={handleScrollToTop}
-          className="fixed bottom-4 right-4 z-[60] p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl sm:rounded-2xl shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 backdrop-blur-sm border border-white/20"
+          className="fixed bottom-4 right-4 z-[60] p-3 sm:p-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl sm:rounded-2xl shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 backdrop-blur-sm border border-white/20 md:block"
           aria-label="Scroll to top"
           initial={{ scale: 0, opacity: 0, y: 20 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
