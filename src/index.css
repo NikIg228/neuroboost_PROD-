@@ -45,6 +45,28 @@ body {
   }
 }
 
+/* Стили для чат-бота на мобильных */
+@media (max-width: 768px) {
+  .chatbot-mobile {
+    height: 100vh;
+    height: 100dvh;
+  }
+  
+  .chatbot-input-mobile {
+    position: sticky;
+    bottom: 0;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    padding: 1rem;
+  }
+  
+  .chatbot-messages-mobile {
+    flex: 1;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* Анимация бегущей строки */
 @keyframes scroll {
   0% {

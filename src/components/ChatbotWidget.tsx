@@ -28,6 +28,19 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
     }
   }, [isOpen]);
 
+  // Добавляем приветственное сообщение при первом открытии
+  useEffect(() => {
+    if (isOpen && messages.length === 0) {
+      const welcomeMessage = {
+        id: Date.now(),
+        text: "Привет! Я умный помощник от NeuroBoost! Задавайте любой вопрос!",
+        isUser: false,
+        timestamp: new Date()
+      };
+      addMessage(welcomeMessage);
+    }
+  }, [isOpen, messages.length, addMessage]);
+
   // Управление скроллом body при открытии/закрытии чат-бота
   useEffect(() => {
     if (isOpen) {
@@ -217,7 +230,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
             
             {/* Мобильная версия - полноэкранная */}
             <motion.div
-              className="fixed inset-0 z-50 bg-white flex flex-col md:hidden"
+              className="fixed inset-0 z-50 bg-white flex flex-col md:hidden chatbot-mobile"
               initial={{ opacity: 0, y: '100%' }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: '100%' }}
@@ -248,7 +261,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
               </div>
 
               {/* Сообщения */}
-              <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 min-h-0" style={{ scrollbarWidth: 'thin' }}>
+              <div className="flex-1 overflow-y-auto p-4 space-y-4 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100 min-h-0 max-h-full chatbot-messages-mobile" style={{ scrollbarWidth: 'thin' }}>
                 {messages.map((message) => (
                   <motion.div
                     key={message.id}
@@ -298,8 +311,8 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                 <div ref={messagesEndRef} />
               </div>
 
-              {/* Поле ввода */}
-              <div className="border-t border-gray-200 p-4 flex-shrink-0">
+              {/* Поле ввода - фиксированное внизу */}
+              <div className="border-t border-gray-200 p-4 flex-shrink-0 bg-white sticky bottom-0 chatbot-input-mobile">
                 <div className="flex items-center space-x-2">
                   <input
                     ref={inputRef}
@@ -308,7 +321,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyPress={handleKeyPress}
                     placeholder={isLoading ? "Думает... (можно продолжать писать)" : "Напишите ваш вопрос..."}
-                    className={`flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition-all duration-200 ${
+                    className={`flex-1 px-3 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-base transition-all duration-200 ${
                       isLoading 
                         ? 'border-blue-300 bg-blue-50' 
                         : 'border-gray-300 bg-white'
@@ -317,9 +330,9 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                   <button
                     onClick={sendMessage}
                     disabled={!inputValue.trim() || isLoading}
-                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-2 rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-3 rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 min-w-[48px]"
                   >
-                    <Send className="h-4 w-4" />
+                    <Send className="h-5 w-5" />
                   </button>
                 </div>
                 <p className="text-xs text-gray-500 mt-2 text-center">
