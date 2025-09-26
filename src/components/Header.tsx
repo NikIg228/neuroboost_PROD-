@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { useAuth } from '@/contexts/AuthContext.tsx';
+import { useAuth } from '@/contexts/AuthContext';
 import { Brain, MessageCircle } from 'lucide-react';
 import ConsultationModal from './ConsultationModal';
 

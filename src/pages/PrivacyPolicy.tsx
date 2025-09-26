@@ -1,5 +1,5 @@
 import React from 'react';
-import AnimatedSection from '@/components/AnimatedSection.tsx';
+import AnimatedSection from '@/components/AnimatedSection';
 
 const PrivacyPolicy: React.FC = () => {
   return (

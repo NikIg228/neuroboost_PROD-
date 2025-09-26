@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useAuth } from '@/contexts/AuthContext.tsx'
-import { supabase, Order, Favorite } from '@/lib/supabase'
-import { services } from '@/data/services.ts'
-import AnimatedSection from '@/components/AnimatedSection.tsx'
-import PurchaseModal from '@/components/PurchaseModal.tsx'
+import { useAuth } from '@/contexts/AuthContext'
+import { supabase, Order } from '../lib/supabase'
+import { services } from '@/data/services'
+import AnimatedSection from '@/components/AnimatedSection'
+import PurchaseModal from '@/components/PurchaseModal'
 import { User, Mail, Lock, LogOut, Package, Calendar, DollarSign, Heart, Trash2 } from 'lucide-react'
 import { Service } from '@/types/index'
 
 const Profile: React.FC = () => {
   const { user, signOut, updateProfile, updatePassword } = useAuth()
   const [orders, setOrders] = useState<Order[]>([])
-  const [favorites, setFavorites] = useState<Favorite[]>([])
   const [favoriteServices, setFavoriteServices] = useState<Service[]>([])
   const [loading, setLoading] = useState(false)
   const [ordersLoading, setOrdersLoading] = useState(true)
@@ -61,7 +60,6 @@ const Profile: React.FC = () => {
         .order('created_at', { ascending: false })
 
       if (error) throw error
-      setFavorites(data || [])
       
       // Get service details for favorites
       const favoriteServicesList = (data || [])

@@ -1,0 +1,21 @@
+{
+  "name": "NeuroBoost - ИИ для бизнеса",
+  "short_name": "NeuroBoost",
+  "description": "Помощник по внедрению ИИ в ваш бизнес",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}

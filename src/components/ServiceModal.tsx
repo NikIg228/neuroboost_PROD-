@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { useAuth } from '@/contexts/AuthContext.tsx';
+import { useAuth } from '@/contexts/AuthContext';
 import { Service } from '@/types/index';
 import { X, CheckCircle, Star, MessageCircle } from 'lucide-react';
 import PurchaseModal from './PurchaseModal';
