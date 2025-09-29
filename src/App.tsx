@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { ChatbotProvider } from './contexts/ChatbotContext';
+import { CurrencyProvider } from './contexts/CurrencyContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -21,6 +22,8 @@ import TelegramAgreement from './pages/TelegramAgreement';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import Academy from './pages/Academy';
+import TokenCalculator from './pages/TokenCalculator';
 
 function App() {
   // Инициализируем премиум скролл
@@ -34,7 +37,8 @@ function App() {
   return (
     <AuthProvider>
       <ChatbotProvider>
-        <Router>
+        <CurrencyProvider>
+          <Router>
           <div className="min-h-screen bg-gray-50">
             <Header />
             <main>
@@ -55,13 +59,16 @@ function App() {
                 <Route path="/public-offer" element={<PublicOffer />} />
                 <Route path="/consent" element={<Consent />} />
                 <Route path="/telegram-agreement" element={<TelegramAgreement />} />
+                <Route path="/academy" element={<Academy />} />
+                <Route path="/token-calculator" element={<TokenCalculator />} />
               </Routes>
             </main>
             <Footer />
             <ScrollToTopButton />
             <ChatbotWidget />
           </div>
-        </Router>
+          </Router>
+        </CurrencyProvider>
       </ChatbotProvider>
     </AuthProvider>
   );

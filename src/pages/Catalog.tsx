@@ -1,5 +1,8 @@
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import TariffTabs from '@/components/catalog/TariffTabs';
+import TariffCard, { TariffItem } from '@/components/catalog/TariffCard';
+import TariffComparison from '@/components/catalog/TariffComparison';
+import CurrencyToggle from '@/components/common/CurrencyToggle';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase, Favorite } from '../lib/supabase';
 import { services } from '@/data/services';
@@ -21,12 +24,31 @@ const Catalog: React.FC = () => {
   const [favorites, setFavorites] = useState<Favorite[]>([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [sortBy, setSortBy] = useState<'name' | 'price'>('name');
+  const [audience, setAudience] = useState<'business' | 'individual'>('business');
+  const [tariffs, setTariffs] = useState<TariffItem[]>([]);
+  const [showTariffs, setShowTariffs] = useState(true);
 
   useEffect(() => {
     if (user) {
       fetchFavorites();
     }
   }, [user]);
+
+  // Загрузка тарифов из Supabase или JSON
+  useEffect(() => {
+    const load = async () => {
+      try {
+        // Попытаться получить из Supabase, затем фолбэк на JSON
+        const resp = await fetch('/data/tariffs.json');
+        const json = (await resp.json()) as TariffItem[];
+        const active = json.filter(t => t.is_active);
+        setTariffs(active.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0)));
+      } catch (e) {
+        console.error('Не удалось загрузить тарифы:', e);
+      }
+    };
+    load();
+  }, []);
 
   const fetchFavorites = async () => {
     if (!user) return;
@@ -144,7 +166,9 @@ const Catalog: React.FC = () => {
         {/* Search and Filter */}
         <AnimatedSection delay={200}>
           <div className="bg-white/10 backdrop-blur-xl rounded-xl shadow-sm p-6 mb-8 border border-white/20">
-            <div className="flex flex-col md:flex-row gap-4">
+            <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
+              <TariffTabs value={audience} onChange={setAudience} />
+              <CurrencyToggle />
               <div className="flex-1 relative">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 h-5 w-5" />
                 <input
@@ -167,6 +191,38 @@ const Catalog: React.FC = () => {
                 </select>
               </div>
             </div>
+          </div>
+        </AnimatedSection>
+
+        {/* Tariffs Grid */}
+        {showTariffs && (
+          <div className="mt-4 mb-16">
+            <AnimatedSection>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Тарифы и программы</h2>
+            </AnimatedSection>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {tariffs
+                .filter(t => t.audience === audience)
+                .map((t, idx) => (
+                  <AnimatedSection key={`${t.title}-${idx}`} delay={idx * 80}>
+                    <TariffCard item={t} onApply={() => setIsConsultationModalOpen(true)} />
+                  </AnimatedSection>
+                ))}
+            </div>
+
+            {/* Сравнение тарифов */}
+            <AnimatedSection delay={300}>
+              <TariffComparison items={tariffs.filter(t => t.audience === audience)} />
+            </AnimatedSection>
+          </div>
+        )}
+
+        {/* Разделитель между тарифами и услугами */}
+        <AnimatedSection>
+          <div className="my-12 flex items-center">
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+            <div className="px-6 text-white/60 text-sm font-medium">Дополнительные услуги</div>
+            <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           </div>
         </AnimatedSection>
 

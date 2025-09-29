@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '../lib/supabase';
 import { Service } from '@/types/index';
-import { CheckCircle, Heart, MessageCircle } from 'lucide-react';
+import { CheckCircle, Heart, MessageCircle, Bot, Filter, Type, Image as ImageIcon, PhoneCall, LineChart, Zap, Sparkles } from 'lucide-react';
 
 interface ServiceCardProps {
   service: Service;
@@ -29,6 +29,46 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const { user } = useAuth();
   const [favoriteLoading, setFavoriteLoading] = useState(false);
+
+  const getIconByService = (serviceId: string) => {
+    switch (serviceId) {
+      case 'request-automation':
+        return <Filter className="h-6 w-6 text-white" />;
+      case 'chatgpt-consultant':
+        return <Bot className="h-6 w-6 text-white" />;
+      case 'marketing-generator':
+        return <Type className="h-6 w-6 text-white" />;
+      case 'image-generation':
+        return <ImageIcon className="h-6 w-6 text-white" />;
+      case 'voice-bot':
+        return <PhoneCall className="h-6 w-6 text-white" />;
+      case 'sales-analytics':
+        return <LineChart className="h-6 w-6 text-white" />;
+      case 'cold-outreach':
+        return <Zap className="h-6 w-6 text-white" />;
+      default:
+        return <Sparkles className="h-6 w-6 text-white" />;
+    }
+  };
+
+  const getSubtitle = (serviceId: string): string => {
+    switch (serviceId) {
+      case 'request-automation':
+        return 'Сократи время обработки в 10 раз';
+      case 'chatgpt-consultant':
+        return 'Умный ассистент 24/7 на вашем сайте';
+      case 'marketing-generator':
+        return 'Контент, который продаёт';
+      case 'image-generation':
+        return 'Сэкономьте до 80% на дизайне';
+      case 'voice-bot':
+        return 'Голосовой ИИ, как живой оператор';
+      case 'sales-analytics':
+        return 'Точность прогнозов до 95%';
+      default:
+        return '';
+    }
+  };
 
   const getBadgeIcon = (badge: string) => {
     switch (badge) {
@@ -96,7 +136,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      {/* Top section with favorite button and badge */}
+      {/* Top section with favorite button, badge and icon */}
       <div className="relative p-4 pb-0">
         {/* Favorite Button - moved to top left */}
         <motion.button
@@ -129,12 +169,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             {badge}
           </motion.div>
         )}
+        {/* Service Icon */}
+        <div className="relative z-10">
+          <div className="mt-6 inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 p-3 shadow-lg">
+            {getIconByService(service.id)}
+          </div>
+        </div>
       </div>
 
       <div className="px-6 pt-8 pb-6 flex flex-col h-full">
-        <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-600 transition-colors leading-tight">
+        <h3 className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors leading-tight">
           {service.title}
         </h3>
+        {getSubtitle(service.id) && (
+          <p className="text-sm text-blue-600/80 font-medium mb-4">{getSubtitle(service.id)}</p>
+        )}
 
         <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
           {service.description}
@@ -155,10 +204,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         </div>
 
         <div className="mt-auto">
-          <div className="flex items-center justify-between mb-4">
-            <div className="text-3xl font-bold text-blue-600">
+          <div className="flex items-center justify-between mb-3">
+            <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               {service.price}
             </div>
+          </div>
+          <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-200 text-xs text-blue-700">
+            Ежемесячное обслуживание: <strong>5%</strong> + ваши фактические расходы на <strong>API провайдера</strong>.
           </div>
           <div className="flex gap-2">
             <motion.button 

@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PremiumAnimatedSection from '@/components/PremiumAnimatedSection';
 import CasesSection from '@/components/CasesSection';
 import PartnersSection from '@/components/PartnersSection';
+import ProvidersBilling from '@/components/home/ProvidersBilling';
 
 // ScrollTrigger is registered globally
 
@@ -94,7 +95,7 @@ const Home: React.FC = () => {
                     }}
                   >
                     {/* Исправленный текст без эффекта печатной машинки */}
-                   Партнёр для бизнеса в любой точке планеты!
+                    Ваш помощник с ИИ — для бизнеса и частных лиц, где бы вы ни находились!
                   </motion.span>
                 </h1>
                 
@@ -305,6 +306,9 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Providers & Billing Section */}
+      <ProvidersBilling />
 
       {/* AI Chatbot Section */}
       <section className="py-16 sm:py-20 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900 relative overflow-hidden">

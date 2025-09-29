@@ -22,6 +22,8 @@ const Header: React.FC = () => {
 
   const navItems = [
     { path: '/catalog', label: 'Каталог' },
+    { path: '/token-calculator', label: 'Калькулятор' },
+    { path: '/academy', label: 'Обучение' },
     { path: '/reviews', label: 'Отзывы' },
     { path: '/about', label: 'О нас' },
     { path: '/contact', label: 'Контакты' }
