@@ -39,10 +39,7 @@ body {
 
 /* Оптимизация для мобильных устройств */
 @media (max-width: 768px) {
-  * {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-  }
+  /* УБРАНО: глобальный translateZ(0) ломал position: fixed/sticky у модалок и меню */
 }
 
 /* Стили для чат-бота на мобильных */
@@ -152,12 +149,7 @@ body {
   }
   
   /* Улучшенная производительность скролла на мобильных */
-  * {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
+  /* УБРАНО: глобальный translateZ(0) и backface-visibility ломали позиционирование fixed/sticky */
   
   /* Оптимизация для touch устройств */
   body {
