@@ -15,14 +15,15 @@ export default function RouteScrollToTop() {
         try {
           const el = document.querySelector(hash);
           if (el) {
-            el.scrollIntoView({ behavior: 'auto', block: 'start' });
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
             return;
           }
         } catch (e) {
           // ignore invalid selectors
         }
       }
-      window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      // Прокручиваем к началу страницы с плавной анимацией
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
     });
 
     return () => window.cancelAnimationFrame(id);

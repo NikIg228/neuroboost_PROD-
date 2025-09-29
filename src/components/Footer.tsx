@@ -3,12 +3,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
+import { useNavigateWithScroll } from '@/utils/navigation';
 import { Brain, Mail, Phone, MessageCircle, Shield } from 'lucide-react';
 import ConsultationModal from './ConsultationModal';
 
 const Footer: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const navigateWithScroll = useNavigateWithScroll(navigate);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
 
   const handleConsultation = () => {
@@ -20,13 +22,7 @@ const Footer: React.FC = () => {
   };
 
   const handleLinkClick = (path: string) => {
-    // Прокручиваем к верху страницы
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-    // Переходим по ссылке
-    navigate(path);
+    navigateWithScroll(path);
   };
 
   const paymentSystems = [

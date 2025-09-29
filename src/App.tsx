@@ -7,6 +7,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTopButton from './components/ScrollToTop';
+import RouteScrollToTop from './components/RouteScrollToTop';
 import ChatbotWidget from './components/ChatbotWidget';
 import { usePremiumScroll } from './hooks/usePremiumScroll';
 import { initSmoothScroll } from './utils/smoothScroll';
@@ -39,6 +40,7 @@ function App() {
       <ChatbotProvider>
         <CurrencyProvider>
           <Router>
+          <RouteScrollToTop />
           <div className="min-h-screen bg-gray-50">
             <Header />
             <main>

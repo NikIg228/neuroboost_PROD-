@@ -5,11 +5,13 @@ import { createPortal } from 'react-dom';
 import { Brain, MessageCircle, Bot } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useChatbot } from '@/contexts/ChatbotContext';
+import { useNavigateWithScroll } from '@/utils/navigation';
 import ConsultationModal from './ConsultationModal';
 
 const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const navigateWithScroll = useNavigateWithScroll(navigate);
   const { user, signOut } = useAuth();
   const { setIsOpen: setChatbotOpen } = useChatbot();
 
@@ -44,7 +46,7 @@ const Header: React.FC = () => {
   };
 
   const handleLinkClick = (path: string) => {
-    navigate(path);
+    navigateWithScroll(path);
     setIsMobileMenuOpen(false);
   };
 
@@ -137,7 +139,7 @@ const Header: React.FC = () => {
     <>
       <motion.header
         ref={headerRef}
-        className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-50 transition-all duration-300"
+        className="bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-lg sticky top-0 z-50 transition-all duration-300"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -147,7 +149,7 @@ const Header: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <motion.button
-              onClick={() => window.location.href = '/'}
+              onClick={() => navigateWithScroll('/')}
               className="flex items-center space-x-3 group"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -193,7 +195,7 @@ const Header: React.FC = () => {
                 <div className="hidden md:flex items-center space-x-3 md:space-x-4">
                   <button
                     onClick={handleConsultation}
-                    className="hidden sm:flex items-center px-3 py-2 text-sm font-medium text-green-600 hover:text-green-800 transition-colors border border-green-600 rounded-lg hover:bg-green-50"
+                    className="hidden sm:flex items-center px-3 py-2 text-sm font-medium text-green-600 hover:text-green-800 transition-colors border border-green-600/50 rounded-lg hover:bg-green-500/20 "
                   >
                     <MessageCircle className="h-4 w-4 mr-1" />
                     Консультация
@@ -214,8 +216,8 @@ const Header: React.FC = () => {
               ) : (
                 <div className="hidden md:flex items-center space-x-3 md:space-x-4">
                   <button
-                    onClick={() => window.location.href = '/login'}
-                    className="hidden sm:flex items-center px-3 py-2 text-sm font-medium text-green-600 hover:text-green-800 transition-colors border border-green-600 rounded-lg hover:bg-green-50"
+                    onClick={handleConsultation}
+                    className="hidden sm:flex items-center px-3 py-2 text-sm font-medium text-green-600 hover:text-green-800 transition-colors border border-green-600/50 rounded-lg hover:bg-green-500/20 "
                   >
                     <MessageCircle className="h-4 w-4 mr-1" />
                     Консультация
@@ -228,7 +230,7 @@ const Header: React.FC = () => {
                   </button>
                   <button
                     onClick={() => handleLinkClick('/register')}
-                    className="hidden md:inline px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
+                    className="hidden md:inline px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all "
                   >
                     Регистрация
                   </button>
@@ -238,7 +240,7 @@ const Header: React.FC = () => {
               {/* Burger */}
               <div className="md:hidden">
                 <button
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100"
                   aria-label="Открыть меню"
                   onClick={() => setIsMobileMenuOpen(true)}
                 >
@@ -265,7 +267,7 @@ const Header: React.FC = () => {
               ref={menuRef}
               className="
                 absolute inset-y-0 right-0 w-80 max-w-[85vw]
-                bg-white dark:bg-neutral-900 shadow-2xl
+                bg-white shadow-2xl border-l border-gray-200
                 h-[100dvh] [height:var(--vvh,100dvh)]
                 overflow-hidden touch-action:none
                 will-change:transform
@@ -275,9 +277,9 @@ const Header: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Header */}
-              <div className="flex items-center justify-between h-12 px-4 border-b border-black/10 dark:border-white/10">
+              <div className="flex items-center justify-between h-12 px-4 border-b border-white/30">
                 <button
-                  onClick={() => window.location.href = '/'}
+                  onClick={() => navigateWithScroll('/')}
                   className="flex items-center space-x-3 group"
                 >
                   <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
@@ -289,7 +291,7 @@ const Header: React.FC = () => {
                 </button>
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-gray-500 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
+                  className="p-2 text-gray-700 hover:text-gray-700 hover:bg-gray-100 rounded-lg transition-colors"
                   aria-label="Закрыть меню"
                 >
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -300,7 +302,7 @@ const Header: React.FC = () => {
 
               {/* Scrollable content area only */}
               <div className="h-[calc(100%-3rem)] overflow-y-auto px-4 py-3">
-                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider mb-3">
                   Навигация
                 </div>
                 <div className="space-y-2 mb-4">
@@ -319,7 +321,7 @@ const Header: React.FC = () => {
                   ))}
                 </div>
 
-                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider mb-3">
                   Помощь
                 </div>
                 <div className="space-y-3 mb-6">
@@ -337,7 +339,7 @@ const Header: React.FC = () => {
                   </button>
                 </div>
 
-                <div className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider mb-3">
                   Аккаунт
                 </div>
                 <div className="space-y-3 pb-4">

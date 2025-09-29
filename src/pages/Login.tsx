@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '@/contexts/AuthContext'
+import { useNavigateWithScroll } from '@/utils/navigation'
 import AnimatedSection from '@/components/AnimatedSection'
 import GoogleButton from '@/components/GoogleButton'
 import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
@@ -18,6 +19,7 @@ const Login: React.FC = () => {
 
   const { signIn } = useAuth()
   const navigate = useNavigate()
+  const navigateWithScroll = useNavigateWithScroll(navigate)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, type, checked, value } = e.target
@@ -44,7 +46,7 @@ const Login: React.FC = () => {
           setError(error.message)
         }
       } else {
-        navigate('/lk')
+        navigateWithScroll('/lk')
       }
     } catch (err) {
       setError('Произошла ошибка при входе')
@@ -77,7 +79,7 @@ const Login: React.FC = () => {
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <GoogleButton
-              onSuccess={() => navigate('/catalog')}
+              onSuccess={() => navigateWithScroll('/catalog')}
               onError={(error) => setError(error)}
             />
 
