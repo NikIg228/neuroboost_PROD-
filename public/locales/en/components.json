@@ -1,0 +1,47 @@
+{
+  "chatbot": {
+    "welcomeMessage": "Hello! I'm a smart assistant from NeuroBoost! Ask any question!",
+    "title": "Smart Assistant",
+    "subtitle": "NeuroBoost AI",
+    "close": "Close",
+    "expand": "Expand",
+    "minimize": "Minimize",
+    "thinking": "Thinking...",
+    "placeholder": "Write your question...",
+    "placeholderLoading": "Thinking... (you can keep typing)",
+    "sendHint": "Press Enter to send",
+    "serverError": "Server error",
+    "errorMessage": "Sorry, an error occurred. Please try again or contact support."
+  },
+  "consultation": {
+    "title": "Consultation",
+    "description": "We will redirect you to Telegram to contact a consultant",
+    "subtitle": "Our expert will answer all your questions and help you choose the right solution",
+    "cancel": "Cancel",
+    "proceed": "Proceed"
+  },
+  "purchase": {
+    "title": "Order Processing",
+    "processing": "Processing...",
+    "payButton": "Proceed to Payment",
+    "errorMessage": "Error creating payment. Please try again.",
+    "fields": {
+      "companyName": "Company Name",
+      "bin": "BIN",
+      "contactPerson": "Contact Person",
+      "email": "Email",
+      "phone": "Phone",
+      "website": "Company Website",
+      "comment": "Additional Comment"
+    },
+    "placeholders": {
+      "companyName": "LLC Company",
+      "bin": "123456789012",
+      "contactPerson": "John Doe",
+      "email": "email@company.com",
+      "phone": "+7 (777) 123-45-67",
+      "website": "https://company.com",
+      "comment": "Additional wishes or questions..."
+    }
+  }
+}

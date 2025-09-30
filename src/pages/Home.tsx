@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import PremiumAnimatedSection from '@/components/PremiumAnimatedSection';
+import { useTranslation } from 'react-i18next';
 import CasesSection from '@/components/CasesSection';
 import PartnersSection from '@/components/PartnersSection';
 import ProvidersBilling from '@/components/home/ProvidersBilling';
@@ -13,6 +14,7 @@ import ProvidersBilling from '@/components/home/ProvidersBilling';
 
 const Home: React.FC = () => {
   const heroRef = useRef<HTMLDivElement>(null);
+  const { t } = useTranslation('home');
 
 
   useEffect(() => {
@@ -80,7 +82,7 @@ const Home: React.FC = () => {
                   transition={{ delay: 0.5, duration: 0.8 }}
                 >
                   <Sparkles className="h-4 w-4 text-blue-400" />
-                  <span className="text-sm font-medium text-white/90">Премиум ИИ-решения</span>
+                  <span className="text-sm font-medium text-white/90">{t('badge')}</span>
                   <Star className="h-4 w-4 text-yellow-400" />
                 </motion.div>
 
@@ -95,13 +97,12 @@ const Home: React.FC = () => {
                     }}
                   >
                     {/* Исправленный текст без эффекта печатной машинки */}
-                    Ваш помощник с ИИ — на каждый день и для любых идей!
+                    {t('hero.title')}
                   </motion.span>
                 </h1>
                 
                 <p className="text-lg sm:text-xl lg:text-2xl text-white/80 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed">
-                Мы помогаем внедрять ИИ-решения для автоматизации процессов, 
-                увеличения продаж и повышения эффективности работы.
+                {t('hero.subtitle')}
               </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
@@ -120,7 +121,7 @@ const Home: React.FC = () => {
                       className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-2xl cursor-pointer text-base sm:text-lg w-full sm:w-auto shadow-2xl hover:shadow-blue-500/25 transition-all duration-300"
                   style={{ pointerEvents: 'auto' }}
                 >
-                  Посмотреть каталог
+                  {t('hero.cta_catalog')}
                       <ArrowRight className="ml-3 h-5 w-5 sm:h-6 sm:w-6" />
                 </Link>
                 </motion.div>
@@ -137,10 +138,10 @@ const Home: React.FC = () => {
                 >
                 <Link
                   to="/contact"
-                      className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300 cursor-pointer text-base sm:text-lg w-full sm:w-auto backdrop-blur-sm"
+                      className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 border-2 border-white/30 text-white font-bold rounded-2xl hover:bg_WHITE/10 transition-all duration-300 cursor-pointer text-base sm:text-lg w-full sm:w-auto backdrop-blur-sm"
                   style={{ pointerEvents: 'auto' }}
                 >
-                  Получить консультацию
+                  {t('hero.cta_consult')}
                 </Link>
                 </motion.div>
               </div>
@@ -169,7 +170,7 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-                    О нас
+                    {t('about.title')}
                   </h2>
                   <h3 className="text-xl sm:text-2xl text-blue-300 font-semibold mb-6 sm:mb-8">
                 
@@ -185,7 +186,7 @@ const Home: React.FC = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10"
                   >
                     <p>
-                      <span className="text-blue-300 font-bold">Кто мы:</span> NeuroBoost — команда экспертов по искусственному интеллекту и автоматизации процессов. Мы специализируемся на внедрении ИИ-решений для любых задач и сфер.
+                      <span className="text-blue-300 font-bold">{t('about.who')}</span> {t('about.who_text')}
                 </p>
                   </motion.div>
                   
@@ -197,7 +198,7 @@ const Home: React.FC = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10"
                   >
                     <p>
-                      <span className="text-purple-300 font-bold">Чем занимаемся:</span> Разрабатываем и внедряем индивидуальные ИИ-решения: от чат-ботов и автоматизации до комплексной цифровой трансформации.
+                      <span className="text-purple-300 font-bold">{t('about.what')}</span> {t('about.what_text')}
                 </p>
                   </motion.div>
                   
@@ -209,7 +210,7 @@ const Home: React.FC = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10"
                   >
                     <p>
-                      <span className="text-pink-300 font-bold">В чем наше отличие:</span> Мы не просто поставщики технологий — мы партнёры в развитии. Каждое решение адаптируется под ваши цели и специфику.
+                      <span className="text-pink-300 font-bold">{t('about.why')}</span> {t('about.why_text')}
                 </p>
                   </motion.div>
                   
@@ -221,7 +222,7 @@ const Home: React.FC = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10"
                   >
                     <p>
-                      <span className="text-orange-300 font-bold">Для кого:</span> Наши услуги предназначены для всех, кто хочет использовать возможности ИИ для упрощения задач, повышения эффективности и создания новых возможностей.
+                      <span className="text-orange-300 font-bold">{t('about.for')}</span> {t('about.for_text')}
                 </p>
                   </motion.div>
                 </div>
@@ -244,7 +245,7 @@ const Home: React.FC = () => {
                       <Users className="h-8 w-8 text-white" />
                   </div>
                     <div className="text-3xl sm:text-4xl font-bold text-white mb-2">1000+</div>
-                    <div className="text-sm sm:text-base text-blue-200">реализованных проектов</div>
+                    <div className="text-sm sm:text-base text-blue-200">{t('stats.projects')}</div>
                   </motion.div>
                   
                   <motion.div 
@@ -256,7 +257,7 @@ const Home: React.FC = () => {
                       <Clock className="h-8 w-8 text-white" />
                   </div>
                     <div className="text-3xl sm:text-4xl font-bold text-white mb-2">от 5 дней</div>
-                    <div className="text-sm sm:text-base text-purple-200">скорость внедрения</div>
+                    <div className="text-sm sm:text-base text-purple-200">{t('stats.speed')}</div>
                   </motion.div>
                   
                   <motion.div 
@@ -268,7 +269,7 @@ const Home: React.FC = () => {
                       <Globe className="h-8 w-8 text-white" />
                   </div>
                     <div className="text-3xl sm:text-4xl font-bold text-white mb-2">20+</div>
-                    <div className="text-sm sm:text-base text-pink-200">стран с нами</div>
+                    <div className="text-sm sm:text-base text-pink-200">{t('stats.countries')}</div>
                   </motion.div>
                   
                   <motion.div 
@@ -280,7 +281,7 @@ const Home: React.FC = () => {
                       <Headphones className="h-8 w-8 text-white" />
                   </div>
                     <div className="text-3xl sm:text-4xl font-bold text-white mb-2">24/7</div>
-                    <div className="text-sm sm:text-base text-orange-200">поддержка</div>
+                    <div className="text-sm sm:text-base text-orange-200">{t('stats.support')}</div>
                   </motion.div>
                 </div>
                 
@@ -292,7 +293,7 @@ const Home: React.FC = () => {
                   viewport={{ once: true }}
                 >
                   <p className="text-lg sm:text-xl text-white font-semibold">
-                    Команда из инженеров и маркетологов
+                    {t('stats.team')}
                   </p>
                   <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mx-auto mt-4"></div>
                 </motion.div>
@@ -332,21 +333,18 @@ const Home: React.FC = () => {
                     >
                       <Sparkles className="h-4 w-4 text-cyan-400" />
                     </motion.div>
-                    <span className="text-sm font-medium text-cyan-300">ИИ-Помощник</span>
+                    <span className="text-sm font-medium text-cyan-300">{t('chatbot.title')}</span>
                     <Star className="h-4 w-4 text-yellow-400" />
                   </div>
                   
                   <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
                     <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                      Умный чат-бот
+                      {t('chatbot.subtitle')}
                     </span>
-                    <br />
-                    <span className="text-white">для консультаций</span>
                   </h2>
                   
                   <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
-                    Получите мгновенные ответы на вопросы о наших услугах, ценах и возможностях ИИ-решений. 
-                    Наш ИИ-помощник работает 24/7 и готов помочь в любое время!
+                    {t('chatbot.description')}
                   </p>
                 </motion.div>
                 
@@ -363,9 +361,9 @@ const Home: React.FC = () => {
                         <MessageCircle className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white mb-2">Мгновенные ответы</h3>
+                        <h3 className="text-lg font-semibold text-white mb-2">{t('chatbot.features.instant')}</h3>
                         <p className="text-gray-300 text-sm sm:text-base">
-                          Получайте ответы на вопросы о наших услугах, ценах и возможностях в режиме реального времени
+                          {t('chatbot.features.instant_desc')}
                         </p>
                       </div>
                     </div>
@@ -383,9 +381,9 @@ const Home: React.FC = () => {
                         <Clock className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white mb-2">Работает 24/7</h3>
+                        <h3 className="text-lg font-semibold text-white mb-2">{t('chatbot.features.always_on')}</h3>
                         <p className="text-gray-300 text-sm sm:text-base">
-                          Наш ИИ-помощник доступен круглосуточно и готов ответить на ваши вопросы в любое время
+                          {t('chatbot.features.always_on_desc')}
                         </p>
                       </div>
                     </div>
@@ -403,9 +401,9 @@ const Home: React.FC = () => {
                         <Headphones className="h-4 w-4 text-white" />
                       </div>
                       <div>
-                        <h3 className="text-lg font-semibold text-white mb-2">Персональный подход</h3>
+                        <h3 className="text-lg font-semibold text-white mb-2">{t('chatbot.features.personal')}</h3>
                         <p className="text-gray-300 text-sm sm:text-base">
-                          ИИ адаптируется под ваши потребности и дает рекомендации, подходящие именно вашему запросу!
+                          {t('chatbot.features.personal_desc')}
                         </p>
                       </div>
                     </div>
@@ -650,17 +648,16 @@ const Home: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <Sparkles className="h-5 w-5 text-yellow-300" />
-                <span className="text-base font-bold text-white">Эксклюзивное предложение</span>
+                <span className="text-base font-bold text-white">{t('cta_section.badge')}</span>
                 <Star className="h-5 w-5 text-yellow-300" />
               </motion.div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 sm:mb-8 leading-tight">
-              Готовы начать цифровую трансформацию?
+              {t('cta_section.title')}
             </h2>
               
               <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
-
-              Получите бесплатную консультацию и узнайте, как ИИ может помочь вам в автоматизации, улучшении продаж и повышении эффективности работы!
+              {t('cta_section.subtitle')}
             </p>
               
               <motion.div
@@ -683,7 +680,7 @@ const Home: React.FC = () => {
               to="/contact"
                     className="inline-flex items-center justify-center px-10 sm:px-12 py-5 sm:py-6 bg-white text-blue-600 font-bold rounded-2xl hover:bg-gray-100 transition-all duration-300 text-lg sm:text-xl shadow-2xl hover:shadow-white/25"
             >
-              Получить консультацию
+              {t('cta_section.button')}
                     <ArrowRight className="ml-3 h-6 w-6" />
                   </Link>
                 </motion.div>
@@ -701,7 +698,7 @@ const Home: React.FC = () => {
                     to="/catalog"
                     className="inline-flex items-center justify-center px-10 sm:px-12 py-5 sm:py-6 border-2 border-white/50 text-white font-bold rounded-2xl hover:bg-white/10 transition-all duration-300 text-lg sm:text-xl backdrop-blur-sm"
                   >
-                    Посмотреть каталог
+                    {t('cta_section.catalog_button')}
             </Link>
                 </motion.div>
               </motion.div>
@@ -715,20 +712,20 @@ const Home: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <p className="text-sm sm:text-base text-white/70 mb-4">
-                  Бесплатная консультация • Персональный подход • Гарантия результата
+                  {t('cta_section.info')}
                 </p>
                 <div className="flex justify-center space-x-8">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">15 мин</div>
-                    <div className="text-xs text-white/70">время консультации</div>
+                    <div className="text-xs text-white/70">{t('cta_section.details.time')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">100%</div>
-                    <div className="text-xs text-white/70">конфиденциальность</div>
+                    <div className="text-xs text-white/70">{t('cta_section.details.privacy')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold text-white">24/7</div>
-                    <div className="text-xs text-white/70">поддержка</div>
+                    <div className="text-xs text-white/70">{t('cta_section.details.support')}</div>
                   </div>
                 </div>
               </motion.div>

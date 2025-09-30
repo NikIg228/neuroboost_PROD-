@@ -1,139 +1,135 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const TelegramAgreement: React.FC = () => {
+  const { t } = useTranslation('legal');
+  
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              Пользовательское соглашение при взаимодействии с Telegram-ботом проекта «NeuroBoost»
+              {t('telegramAgreement.title')}
             </h1>
             <p className="text-gray-600 mb-8">
-              Редакция от 31 июля 2025 г.
+              {t('telegramAgreement.date')}
             </p>
 
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-700 mb-6">
-                Настоящее Пользовательское соглашение (далее — «Соглашение») определяет условия использования 
-                Telegram-бота проекта «NeuroBoost» (далее — «Бот») физическими и юридическими лицами (далее — «Пользователь»).
+                {t('telegramAgreement.intro')}
               </p>
               
               <p className="text-gray-700 mb-8 font-semibold">
-                Факт начала взаимодействия с Ботом означает безоговорочное принятие Пользователем всех условий настоящего Соглашения.
+                {t('telegramAgreement.acceptance')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Общие положения</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.general.title')}</h2>
               <p className="text-gray-700 mb-4">
-                <strong>1.1.</strong> Бот является автоматизированным сервисом, созданным для информирования, 
-                консультирования и (при необходимости) сбора заявок от Пользователей по услугам/продуктам, 
-                предоставляемым NeuroBoost.
+                <strong>{t('telegramAgreement.sections.general.1.1.title')}</strong> {t('telegramAgreement.sections.general.1.1.content')}
               </p>
               <p className="text-gray-700 mb-4">
-                <strong>1.2.</strong> Использование Бота осуществляется исключительно в информационных и 
-                коммуникационных целях. Бот не заменяет официальную консультацию, договор или оферту.
+                <strong>{t('telegramAgreement.sections.general.1.2.title')}</strong> {t('telegramAgreement.sections.general.1.2.content')}
               </p>
               <p className="text-gray-700 mb-6">
-                <strong>1.3.</strong> Все материалы и ответы, предоставленные Ботом, не являются публичной 
-                офертой или официальным предложением заключения сделки, если иное прямо не указано.
+                <strong>{t('telegramAgreement.sections.general.1.3.title')}</strong> {t('telegramAgreement.sections.general.1.3.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Права и обязанности сторон</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.rights.title')}</h2>
               <p className="text-gray-700 mb-3">
-                <strong>2.1. Пользователь имеет право:</strong>
+                <strong>{t('telegramAgreement.sections.rights.userRights.title')}</strong>
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
-                <li>пользоваться функционалом Бота в пределах, предоставленных проектом;</li>
-                <li>прекратить взаимодействие с Ботом в любое время.</li>
+                {t('telegramAgreement.sections.rights.userRights.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
               <p className="text-gray-700 mb-3">
-                <strong>2.2. Пользователь обязуется:</strong>
+                <strong>{t('telegramAgreement.sections.rights.userObligations.title')}</strong>
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
-                <li>не использовать Бота в противоправных или мошеннических целях;</li>
-                <li>не осуществлять рассылку спама, вредоносных ссылок или иных действий, нарушающих права проекта или других пользователей.</li>
+                {t('telegramAgreement.sections.rights.userObligations.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
               <p className="text-gray-700 mb-3">
-                <strong>2.3. Владелец Бота вправе:</strong>
+                <strong>{t('telegramAgreement.sections.rights.ownerRights.title')}</strong>
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>приостановить или ограничить доступ Пользователя к Боту при выявлении нарушений;</li>
-                <li>изменять функционал, содержание и условия взаимодействия с Ботом без предварительного уведомления.</li>
+                {t('telegramAgreement.sections.rights.ownerRights.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Обработка персональных данных</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.dataProcessing.title')}</h2>
               <p className="text-gray-700 mb-3">
-                <strong>3.1.</strong> При взаимодействии с Ботом могут собираться следующие данные:
+                <strong>{t('telegramAgreement.sections.dataProcessing.3.1.title')}</strong> {t('telegramAgreement.sections.dataProcessing.3.1.content')}
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
-                <li>Telegram ID, username, имя и фамилия (если указаны);</li>
-                <li>текстовые сообщения, отправленные Боту;</li>
-                <li>иные данные, предоставленные Пользователем добровольно.</li>
+                {t('telegramAgreement.sections.dataProcessing.3.1.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
               <p className="text-gray-700 mb-4">
-                <strong>3.2.</strong> Обработка персональных данных осуществляется в соответствии с 
-                законодательством Республики Казахстан (или иного применимого юрисдикции) и Политикой 
-                конфиденциальности проекта.
+                <strong>{t('telegramAgreement.sections.dataProcessing.3.2.title')}</strong> {t('telegramAgreement.sections.dataProcessing.3.2.content')}
               </p>
 
               <p className="text-gray-700 mb-3">
-                <strong>3.3.</strong> Персональные данные используются исключительно для:
+                <strong>{t('telegramAgreement.sections.dataProcessing.3.3.title')}</strong> {t('telegramAgreement.sections.dataProcessing.3.3.content')}
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
-                <li>предоставления консультаций и обратной связи;</li>
-                <li>статистики и аналитики;</li>
-                <li>улучшения качества обслуживания.</li>
+                {t('telegramAgreement.sections.dataProcessing.3.3.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
               <p className="text-gray-700 mb-6">
-                <strong>3.4.</strong> Передача персональных данных третьим лицам не осуществляется, 
-                за исключением случаев, предусмотренных законом или при наличии явного согласия Пользователя.
+                <strong>{t('telegramAgreement.sections.dataProcessing.3.4.title')}</strong> {t('telegramAgreement.sections.dataProcessing.3.4.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Ограничение ответственности</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.liability.title')}</h2>
               <p className="text-gray-700 mb-3">
-                <strong>4.1.</strong> Проект «NeuroBoost» и его представители не несут ответственности:
+                <strong>{t('telegramAgreement.sections.liability.4.1.title')}</strong> {t('telegramAgreement.sections.liability.4.1.content')}
               </p>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
-                <li>за любые убытки, понесённые Пользователем вследствие использования Бота;</li>
-                <li>за действия третьих лиц, получивших доступ к данным Пользователя;</li>
-                <li>за возможные ошибки или неточности в содержании ответов Бота.</li>
+                {t('telegramAgreement.sections.liability.4.1.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
               <p className="text-gray-700 mb-6">
-                <strong>4.2.</strong> Пользователь использует Бота на свой страх и риск.
+                <strong>{t('telegramAgreement.sections.liability.4.2.title')}</strong> {t('telegramAgreement.sections.liability.4.2.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Заключительные положения</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.final.title')}</h2>
               <p className="text-gray-700 mb-4">
-                <strong>5.1.</strong> Настоящее Соглашение может быть изменено в одностороннем порядке 
-                без предварительного уведомления. Актуальная редакция всегда доступна по адресу:
+                <strong>{t('telegramAgreement.sections.final.5.1.title')}</strong> {t('telegramAgreement.sections.final.5.1.content')}
                 <br />
                 <a href="https://gorgeous-creponne-26d474.netlify.app/telegram-agreement" className="text-blue-600 hover:text-blue-800">
-                 https://www.neuroboost.kz/telegram-agreement
+                 {t('telegramAgreement.sections.final.5.1.url')}
                 </a>
               </p>
 
               <p className="text-gray-700 mb-4">
-                <strong>5.2.</strong> Все возникающие вопросы и споры, связанные с настоящим Соглашением, 
-                регулируются действующим законодательством Республики Казахстан.
+                <strong>{t('telegramAgreement.sections.final.5.2.title')}</strong> {t('telegramAgreement.sections.final.5.2.content')}
               </p>
 
               <p className="text-gray-700 mb-6">
-                <strong>5.3.</strong> Для обратной связи и разрешения претензий обращайтесь в Telegram:
+                <strong>{t('telegramAgreement.sections.final.5.3.title')}</strong> {t('telegramAgreement.sections.final.5.3.content')}
                 <br />
                 <a href="https://t.me/neurboosthelpbot" className="text-blue-600 hover:text-blue-800" target="_blank" rel="noopener noreferrer">
-                  https://t.me/neurboosthelpbot
+                  {t('telegramAgreement.sections.final.5.3.url')}
                 </a>
               </p>
 
               <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mt-8">
                 <p className="text-yellow-800 font-semibold">
-                  Если вы не согласны с условиями настоящего Соглашения, пожалуйста, прекратите использование Telegram-бота.
+                  {t('telegramAgreement.disclaimer')}
                 </p>
               </div>
             </div>

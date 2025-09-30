@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/contexts/AuthContext'
 import { supabase, Order } from '../lib/supabase'
 import { services } from '@/data/services'
@@ -9,6 +10,7 @@ import { User, Mail, Lock, LogOut, Package, Calendar, DollarSign, Heart, Trash2 
 import { Service } from '@/types/index'
 
 const Profile: React.FC = () => {
+  const { t } = useTranslation('profile');
   const { user, signOut, updateProfile, updatePassword } = useAuth()
   const { formatPrice, convertPrice } = useCurrency()
   const [orders, setOrders] = useState<Order[]>([])
@@ -125,10 +127,10 @@ const Profile: React.FC = () => {
         if (error) throw error
       }
 
-      setMessage('Профиль успешно обновлен')
+      setMessage(t('profileInfo.success'))
       setProfileData({ ...profileData, password: '' })
     } catch (err: any) {
-      setError(err.message || 'Ошибка при обновлении профиля')
+      setError(err.message || t('profileInfo.error'))
     } finally {
       setLoading(false)
     }
@@ -156,13 +158,13 @@ const Profile: React.FC = () => {
   const getStatusText = (status: string) => {
     switch (status) {
       case 'paid':
-        return 'Оплачен'
+        return t('orders.statuses.paid')
       case 'pending':
-        return 'Ожидает оплаты'
+        return t('orders.statuses.pending')
       case 'cancelled':
-        return 'Отменен'
+        return t('orders.statuses.cancelled')
       case 'failed':
-        return 'Ошибка оплаты'
+        return t('orders.statuses.failed')
       default:
         return status
     }
@@ -174,13 +176,13 @@ const Profile: React.FC = () => {
         <AnimatedSection>
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
             <div className="flex justify-between items-center mb-6">
-              <h1 className="text-3xl font-bold text-gray-900">Личный кабинет</h1>
+              <h1 className="text-3xl font-bold text-gray-900">{t('title')}</h1>
               <button
                 onClick={handleSignOut}
                 className="flex items-center px-4 py-2 text-red-600 hover:text-red-800 transition-colors"
               >
                 <LogOut className="h-5 w-5 mr-2" />
-                Выйти
+                {t('logout')}
               </button>
             </div>
 
@@ -188,7 +190,7 @@ const Profile: React.FC = () => {
               {/* Profile Info */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                  Информация профиля
+                  {t('profileInfo.title')}
                 </h2>
                 
                 {message && (
@@ -206,7 +208,7 @@ const Profile: React.FC = () => {
                 <form onSubmit={handleProfileUpdate} className="space-y-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Имя
+                      {t('profileInfo.name')}
                     </label>
                     <div className="relative">
                       <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -221,7 +223,7 @@ const Profile: React.FC = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Email
+                      {t('profileInfo.email')}
                     </label>
                     <div className="relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -236,7 +238,7 @@ const Profile: React.FC = () => {
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Новый пароль (оставьте пустым, если не хотите менять)
+                      {t('profileInfo.newPassword')}
                     </label>
                     <div className="relative">
                       <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -245,7 +247,7 @@ const Profile: React.FC = () => {
                         value={profileData.password}
                         onChange={(e) => setProfileData({ ...profileData, password: e.target.value })}
                         className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder="Новый пароль"
+                        placeholder={t('profileInfo.newPasswordPlaceholder')}
                       />
                     </div>
                   </div>
@@ -255,7 +257,7 @@ const Profile: React.FC = () => {
                     disabled={loading}
                     className="w-full py-2 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 transition-all"
                   >
-                    {loading ? 'Сохранение...' : 'Сохранить изменения'}
+                    {loading ? t('profileInfo.saving') : t('profileInfo.saveChanges')}
                   </button>
                 </form>
               </div>
@@ -263,7 +265,7 @@ const Profile: React.FC = () => {
               {/* User Stats */}
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                  Статистика
+                  {t('stats.title')}
                 </h2>
                 <div className="space-y-4">
                   <div className="bg-blue-50 rounded-lg p-4">
@@ -271,7 +273,7 @@ const Profile: React.FC = () => {
                       <Package className="h-8 w-8 text-blue-600 mr-3" />
                       <div>
                         <div className="text-2xl font-bold text-blue-600">{orders.length}</div>
-                        <div className="text-blue-600 text-sm">Всего заказов</div>
+                        <div className="text-blue-600 text-sm">{t('stats.totalOrders')}</div>
                       </div>
                     </div>
                   </div>
@@ -283,7 +285,7 @@ const Profile: React.FC = () => {
                         <div className="text-2xl font-bold text-green-600">
                           {orders.filter(o => o.status === 'paid').length}
                         </div>
-                        <div className="text-green-600 text-sm">Оплаченных заказов</div>
+                        <div className="text-green-600 text-sm">{t('stats.paidOrders')}</div>
                       </div>
                     </div>
                   </div>
@@ -298,7 +300,7 @@ const Profile: React.FC = () => {
           <div className="bg-white rounded-2xl shadow-lg p-8 mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
               <Heart className="h-6 w-6 text-red-500 mr-2" />
-              Мои избранные тарифы
+              {t('favorites.title')}
             </h2>
             
             {favoritesLoading ? (
@@ -308,7 +310,7 @@ const Profile: React.FC = () => {
             ) : favoriteServices.length === 0 ? (
               <div className="text-center py-8">
                 <Heart className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500">У вас пока нет избранных тарифов</p>
+                <p className="text-gray-500">{t('favorites.empty')}</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -330,7 +332,7 @@ const Profile: React.FC = () => {
                         onClick={() => handlePurchase(service)}
                         className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"
                       >
-                        Купить
+                        {t('favorites.buy')}
                       </button>
                     </div>
                   </div>
@@ -343,7 +345,7 @@ const Profile: React.FC = () => {
         {/* Orders Table */}
         <AnimatedSection delay={400}>
           <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">История заказов</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">{t('orders.title')}</h2>
             
             {ordersLoading ? (
               <div className="flex justify-center py-8">
@@ -352,7 +354,7 @@ const Profile: React.FC = () => {
             ) : orders.length === 0 ? (
               <div className="text-center py-8">
                 <Package className="h-16 w-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-500">У вас пока нет заказов</p>
+                <p className="text-gray-500">{t('orders.empty')}</p>
               </div>
             ) : (
               <div className="overflow-x-auto">
@@ -360,16 +362,16 @@ const Profile: React.FC = () => {
                   <thead className="bg-gray-50">
                     <tr>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Услуга
+                        {t('orders.service')}
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Сумма
+                        {t('orders.amount')}
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Статус
+                        {t('orders.status')}
                       </th>
                       <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                        Дата
+                        {t('orders.date')}
                       </th>
                     </tr>
                   </thead>

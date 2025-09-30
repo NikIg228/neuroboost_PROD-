@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import { ChatbotProvider } from './contexts/ChatbotContext';
 import { CurrencyProvider } from './contexts/CurrencyContext';
+import { LanguageProvider } from './contexts/LanguageContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -36,10 +37,11 @@ function App() {
   }, []);
 
   return (
-    <AuthProvider>
-      <ChatbotProvider>
-        <CurrencyProvider>
-          <Router>
+    <LanguageProvider>
+      <AuthProvider>
+        <ChatbotProvider>
+          <CurrencyProvider>
+            <Router>
           <RouteScrollToTop />
           <div className="min-h-screen bg-gray-50">
             <Header />
@@ -73,6 +75,7 @@ function App() {
         </CurrencyProvider>
       </ChatbotProvider>
     </AuthProvider>
+    </LanguageProvider>
   );
 }
 

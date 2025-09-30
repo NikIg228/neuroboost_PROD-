@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '@/contexts/AuthContext';
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { supabase } from '../lib/supabase';
@@ -22,6 +23,7 @@ interface FormData {
 }
 
 const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose }) => {
+  const { t } = useTranslation('components');
   const { user } = useAuth();
   const { formatPrice, convertPrice } = useCurrency();
   const [formData, setFormData] = useState<FormData>({
@@ -110,7 +112,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
 
     } catch (error) {
       console.error('Payment error:', error);
-      setError('Ошибка при создании платежа. Попробуйте еще раз.');
+      setError(t('purchase.errorMessage'));
     } finally {
       setLoading(false);
     }
@@ -123,7 +125,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
           {/* Header */}
           <div className="flex justify-between items-start mb-6">
             <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">Оформление заказа</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('purchase.title')}</h2>
               <p className="text-gray-600">{service.title}</p>
               <p className="text-2xl font-bold text-blue-600 mt-2">{formatPrice(convertPrice(parseInt(service.price.replace(/\D/g, ''))))}</p>
             </div>
@@ -145,7 +147,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Название компании *
+                  {t('purchase.fields.companyName')} *
                 </label>
                 <div className="relative">
                   <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -156,14 +158,14 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
                     value={formData.company_name}
                     onChange={handleInputChange}
                     className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="ТОО Компания"
+                    placeholder={t('purchase.placeholders.companyName')}
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  БИН *
+                  {t('purchase.fields.bin')} *
                 </label>
                 <div className="relative">
                   <Hash className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -174,7 +176,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
                     value={formData.bin}
                     onChange={handleInputChange}
                     className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="123456789012"
+                    placeholder={t('purchase.placeholders.bin')}
                   />
                 </div>
               </div>
@@ -183,7 +185,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Контактное лицо *
+                  {t('purchase.fields.contactPerson')} *
                 </label>
                 <div className="relative">
                   <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -194,14 +196,14 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
                     value={formData.contact_person}
                     onChange={handleInputChange}
                     className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="Иван Иванов"
+                    placeholder={t('purchase.placeholders.contactPerson')}
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
+                  {t('purchase.fields.email')} *
                 </label>
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -212,7 +214,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
                     value={formData.email}
                     onChange={handleInputChange}
                     className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="email@company.com"
+                    placeholder={t('purchase.placeholders.email')}
                   />
                 </div>
               </div>
@@ -221,7 +223,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Телефон *
+                  {t('purchase.fields.phone')} *
                 </label>
                 <div className="relative">
                   <Phone className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -232,14 +234,14 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="+7 (777) 123-45-67"
+                    placeholder={t('purchase.placeholders.phone')}
                   />
                 </div>
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Сайт компании
+                  {t('purchase.fields.website')}
                 </label>
                 <div className="relative">
                   <Globe className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -249,7 +251,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
                     value={formData.website}
                     onChange={handleInputChange}
                     className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                    placeholder="https://company.com"
+                    placeholder={t('purchase.placeholders.website')}
                   />
                 </div>
               </div>
@@ -257,7 +259,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Дополнительный комментарий
+                {t('purchase.fields.comment')}
               </label>
               <div className="relative">
                 <MessageSquare className="absolute left-3 top-3 text-gray-400 h-5 w-5" />
@@ -267,7 +269,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
                   value={formData.comment}
                   onChange={handleInputChange}
                   className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                  placeholder="Дополнительные пожелания или вопросы..."
+                  placeholder={t('purchase.placeholders.comment')}
                 />
               </div>
             </div>
@@ -278,7 +280,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
               className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <CreditCard className="h-5 w-5 mr-2" />
-              {loading ? 'Обработка...' : 'Перейти к оплате'}
+              {loading ? t('purchase.processing') : t('purchase.payButton')}
             </button>
           </form>
         </div>

@@ -1,0 +1,47 @@
+{
+  "chatbot": {
+    "welcomeMessage": "Сәлем! Мен NeuroBoost-тың ақылды көмекшісімін! Кез келген сұрақ қойыңыз!",
+    "title": "Ақылды көмекші",
+    "subtitle": "NeuroBoost AI",
+    "close": "Жабу",
+    "expand": "Кеңейту",
+    "minimize": "Жію",
+    "thinking": "Ойлап жатыр...",
+    "placeholder": "Сұрағыңызды жазыңыз...",
+    "placeholderLoading": "Ойлап жатыр... (жазуды жалғастыра аласыз)",
+    "sendHint": "Жіберу үшін Enter басыңыз",
+    "serverError": "Сервер қатесі",
+    "errorMessage": "Кешіріңіз, қате орын алды. Қайталап көріңіз немесе қолдау қызметіне хабарласыңыз."
+  },
+  "consultation": {
+    "title": "Кеңес",
+    "description": "Сізді кеңесшімен байланысу үшін Telegram-ға бағыттаймыз",
+    "subtitle": "Біздің маман барлық сұрақтарыңызға жауап береді және дұрыс шешімді таңдауға көмектеседі",
+    "cancel": "Болдырмау",
+    "proceed": "Жалғастыру"
+  },
+  "purchase": {
+    "title": "Тапсырысты рәсімдеу",
+    "processing": "Өңделуде...",
+    "payButton": "Төлемге өту",
+    "errorMessage": "Төлем жасау кезінде қате орын алды. Қайталап көріңіз.",
+    "fields": {
+      "companyName": "Компания атауы",
+      "bin": "БИН",
+      "contactPerson": "Байланыс тұлғасы",
+      "email": "Email",
+      "phone": "Телефон",
+      "website": "Компания сайты",
+      "comment": "Қосымша түсініктеме"
+    },
+    "placeholders": {
+      "companyName": "ЖШС Компания",
+      "bin": "123456789012",
+      "contactPerson": "Иван Иванов",
+      "email": "email@company.com",
+      "phone": "+7 (777) 123-45-67",
+      "website": "https://company.com",
+      "comment": "Қосымша тілектер немесе сұрақтар..."
+    }
+  }
+}

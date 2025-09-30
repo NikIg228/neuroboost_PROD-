@@ -1,154 +1,124 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const PublicOffer: React.FC = () => {
+  const { t } = useTranslation('legal');
+  
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              Публичная оферта
+              {t('publicOffer.title')}
             </h1>
             <p className="text-gray-700 mb-6">
-              ТОО "Ворлд Трейд" (NeuroBoost) (далее – Исполнитель) о заключении договора на оказание услуг по внедрению 
-              Изменения вступают в силу с момента их размещения на сайте. 
-              Дата последнего обновления: 15 декабря 2024 г.
+              {t('publicOffer.intro')}
             </p>
 
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Общие положения</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.general.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Настоящая публичная оферта (далее – Оферта) является официальным предложением 
-                NeuroBoost (далее – Исполнитель) о заключении договора на оказание услуг по внедрению 
-                и разработке решений на основе искусственного интеллекта (далее – Услуги) на условиях, 
-                изложенных ниже.
+                {t('publicOffer.sections.general.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Предмет договора</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.subject.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Предметом настоящего договора является оказание Исполнителем следующих услуг:
+                {t('publicOffer.sections.subject.intro')}
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>AI-аудит бизнес-процессов компании</li>
-                <li>Разработка и внедрение ИИ-решений</li>
-                <li>Настройка чат-ботов и голосовых помощников</li>
-                <li>Автоматизация обработки данных и документов</li>
-                <li>Консультационные услуги по внедрению ИИ</li>
-                <li>Техническая поддержка и сопровождение</li>
-                <li>Обучение персонала работе с ИИ-системами</li>
+                {t('publicOffer.sections.subject.services', { returnObjects: true }).map((service: string, index: number) => (
+                  <li key={index}>{service}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Порядок заключения договора</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.conclusion.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Договор считается заключенным с момента акцепта настоящей оферты Заказчиком. 
-                Акцептом признается совершение одного из следующих действий: отправка заявки через 
-                сайт, звонок по указанным телефонам, отправка письма на электронную почту, 
-                или подписание отдельного договора.
+                {t('publicOffer.sections.conclusion.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Стоимость услуг и порядок оплаты</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.payment.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Стоимость услуг определяется в соответствии с действующим прайс-листом, размещенным 
-                на сайте bizneuron.kz. Стоимость может быть изменена в зависимости от сложности проекта 
-                и дополнительных требований Заказчика.
+                {t('publicOffer.sections.payment.intro')}
               </p>
               <p className="text-gray-700 mb-4">
-                Порядок оплаты:
+                {t('publicOffer.sections.payment.order')}:
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>Предоплата в размере 50% от стоимости услуг</li>
-                <li>Окончательный расчет после завершения работ</li>
-                <li>Оплата производится банковским переводом</li>
-                <li>НДС включен в стоимость услуг</li>
+                {t('publicOffer.sections.payment.methods', { returnObjects: true }).map((method: string, index: number) => (
+                  <li key={index}>{method}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Сроки оказания услуг</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.timeline.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Сроки оказания услуг определяются индивидуально для каждого проекта и указываются 
-                в техническом задании. Стандартные сроки составляют от 5 рабочих дней до 8 недель 
-                в зависимости от сложности проекта.
+                {t('publicOffer.sections.timeline.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Права и обязанности сторон</h2>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">6.1. Исполнитель обязуется:</h3>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.obligations.title')}</h2>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">{t('publicOffer.sections.obligations.executor.title')}</h3>
               <ul className="list-disc pl-6 mb-4 text-gray-700">
-                <li>Оказать услуги в полном объеме и в установленные сроки</li>
-                <li>Обеспечить качество услуг в соответствии с техническим заданием</li>
-                <li>Предоставить техническую поддержку в течение гарантийного срока</li>
-                <li>Соблюдать конфиденциальность информации Заказчика</li>
-                <li>Информировать Заказчика о ходе выполнения работ</li>
+                {t('publicOffer.sections.obligations.executor.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">6.2. Заказчик обязуется:</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">{t('publicOffer.sections.obligations.client.title')}</h3>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>Своевременно оплачивать услуги согласно договору</li>
-                <li>Предоставить необходимую информацию и доступы для выполнения работ</li>
-                <li>Назначить ответственное лицо для координации проекта</li>
-                <li>Принять выполненные работы в установленные сроки</li>
+                {t('publicOffer.sections.obligations.client.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Гарантии</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.guarantees.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Исполнитель предоставляет следующие гарантии:
+                {t('publicOffer.sections.guarantees.intro')}
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>Гарантия на разработанные решения – 12 месяцев</li>
-                <li>Техническая поддержка в течение гарантийного срока</li>
-                <li>Бесплатное устранение выявленных недостатков</li>
-                <li>Конфиденциальность данных Заказчика</li>
+                {t('publicOffer.sections.guarantees.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Ответственность сторон</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.liability.title')}</h2>
               <p className="text-gray-700 mb-6">
-                За неисполнение или ненадлежащее исполнение обязательств по договору стороны несут 
-                ответственность в соответствии с действующим законодательством Республики Казахстан. 
-                Размер ответственности Исполнителя ограничивается стоимостью оказанных услуг.
+                {t('publicOffer.sections.liability.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Конфиденциальность</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.confidentiality.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Исполнитель обязуется не разглашать конфиденциальную информацию Заказчика, 
-                полученную в ходе выполнения работ. Данное обязательство действует в течение 
-                5 лет после завершения сотрудничества.
+                {t('publicOffer.sections.confidentiality.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Интеллектуальная собственность</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.intellectual.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Права на разработанные в рамках договора решения принадлежат Заказчику. 
-                Исполнитель сохраняет за собой право использовать полученный опыт и знания 
-                для оказания услуг другим клиентам без разглашения конфиденциальной информации.
+                {t('publicOffer.sections.intellectual.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">11. Форс-мажор</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.forceMajeure.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Стороны освобождаются от ответственности за частичное или полное неисполнение 
-                обязательств, если это явилось следствием обстоятельств непреодолимой силы, 
-                возникших после заключения договора в результате событий чрезвычайного характера.
+                {t('publicOffer.sections.forceMajeure.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">12. Разрешение споров</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.disputes.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Все споры и разногласия разрешаются путем переговоров. В случае невозможности 
-                достижения соглашения споры подлежат рассмотрению в судебном порядке в соответствии 
-                с законодательством Республики Казахстан.
+                {t('publicOffer.sections.disputes.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">13. Заключительные положения</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.final.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Исполнитель оставляет за собой право изменять условия настоящей оферты. 
-                Изменения вступают в силу с момента их размещения на сайте bizneuron.kz. 
-                Договор регулируется законодательством Республики Казахстан.
+                {t('publicOffer.sections.final.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">14. Реквизиты Исполнителя</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('publicOffer.sections.details.title')}</h2>
               <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-gray-700">
-                  <strong>ТОО "Ворлд Трейд" (NeuroBoost)</strong><br />
-                  БИН: 240740019557<br />
-                  Адрес: Казахстан, г. Алматы, Турксибский район, ул. Дулатова 53, 050003<br />
-                  Телефон: +7 (707) 506 29 00<br />
-                  Email: galuza_nikita@mail.ru
+                  <strong>{t('publicOffer.sections.details.company')}</strong><br />
+                  {t('publicOffer.sections.details.bin')}<br />
+                  {t('publicOffer.sections.details.address')}<br />
+                  {t('publicOffer.sections.details.phone')}<br />
+                  {t('publicOffer.sections.details.email')}
                 </p>
               </div>
             </div>

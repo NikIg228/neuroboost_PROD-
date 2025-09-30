@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '@/components/AnimatedSection';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle } from 'lucide-react';
 
 const Contact: React.FC = () => {
+  const { t } = useTranslation('pages');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,55 +42,27 @@ const Contact: React.FC = () => {
     }, 3000);
   };
 
-  const contactInfo = [
-    {
-      icon: Mail,
-      title: 'Email',
-      content: 'galuza_nikita@mail.ru',
-      description: 'Ответим в течение 30 минут'
-    },
-    {
-      icon: Phone,
-      title: 'Телефон',
-      content: '+7 (707) 506 29 00',
-      description: 'Звоните с 9:00 до 18:00'
-    },
-    {
-      icon: MapPin,
-      title: 'Офис',
-      content: 'Алматы, ул. Дулатова 53',
-      description: 'Турксибский район, 050003'
-    },
-    {
-      icon: Clock,
-      title: 'Режим работы',
-      content: 'Пн-Пт: 9:00 - 18:00',
-      description: 'Сб-Вс: по договоренности'
-    }
-  ];
+  const contactInfo = t('contact.info', { returnObjects: true }) as Array<{
+    title: string;
+    content: string;
+    description: string;
+    icon?: string; // icon name from translations
+  }>;
 
-  const services = [
-    'AI-Аудит бизнеса',
-    'ChatGPT-консультант',
-    'Автоматизация заявок',
-    'Генератор текстов',
-    'Холодные рассылки ИИ',
-    'Речевая аналитика',
-    'Управление репутацией',
-    'Прогнозирование продаж',
-    'Контент для соцсетей',
-    'Боты для мессенджеров',
-    'ИИ-рекрутер',
-    'Обработка документов',
-    'CRM-помощник',
-    'ИИ для бухгалтерии',
-    'Генерация изображений',
-    'Анализ конкурентов',
-    'VoiceBot',
-    'ИИ для курсов',
-    'Custom GPT',
-    'AI-трансформация'
-  ];
+  const services = t('contact.services', { returnObjects: true }) as string[];
+  const faqQuestions = t('contact.faq.questions', { returnObjects: true }) as Array<{ q: string; a: string }>;
+
+  const iconMap: Record<string, React.ElementType> = {
+    mail: Mail,
+    email: Mail,
+    phone: Phone,
+    telephone: Phone,
+    map: MapPin,
+    address: MapPin,
+    location: MapPin,
+    clock: Clock,
+    time: Clock
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -96,10 +70,10 @@ const Contact: React.FC = () => {
         <AnimatedSection>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Свяжитесь <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">с нами</span>
+              {t('contact.title')} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">с нами</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Готовы обсудить ваш проект? Оставьте заявку, и мы свяжемся с вами в течение 30 минут
+              {t('contact.subtitle')}
             </p>
           </div>
         </AnimatedSection>
@@ -109,17 +83,17 @@ const Contact: React.FC = () => {
           <AnimatedSection direction="left">
             <div className="bg-white rounded-2xl shadow-lg p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6">
-                Получить консультацию
+                {t('contact.form.title')}
               </h2>
 
               {isSubmitted ? (
                 <div className="text-center py-8">
                   <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                   <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    Заявка отправлена!
+                    {t('contact.form.success.title')}
                   </h3>
                   <p className="text-gray-600">
-                    Мы свяжемся с вами в ближайшее время
+                    {t('contact.form.success.message')}
                   </p>
                 </div>
               ) : (
@@ -127,7 +101,7 @@ const Contact: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                        Ваше имя *
+                        {t('contact.form.fields.name')} *
                       </label>
                       <input
                         type="text"
@@ -137,12 +111,12 @@ const Contact: React.FC = () => {
                         value={formData.name}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        placeholder="Введите ваше имя"
+                        placeholder={t('contact.form.placeholders.name')}
                       />
                     </div>
                     <div>
                       <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                        Email *
+                        {t('contact.form.fields.email')} *
                       </label>
                       <input
                         type="email"
@@ -152,7 +126,7 @@ const Contact: React.FC = () => {
                         value={formData.email}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        placeholder="your@email.com"
+                        placeholder={t('contact.form.placeholders.email')}
                       />
                     </div>
                   </div>
@@ -160,7 +134,7 @@ const Contact: React.FC = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                        Телефон
+                        {t('contact.form.fields.phone')}
                       </label>
                       <input
                         type="tel"
@@ -169,12 +143,12 @@ const Contact: React.FC = () => {
                         value={formData.phone}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        placeholder="+7 (777) 123-45-67"
+                        placeholder={t('contact.form.placeholders.phone')}
                       />
                     </div>
                     <div>
                       <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                        Компания
+                        {t('contact.form.fields.company')}
                       </label>
                       <input
                         type="text"
@@ -183,14 +157,14 @@ const Contact: React.FC = () => {
                         value={formData.company}
                         onChange={handleInputChange}
                         className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                        placeholder="Название компании"
+                        placeholder={t('contact.form.placeholders.company')}
                       />
                     </div>
                   </div>
 
                   <div>
                     <label htmlFor="service" className="block text-sm font-medium text-gray-700 mb-2">
-                      Интересующая услуга
+                      {t('contact.form.fields.service')}
                     </label>
                     <select
                       id="service"
@@ -199,7 +173,7 @@ const Contact: React.FC = () => {
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     >
-                      <option value="">Выберите услугу</option>
+                      <option value="">{t('contact.form.placeholders.service')}</option>
                       {services.map((service, index) => (
                         <option key={index} value={service}>{service}</option>
                       ))}
@@ -208,7 +182,7 @@ const Contact: React.FC = () => {
 
                   <div>
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                      Сообщение
+                      {t('contact.form.fields.message')}
                     </label>
                     <textarea
                       id="message"
@@ -217,7 +191,7 @@ const Contact: React.FC = () => {
                       value={formData.message}
                       onChange={handleInputChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                      placeholder="Расскажите о вашем проекте или задачах..."
+                      placeholder={t('contact.form.placeholders.message')}
                     ></textarea>
                   </div>
 
@@ -226,7 +200,7 @@ const Contact: React.FC = () => {
                     className="w-full flex items-center justify-center px-6 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-200 transform hover:scale-105"
                   >
                     <Send className="h-5 w-5 mr-2" />
-                    Отправить заявку
+                    {t('contact.form.submit')}
                   </button>
                 </form>
               )}
@@ -236,46 +210,49 @@ const Contact: React.FC = () => {
           {/* Contact Information */}
           <AnimatedSection direction="right">
             <div className="space-y-8">
-              {contactInfo.map((info, index) => (
-                <div key={index} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex items-start">
-                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 mr-4">
-                      <info.icon className="h-6 w-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                        {info.title}
-                      </h3>
-                      <p className="text-blue-600 font-medium mb-1">
-                        {info.content}
-                      </p>
-                      <p className="text-gray-600 text-sm">
-                        {info.description}
-                      </p>
+              {contactInfo.map((info, index) => {
+                const Icon = iconMap[info.icon || ''] || Mail;
+                return (
+                  <div key={index} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                    <div className="flex items-start">
+                      <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 mr-4">
+                        <Icon className="h-6 w-6 text-white" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                          {info.title}
+                        </h3>
+                        <p className="text-blue-600 font-medium mb-1">
+                          {info.content}
+                        </p>
+                        <p className="text-gray-600 text-sm">
+                          {info.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
 
               {/* Quick Stats */}
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white">
-                <h3 className="text-lg font-semibold mb-4">Почему выбирают нас</h3>
+                <h3 className="text-lg font-semibold mb-4">{t('contact.whyUs.title')}</h3>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="text-center">
                     <div className="text-2xl font-bold mb-1">30 мин</div>
-                    <div className="text-blue-100 text-sm">время отклика</div>
+                    <div className="text-blue-100 text-sm">{t('contact.whyUs.responseTime')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold mb-1">95%</div>
-                    <div className="text-blue-100 text-sm">довольных клиентов</div>
+                    <div className="text-blue-100 text-sm">{t('contact.whyUs.satisfiedClients')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold mb-1">100+</div>
-                    <div className="text-blue-100 text-sm">успешных проектов</div>
+                    <div className="text-blue-100 text-sm">{t('contact.whyUs.successfulProjects')}</div>
                   </div>
                   <div className="text-center">
                     <div className="text-2xl font-bold mb-1">24/7</div>
-                    <div className="text-blue-100 text-sm">техподдержка</div>
+                    <div className="text-blue-100 text-sm">{t('contact.whyUs.support')}</div>
                   </div>
                 </div>
               </div>
@@ -287,45 +264,19 @@ const Contact: React.FC = () => {
         <AnimatedSection delay={400}>
           <div className="mt-16 bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">
-              Часто задаваемые вопросы
+              {t('contact.faq.title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Сколько времени занимает внедрение?
-                </h3>
-                <p className="text-gray-600">
-                  В зависимости от сложности проекта — от 5 дней до 2 месяцев. 
-                  Простые решения можем запустить за неделю.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Предоставляете ли вы техподдержку?
-                </h3>
-                <p className="text-gray-600">
-                  Да, все наши клиенты получают техподдержку 24/7 и регулярные 
-                  обновления системы.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Можно ли попробовать решение перед покупкой?
-                </h3>
-                <p className="text-gray-600">
-                  Мы предлагаем демо-версии и пилотные проекты, чтобы вы могли 
-                  оценить эффективность решения.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold text-gray-900 mb-2">
-                  Работаете ли с малым бизнесом?
-                </h3>
-                <p className="text-gray-600">
-                  Да, у нас есть решения для компаний любого размера — от стартапов 
-                  до крупных корпораций.
-                </p>
-              </div>
+              {faqQuestions.map((faq: {q: string, a: string}, idx: number) => (
+                <div key={idx}>
+                  <h3 className="font-semibold text-gray-900 mb-2">
+                    {faq.q}
+                  </h3>
+                  <p className="text-gray-600">
+                    {faq.a}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </AnimatedSection>

@@ -1,0 +1,62 @@
+{
+  "badge": "Premium AI Solutions",
+  "hero": {
+    "title": "Your AI assistant — for every day and any idea!",
+    "subtitle": "We help implement AI solutions to automate processes, grow sales, and increase efficiency.",
+    "cta_catalog": "View catalog",
+    "cta_consult": "Get consultation"
+  },
+  "about": {
+    "title": "About us",
+    "who": "Who we are:",
+    "who_text": "NeuroBoost is a team of experts in artificial intelligence and process automation. We specialize in implementing AI solutions for any task and industry.",
+    "what": "What we do:",
+    "what_text": "We build and implement custom AI solutions: from chatbots and automation to full-scale digital transformation.",
+    "why": "What makes us different:",
+    "why_text": "We are not just technology providers — we are your growth partners. Every solution is tailored to your goals and context.",
+    "for": "Who it's for:",
+    "for_text": "Our services suit anyone who wants to leverage AI to simplify tasks, boost efficiency, and unlock new opportunities."
+  },
+  "stats": {
+    "projects": "completed projects",
+    "speed": "implementation speed",
+    "countries": "countries with us",
+    "support": "support",
+    "team": "Team of engineers and marketers"
+  },
+  "chatbot": {
+    "title": "AI Assistant",
+    "subtitle": "Smart chatbot for consultations",
+    "description": "Get instant answers to questions about our services, prices, and AI solution capabilities. Our AI assistant works 24/7 and is ready to help anytime!",
+    "features": {
+      "instant": "Instant answers",
+      "instant_desc": "Get answers to questions about our services, prices, and capabilities in real-time",
+      "always_on": "Works 24/7",
+      "always_on_desc": "Our AI assistant is available around the clock and ready to answer your questions anytime",
+      "personal": "Personal approach",
+      "personal_desc": "AI adapts to your needs and provides recommendations tailored to your specific request!"
+    },
+    "cta": "Click the button on the right to start a conversation",
+    "chat_title": "NeuroBoost AI Assistant",
+    "chat_status": "Online • Ready to help",
+    "placeholder": "Write your question...",
+    "messages": {
+      "bot_hello": "Hi! I'm your AI assistant. How can I help?",
+      "user_question": "Tell me about your services",
+      "bot_response": "We have 20+ AI solutions for your business automation!"
+    }
+  },
+  "cta_section": {
+    "badge": "Exclusive offer",
+    "title": "Ready to start digital transformation?",
+    "subtitle": "Get a free consultation and learn how AI can help you with automation, sales improvement, and increased efficiency!",
+    "button": "Get consultation",
+    "catalog_button": "View catalog",
+    "info": "Free consultation • Personal approach • Result guarantee",
+    "details": {
+      "time": "consultation time",
+      "privacy": "privacy",
+      "support": "support"
+    }
+  }
+}

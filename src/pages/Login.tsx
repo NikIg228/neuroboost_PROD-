@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/contexts/AuthContext'
 import { useNavigateWithScroll } from '@/utils/navigation'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -8,6 +9,7 @@ import { Mail, Lock, Eye, EyeOff } from 'lucide-react'
 
 const Login: React.FC = () => {
   useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); }, []);
+  const { t } = useTranslation('auth');
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -39,9 +41,9 @@ const Login: React.FC = () => {
       
       if (error) {
         if (error.message.includes('Email not confirmed')) {
-          setError('Пожалуйста, подтвердите свою почту перед входом')
+          setError(t('login.errors.emailNotConfirmed'))
         } else if (error.message.includes('Invalid login credentials')) {
-          setError('Неверный email или пароль')
+          setError(t('login.errors.invalidCredentials'))
         } else {
           setError(error.message)
         }
@@ -49,7 +51,7 @@ const Login: React.FC = () => {
         navigateWithScroll('/lk')
       }
     } catch (err) {
-      setError('Произошла ошибка при входе')
+      setError(t('login.errors.general'))
     } finally {
       setLoading(false)
     }
@@ -60,12 +62,12 @@ const Login: React.FC = () => {
       <AnimatedSection className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
-            Вход в аккаунт
+            {t('login.title')}
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Или{' '}
+            {t('login.subtitle')}{' '}
             <Link to="/register" className="font-medium text-blue-600 hover:text-blue-500">
-              создать новый аккаунт
+              {t('login.createAccount')}
             </Link>
           </p>
         </div>
@@ -88,13 +90,13 @@ const Login: React.FC = () => {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">или</span>
+                <span className="px-2 bg-white text-gray-500">{t('common.or')}</span>
               </div>
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email
+                {t('login.email')}
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -106,14 +108,14 @@ const Login: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="your@email.com"
+                  placeholder={t('login.placeholders.email')}
                 />
               </div>
             </div>
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Пароль
+                {t('login.password')}
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -125,7 +127,7 @@ const Login: React.FC = () => {
                   value={formData.password}
                   onChange={handleChange}
                   className="pl-10 pr-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Введите пароль"
+                  placeholder={t('login.placeholders.password')}
                 />
                 <button
                   type="button"
@@ -147,7 +149,7 @@ const Login: React.FC = () => {
                 className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
               />
               <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700">
-                Запомнить меня
+                {t('login.rememberMe')}
               </label>
             </div>
 
@@ -156,7 +158,7 @@ const Login: React.FC = () => {
               disabled={loading}
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
-              {loading ? 'Вход...' : 'Войти'}
+              {loading ? t('login.submitting') : t('login.submit')}
             </button>
           </form>
         </div>

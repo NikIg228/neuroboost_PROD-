@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import { useAuth } from '@/contexts/AuthContext'
 import { useNavigateWithScroll } from '@/utils/navigation'
 import AnimatedSection from '@/components/AnimatedSection'
@@ -8,6 +9,7 @@ import { Mail, Lock, User, Eye, EyeOff } from 'lucide-react'
 
 const Register: React.FC = () => {
   useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }); }, []);
+  const { t } = useTranslation('auth');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,12 +39,12 @@ const Register: React.FC = () => {
     setMessage('')
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Пароли не совпадают')
+      setError(t('register.errors.passwordsNotMatch'))
       return
     }
 
     if (formData.password.length < 6) {
-      setError('Пароль должен содержать минимум 6 символов')
+      setError(t('register.errors.passwordTooShort'))
       return
     }
 
@@ -54,13 +56,13 @@ const Register: React.FC = () => {
       if (error) {
         setError(error.message)
       } else {
-        setMessage('Вам на почту отправлено письмо! Подтвердите свою почту.')
+        setMessage(t('register.success'))
         setTimeout(() => {
           navigateWithScroll('/login')
         }, 3000)
       }
     } catch (err) {
-      setError('Произошла ошибка при регистрации')
+      setError(t('register.errors.general'))
     } finally {
       setLoading(false)
     }
@@ -71,12 +73,12 @@ const Register: React.FC = () => {
       <AnimatedSection className="max-w-md w-full space-y-8">
         <div>
           <h2 className="mt-6 text-center text-3xl font-bold text-gray-900">
-            Создать аккаунт
+            {t('register.title')}
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Или{' '}
+            {t('register.subtitle')}{' '}
             <Link to="/login" className="font-medium text-blue-600 hover:text-blue-500">
-              войти в существующий аккаунт
+              {t('register.loginExisting')}
             </Link>
           </p>
         </div>
@@ -105,13 +107,13 @@ const Register: React.FC = () => {
                 <div className="w-full border-t border-gray-300"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">или</span>
+                <span className="px-2 bg-white text-gray-500">{t('common.or')}</span>
               </div>
             </div>
 
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                Имя
+                {t('register.name')}
               </label>
               <div className="relative">
                 <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -123,14 +125,14 @@ const Register: React.FC = () => {
                   value={formData.name}
                   onChange={handleChange}
                   className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Введите ваше имя"
+                  placeholder={t('register.placeholders.name')}
                 />
               </div>
             </div>
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                Email
+                {t('register.email')}
               </label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -142,14 +144,14 @@ const Register: React.FC = () => {
                   value={formData.email}
                   onChange={handleChange}
                   className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="your@email.com"
+                  placeholder={t('register.placeholders.email')}
                 />
               </div>
             </div>
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-                Пароль
+                {t('register.password')}
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -161,7 +163,7 @@ const Register: React.FC = () => {
                   value={formData.password}
                   onChange={handleChange}
                   className="pl-10 pr-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Минимум 6 символов"
+                  placeholder={t('register.placeholders.password')}
                 />
                 <button
                   type="button"
@@ -175,7 +177,7 @@ const Register: React.FC = () => {
 
             <div>
               <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
-                Подтверждение пароля
+                {t('register.confirmPassword')}
               </label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -187,7 +189,7 @@ const Register: React.FC = () => {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   className="pl-10 pr-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Повторите пароль"
+                  placeholder={t('register.placeholders.confirmPassword')}
                 />
                 <button
                   type="button"
@@ -204,7 +206,7 @@ const Register: React.FC = () => {
               disabled={loading}
               className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
             >
-              {loading ? 'Создание аккаунта...' : 'Создать аккаунт'}
+              {loading ? t('register.submitting') : t('register.submit')}
             </button>
           </form>
         </div>

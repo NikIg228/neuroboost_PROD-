@@ -1,0 +1,27 @@
+{
+  "brand": "NeuroBoost",
+  "nav": {
+    "catalog": "Catalog",
+    "calculator": "Calculator",
+    "academy": "Academy",
+    "reviews": "Reviews",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "profile": "Profile",
+    "logout": "Logout",
+    "consult": "Consultation"
+  },
+  "assistant": "Smart Assistant",
+  "menu": {
+    "open": "Open menu",
+    "close": "Close menu",
+    "navigation": "Navigation",
+    "help": "Help",
+    "account": "Account",
+    "language": "Language"
+  }
+}

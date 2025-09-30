@@ -1,0 +1,25 @@
+{
+  "subtitles": {
+    "request-automation": "Cut processing time by 10x",
+    "chatgpt-consultant": "Smart assistant 24/7 on your website",
+    "marketing-generator": "Content that sells",
+    "image-generation": "Save up to 80% on design",
+    "voice-bot": "Voice AI like a real operator",
+    "sales-analytics": "Forecast accuracy up to 95%"
+  },
+  "labels": {
+    "featuresTitle": "What's included:",
+    "monthlyNote": "Monthly service: 5% + your actual API provider costs.",
+    "buy": "Buy",
+    "consult": "Consultation",
+    "more": "More details",
+    "modal": {
+      "priceTitle": "Implementation cost",
+      "benefitsTitle": "Benefits",
+      "featuresTitle": "What's included",
+      "ctaText": "Ready to start? Contact us for a consultation and requirements specification.",
+      "buy": "Buy",
+      "consult": "Get consultation"
+    }
+  }
+}

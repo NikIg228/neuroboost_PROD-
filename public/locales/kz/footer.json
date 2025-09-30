@@ -1,0 +1,37 @@
+{
+  "company": {
+    "name": "NeuroBoost",
+    "description": "Біз бизнестерге процестерді автоматтандыру, сатуды арттыру және жұмыс тиімділігін арттыру үшін ЖИ шешімдерін енгізуге көмектесеміз."
+  },
+  "contact": {
+    "email": "galuza_nikita@mail.ru",
+    "phone": "+7 (707) 506 29 00",
+    "consultation": "Консультация алу"
+  },
+  "company_info": {
+    "name": "ЖШС \"Ворлд Трейд\"",
+    "bin": "БСН: 240740019557",
+    "address": "Қазақстан, Алматы қ., Түркісіб ауданы, Дұлатов көшесі 53, 050003"
+  },
+  "sections": {
+    "services": "Қызметтер",
+    "legal": "Заңды ақпарат"
+  },
+  "services": {
+    "ai_audit": "ЖИ-аудит бизнес",
+    "chatgpt_consultant": "ChatGPT-консультант",
+    "request_automation": "Өтініштерді автоматтандыру",
+    "all_services": "Барлық қызметтер"
+  },
+  "legal": {
+    "privacy_policy": "Құпиялылық саясаты",
+    "public_offer": "Жария оферта",
+    "data_consent": "Деректерді өңдеуге келісім",
+    "telegram_agreement": "Telegram-бот пайдаланушы келісімі"
+  },
+  "payment": {
+    "accepted": "Төлемді қабылдаймыз:",
+    "secured": "SSL қорғалған"
+  },
+  "copyright": "© 2025 NeuroBoost. Барлық құқықтар қорғалған."
+}

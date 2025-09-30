@@ -1,0 +1,74 @@
+{
+  "title": "AI Token Calculator",
+  "subtitle": "Calculate AI model usage costs",
+  "description": "Select an AI provider and usage scenario to find out the exact implementation cost",
+  "providers": {
+    "title": "Select AI Model",
+    "openai-gpt4": { "name": "OpenAI ChatGPT 5", "description": "Most advanced model for complex tasks" },
+    "openai-gpt3.5": { "name": "OpenAI ChatGPT 4o", "description": "Fast and cost-effective model for basic tasks" },
+    "anthropic-claude": { "name": "Anthropic Claude 4 Sonnet", "description": "Excellent model for analysis and long texts" },
+    "google-gemini": { "name": "Google Gemini Pro", "description": "Multimodal model with image support" },
+    "mistral-large": { "name": "Mistral Large", "description": "European model focused on accuracy" }
+  },
+  "parameters": {
+    "title": "Usage Parameters",
+    "inputTokens": "Input tokens (prompt)",
+    "outputTokens": "Output tokens (response)",
+    "requestsPerMonth": "Requests per month",
+    "wordsHint": "Approximately {{count}} words"
+  },
+  "scenarios": {
+    "title": "Usage Scenarios",
+    "labels": {
+      "requests": "Requests: {{count}}/month",
+      "tokens": "Tokens: {{in}} in / {{out}} out",
+      "related": "Related: {{service}}"
+    },
+    "chatbot-consultant": { "title": "AI consultant for website", "description": "Automating customer consultations on company website", "relatedService": "ChatGPT-based consultant" },
+    "content-generation": { "title": "Content generation", "description": "Creating social media posts, product descriptions", "relatedService": "Content generator" },
+    "email-automation": { "title": "Email marketing automation", "description": "Personalized emails and autoresponders", "relatedService": "AI email marketing" },
+    "document-analysis": { "title": "Document analysis", "description": "Processing contracts, resumes, technical documents", "relatedService": "AI document analysis" },
+    "voice-assistant": { "title": "Voice assistant", "description": "Creating voice assistants for customer service", "relatedService": "AI voice assistant" },
+    "crm-integration": { "title": "CRM integration", "description": "Automating work with customer base and leads", "relatedService": "AI CRM integration" }
+  },
+  "providerRates": {
+    "title": "Current rates ({{name}})",
+    "input": "Input: ${{price}}/1K tokens",
+    "output": "Output: ${{price}}/1K tokens"
+  },
+  "results": {
+    "title": "Cost calculation",
+    "costPerRequest": "Cost per request",
+    "monthlyExpenses": "Monthly expenses",
+    "inputTokensUSD": "Input tokens: ${{price}} USD",
+    "outputTokensUSD": "Output tokens: ${{price}} USD",
+    "usdRate": "USD/{{currency}} rate: {{rate}}",
+    "note": "Prices may vary. Listed rates are current at the time of calculator creation.",
+    "approxUSD": "≈ ${{price}} USD",
+    "disclaimer": "Prices may vary. Listed rates are current at the time of calculator creation."
+  },
+  "openRouter": {
+    "title": "What a real request/response looks like in the OpenRouter gateway",
+    "description": "The screenshot shows a typical workflow: you send a prompt (input tokens), the model generates a response (output tokens). These two flows form the cost of each request in the calculator above. Even our own bot works on the same principle: we carefully count input and output in tokens and route requests through optimal models so you only pay for the real value of the response."
+  },
+  "optimization": {
+    "title": "How we help optimize costs",
+    "analytics": {
+      "title": "Analytics",
+      "description": "We track token consumption and provide detailed analytics"
+    },
+    "optimization": {
+      "title": "Optimization",
+      "description": "We help choose the optimal model for your tasks"
+    },
+    "economy": {
+      "title": "Savings",
+      "description": "We reduce costs by up to 40% thanks to smart request routing"
+    }
+  },
+  "cta": {
+    "title": "Ready to implement AI in your business?",
+    "description": "Get a personal consultation and learn how to optimize AI costs",
+    "button": "Get consultation"
+  }
+}

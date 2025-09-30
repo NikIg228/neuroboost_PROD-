@@ -14,10 +14,12 @@ import AnimatedSection from '@/components/AnimatedSection';
 import { Service } from '@/types/index';
 import { Search, Filter } from 'lucide-react';
 import { useCurrency } from '@/contexts/CurrencyContext';
+import { useTranslation } from 'react-i18next';
 
 const Catalog: React.FC = () => {
   const { user } = useAuth();
   const { convertPrice } = useCurrency();
+  const { t } = useTranslation('catalog');
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [purchaseService, setPurchaseService] = useState<Service | null>(null);
@@ -129,10 +131,10 @@ const Catalog: React.FC = () => {
 
   const getBadgeForService = (serviceId: string): string | undefined => {
     const badges: Record<string, string> = {
-      'chatgpt-consultant': 'Самый популярный',
-      'marketing-generator': 'Быстрее всего окупается',
-      'ai-audit': 'Выбор малого бизнеса',
-      'ai-transformation': 'Комплексное внедрение'
+      'chatgpt-consultant': t('services.badges.most_popular'),
+      'marketing-generator': t('services.badges.fastest_payback'),
+      'ai-audit': t('services.badges.small_business_choice'),
+      'ai-transformation': t('services.badges.comprehensive')
     };
     return badges[serviceId];
   };
@@ -159,10 +161,10 @@ const Catalog: React.FC = () => {
         <AnimatedSection>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Каталог <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">ИИ-услуг</span>
+              {t('title')} <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{t('subtitle')}</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Выберите подходящее решение для автоматизации и оптимизации
+              {t('description')}
             </p>
           </div>
         </AnimatedSection>
@@ -177,7 +179,7 @@ const Catalog: React.FC = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-300 h-5 w-5" />
                 <input
                   type="text"
-                  placeholder="Поиск по услугам..."
+                  placeholder={t('search.placeholder')}
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full pl-10 pr-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent text-white placeholder-gray-300"
@@ -190,8 +192,8 @@ const Catalog: React.FC = () => {
                   onChange={(e) => setSortBy(e.target.value as 'name' | 'price')}
                   className="px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent text-white"
                 >
-                  <option value="name">По названию</option>
-                  <option value="price">По цене</option>
+                  <option value="name">{t('filters.by_name')}</option>
+                  <option value="price">{t('filters.by_price')}</option>
                 </select>
               </div>
             </div>
@@ -202,7 +204,7 @@ const Catalog: React.FC = () => {
         {showTariffs && (
           <div className="mt-4 mb-16">
             <AnimatedSection>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">Тарифы и программы</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6">{t('tariffs.title')}</h2>
             </AnimatedSection>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {tariffs
@@ -225,7 +227,7 @@ const Catalog: React.FC = () => {
         <AnimatedSection>
           <div className="my-12 flex items-center">
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            <div className="px-6 text-white/60 text-sm font-medium">Дополнительные услуги</div>
+            <div className="px-6 text-white/60 text-sm font-medium">{t('services.title')}</div>
             <div className="flex-1 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           </div>
         </AnimatedSection>
@@ -252,7 +254,7 @@ const Catalog: React.FC = () => {
           <AnimatedSection>
             <div className="text-center py-12">
               <p className="text-gray-300 text-lg">
-                По вашему запросу ничего не найдено. Попробуйте изменить параметры поиска.
+                {t('search.no_results')}
               </p>
             </div>
           </AnimatedSection>
@@ -262,17 +264,16 @@ const Catalog: React.FC = () => {
         <AnimatedSection delay={300}>
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 mt-16 text-center text-white">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">
-              Не нашли подходящее решение?
+              {t('cta.title')}
             </h2>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-              Мы создаем индивидуальные ИИ-решения под ваши специфические задачи. 
-              Свяжитесь с нами для обсуждения вашего проекта.
+              {t('cta.description')}
             </p>
             <button 
               onClick={handleConsultation}
               className="px-8 py-4 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 transform hover:scale-105"
             >
-              Заказать индивидуальное решение
+              {t('cta.button')}
             </button>
           </div>
         </AnimatedSection>

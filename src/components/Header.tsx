@@ -2,11 +2,12 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { createPortal } from 'react-dom';
-import { Brain, MessageCircle, Bot } from 'lucide-react';
+import { Brain, Bot } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 import { useChatbot } from '@/contexts/ChatbotContext';
 import { useNavigateWithScroll } from '@/utils/navigation';
-import ConsultationModal from './ConsultationModal';
+import LanguageSwitcher from './common/LanguageSwitcher';
+import { useTranslation } from 'react-i18next';
 
 const Header: React.FC = () => {
   const location = useLocation();
@@ -14,8 +15,8 @@ const Header: React.FC = () => {
   const navigateWithScroll = useNavigateWithScroll(navigate);
   const { user, signOut } = useAuth();
   const { setIsOpen: setChatbotOpen } = useChatbot();
+  const { t } = useTranslation('header');
 
-  const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const lastScrollYRef = useRef(0);
@@ -23,20 +24,16 @@ const Header: React.FC = () => {
   const headerRef = useRef<HTMLDivElement>(null);
 
   const navItems = [
-    { path: '/catalog', label: 'Каталог' },
-    { path: '/token-calculator', label: 'Калькулятор' },
-    { path: '/academy', label: 'Обучение' },
-    { path: '/reviews', label: 'Отзывы' },
-    { path: '/about', label: 'О нас' },
-    { path: '/contact', label: 'Контакты' }
+    { path: '/catalog', label: t('nav.catalog') },
+    { path: '/token-calculator', label: t('nav.calculator') },
+    { path: '/academy', label: t('nav.academy') },
+    { path: '/reviews', label: t('nav.reviews') },
+    { path: '/about', label: t('nav.about') },
+    { path: '/contact', label: t('nav.contact') }
   ];
 
   const handleSignOut = async () => { await signOut(); };
 
-  const handleConsultation = () => {
-    if (!user) { window.location.href = '/login'; return; }
-    setIsConsultationModalOpen(true);
-  };
 
   // Аккуратное открытие чат-бота: сначала закрываем меню и снимаем lock, потом открываем чат
   const handleChatbotOpen = () => {
@@ -161,7 +158,7 @@ const Header: React.FC = () => {
                 <Brain className="h-6 w-6 text-white" />
               </motion.div>
               <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                NeuroBoost
+                {t('brand')}
               </span>
             </motion.button>
 
@@ -190,49 +187,40 @@ const Header: React.FC = () => {
               ))}
             </nav>
 
+            {/* Language Switcher between nav (e.g., Контакты) and auth buttons */}
+            <div className="hidden md:block mx-2">
+              <LanguageSwitcher />
+            </div>
+
             <div className="flex items-center space-x-3 sm:space-x-4">
               {user ? (
                 <div className="hidden md:flex items-center space-x-3 md:space-x-4">
                   <button
-                    onClick={handleConsultation}
-                    className="hidden sm:flex items-center px-3 py-2 text-sm font-medium text-green-600 hover:text-green-800 transition-colors border border-green-600/50 rounded-lg hover:bg-green-500/20 "
-                  >
-                    <MessageCircle className="h-4 w-4 mr-1" />
-                    Консультация
-                  </button>
-                  <button
                     onClick={() => handleLinkClick('/lk')}
                     className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors hidden md:inline"
                   >
-                    Личный кабинет
+                    {t('auth.profile')}
                   </button>
                   <button
                     onClick={handleSignOut}
                     className="text-sm font-medium text-gray-700 hover:text-red-600 transition-colors hidden md:inline"
                   >
-                    Выйти
+                    {t('auth.logout')}
                   </button>
                 </div>
               ) : (
                 <div className="hidden md:flex items-center space-x-3 md:space-x-4">
                   <button
-                    onClick={handleConsultation}
-                    className="hidden sm:flex items-center px-3 py-2 text-sm font-medium text-green-600 hover:text-green-800 transition-colors border border-green-600/50 rounded-lg hover:bg-green-500/20 "
-                  >
-                    <MessageCircle className="h-4 w-4 mr-1" />
-                    Консультация
-                  </button>
-                  <button
                     onClick={() => handleLinkClick('/login')}
                     className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors hidden md:inline"
                   >
-                    Войти
+                    {t('auth.login')}
                   </button>
                   <button
                     onClick={() => handleLinkClick('/register')}
                     className="hidden md:inline px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all "
                   >
-                    Регистрация
+                    {t('auth.register')}
                   </button>
                 </div>
               )}
@@ -241,7 +229,7 @@ const Header: React.FC = () => {
               <div className="md:hidden">
                 <button
                   className="text-gray-700 hover:text-blue-600 transition-colors p-2 rounded-lg hover:bg-gray-100"
-                  aria-label="Открыть меню"
+                  aria-label={t('menu.open')}
                   onClick={() => setIsMobileMenuOpen(true)}
                 >
                   <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -302,8 +290,16 @@ const Header: React.FC = () => {
 
               {/* Scrollable content area only */}
               <div className="h-[calc(100%-3rem)] overflow-y-auto px-4 py-3">
+                {/* Language Switcher for Mobile */}
+                <div className="mb-4">
+                  <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider mb-2">
+                    {t('menu.language')}
+                  </div>
+                  <LanguageSwitcher />
+                </div>
+                
                 <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider mb-3">
-                  Навигация
+                  {t('menu.navigation')}
                 </div>
                 <div className="space-y-2 mb-4">
                   {navItems.map((item) => (
@@ -322,25 +318,19 @@ const Header: React.FC = () => {
                 </div>
 
                 <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider mb-3">
-                  Помощь
+                  {t('menu.help')}
                 </div>
                 <div className="space-y-3 mb-6">
                   <button
                     onClick={handleChatbotOpen}
                     className="w-full flex items-center justify-center px-4 py-3 text-base font-medium text-blue-600 border border-blue-600 rounded-xl hover:bg-blue-50 transition-colors"
                   >
-                    <Bot className="h-5 w-5 mr-2" /> Умный помощник
-                  </button>
-                  <button
-                    onClick={handleConsultation}
-                    className="w-full flex items-center justify-center px-4 py-3 text-base font-medium text-green-600 border border-green-600 rounded-xl hover:bg-green-50 transition-colors"
-                  >
-                    <MessageCircle className="h-5 w-5 mr-2" /> Консультация
+                    <Bot className="h-5 w-5 mr-2" /> {t('assistant')}
                   </button>
                 </div>
 
                 <div className="text-xs font-semibold text-gray-700 uppercase tracking-wider mb-3">
-                  Аккаунт
+                  {t('menu.account')}
                 </div>
                 <div className="space-y-3 pb-4">
                   {user ? (
@@ -349,13 +339,13 @@ const Header: React.FC = () => {
                         onClick={() => handleLinkClick('/lk')}
                         className="w-full px-4 py-3 text-base font-medium text-gray-700 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors"
                       >
-                        Личный кабинет
+                        {t('auth.profile')}
                       </button>
                       <button
                         onClick={handleSignOut}
                         className="w-full px-4 py-3 text-base font-medium text-white bg-red-600 rounded-xl hover:bg-red-700 transition-colors"
                       >
-                        Выйти
+                        {t('auth.logout')}
                       </button>
                     </>
                   ) : (
@@ -364,13 +354,13 @@ const Header: React.FC = () => {
                         onClick={() => handleLinkClick('/login')}
                         className="w-full px-4 py-3 text-base font-medium text-gray-700 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors"
                       >
-                        Войти
+                        {t('auth.login')}
                       </button>
                       <button
                         onClick={() => handleLinkClick('/register')}
                         className="w-full px-4 py-3 text-base font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all"
                       >
-                        Регистрация
+                        {t('auth.register')}
                       </button>
                     </>
                   )}
@@ -382,10 +372,6 @@ const Header: React.FC = () => {
         )
       }
 
-      <ConsultationModal
-        isOpen={isConsultationModalOpen}
-        onClose={() => setIsConsultationModalOpen(false)}
-      />
     </>
   );
 };

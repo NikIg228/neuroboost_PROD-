@@ -1,0 +1,359 @@
+{
+  "about": {
+    "title": "About NeuroBoost",
+    "subtitle": "We are a team of artificial intelligence experts who help businesses use AI capabilities to solve real problems and achieve specific results.",
+    "mission": {
+      "title": "Our Mission",
+      "content1": "Make artificial intelligence accessible and useful for every business. We believe that AI should solve real problems and bring measurable benefits.",
+      "content2": "Our goal is not just to implement technologies, but to create sustainable competitive advantage for our clients through smart automation and process optimization."
+    },
+    "stats": {
+      "countries": "countries",
+      "projects": "projects",
+      "efficiency": "efficiency growth",
+      "implementation": "days implementation",
+      "implementationValue": "from 5"
+    },
+    "values": {
+      "title": "Our Values",
+      "effectiveness": {
+        "title": "Effectiveness",
+        "description": "Every solution is aimed at achieving specific business goals"
+      },
+      "reliability": {
+        "title": "Reliability",
+        "description": "We guarantee data security and stable system operation"
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We use the most advanced AI and machine learning technologies"
+      },
+      "partnership": {
+        "title": "Partnership",
+        "description": "We are not just contractors, but long-term partners in development"
+      }
+    },
+    "team": {
+      "title": "Our Team",
+      "members": [
+        {
+          "name": "Ablay Kenzhebek",
+          "position": "CEO & AI Architect",
+          "experience": "8+ years in AI",
+          "description": "Expert in machine learning and neural networks"
+        },
+        {
+          "name": "Maria Schmidt",
+          "position": "CTO",
+          "experience": "6+ years in development",
+          "description": "Specialist in corporate AI solutions implementation"
+        },
+        {
+          "name": "Nikita Shevchenko",
+          "position": "Lead Data Scientist",
+          "experience": "7+ years in Data Science",
+          "description": "Expert in data analysis and forecasting"
+        },
+        {
+          "name": "Georgy Lobanov",
+          "position": "Head of Business Development",
+          "experience": "5+ years in consulting",
+          "description": "Specialist in business processes and automation"
+        }
+      ]
+    },
+    "approach": {
+      "title": "Our Approach",
+      "analysis": {
+        "title": "Analysis and Audit",
+        "description": "Deep study of your business processes and identification of growth points"
+      },
+      "development": {
+        "title": "Solution Development",
+        "description": "Creating individual AI solutions for your specific tasks"
+      },
+      "implementation": {
+        "title": "Implementation and Support",
+        "description": "Quick implementation with team training and long-term support"
+      }
+    },
+    "cta": {
+      "title": "Ready to work with the best?",
+      "subtitle": "Join hundreds of companies that already use AI power to develop their business",
+      "button": "Start Cooperation"
+    },
+    "modal": {
+      "title": "Start Cooperation",
+      "success": {
+        "title": "Application Sent!",
+        "message": "We will contact you soon"
+      },
+      "form": {
+        "name": "Your Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company",
+        "message": "Message",
+        "placeholders": {
+          "name": "Enter your name",
+          "email": "your@email.com",
+          "phone": "+7 (777) 123-45-67",
+          "company": "Company name",
+          "message": "Tell us about your project or tasks..."
+        },
+        "submit": "Send Application"
+      }
+    }
+  },
+  "academy": {
+    "badge": "Professional Training",
+    "title": "AI Integrators Academy",
+    "subtitle": "Master the implementation of ChatGPT/Claude/Google AI/ElevenLabs in real business processes and start earning on projects and client training.",
+    "buttons": {
+      "apply": "Apply Now",
+      "program": "Training Program"
+    },
+    "stats": [
+      "graduates start earning in the first month",
+      "average income after 3 months",
+      "real projects in portfolio",
+      "support after graduation"
+    ],
+    "outcomes": {
+      "title": "What You'll Get",
+      "expertise": {
+        "title": "Technical Expertise",
+        "description": "Deep understanding of AI models and their applications"
+      },
+      "skills": {
+        "title": "Practical Skills",
+        "description": "Ability to create and implement AI solutions from scratch"
+      },
+      "business": {
+        "title": "Business Approach",
+        "description": "Sales skills and AI services positioning"
+      },
+      "networking": {
+        "title": "Networking",
+        "description": "Community of like-minded people and potential partners"
+      }
+    },
+    "program": {
+      "title": "Training Program",
+      "modules": [
+        {
+          "title": "Module 1: AI Fundamentals and Needs Analysis",
+          "duration": "1 week",
+          "topics": [
+            "What is AI and how it works",
+            "Differences between GPT, Claude, Gemini models",
+            "Business process analysis methodology",
+            "Identifying tasks suitable for automation",
+            "ROI calculation for AI implementation"
+          ]
+        },
+        {
+          "title": "Module 2: Prompt Engineering and Model Configuration",
+          "duration": "1.5 weeks",
+          "topics": [
+            "Techniques for writing effective prompts",
+            "System messages and context",
+            "Fine-tuning and model customization",
+            "A/B testing of prompts",
+            "Token usage optimization"
+          ]
+        },
+        {
+          "title": "Module 3: Technical Integration",
+          "duration": "2 weeks",
+          "topics": [
+            "API integrations (OpenAI, Anthropic, Google)",
+            "CRM system connections",
+            "Creating Telegram and WhatsApp bots",
+            "Website and landing page integration",
+            "Monitoring and logging"
+          ]
+        },
+        {
+          "title": "Module 4: Business and Sales",
+          "duration": "1 week",
+          "topics": [
+            "Creating commercial proposals",
+            "AI services pricing",
+            "Presenting solutions to clients",
+            "Handling objections",
+            "Legal aspects and contracts"
+          ]
+        }
+      ]
+    },
+    "summary": {
+      "title": "Brief Program",
+      "items": [
+        "Business tasks and processes analysis",
+        "Model selection: ChatGPT/Claude/Google AI/others",
+        "Prompt engineering and dialogue design",
+        "Integrations: CRM, Telegram, website",
+        "API cost accounting and reporting",
+        "Security, compliance and legal foundations",
+        "Commercial proposals and solution protection",
+        "Pilot launch and support"
+      ],
+      "format": "Format:",
+      "duration": "Duration:",
+      "certificate": "Certificate:",
+      "formatValue": "online modules + practice on real cases",
+      "durationValue": "5-6 weeks",
+      "certificateValue": "NeuroBoost (not state-issued)"
+    },
+    "application": {
+      "title": "Training Application"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": [
+        {
+          "q": "How long does the program last?",
+          "a": "5-6 weeks of intensive training with flexible schedule. You can combine with your main job."
+        },
+        {
+          "q": "Do I need programming skills?",
+          "a": "Basic API understanding is desirable, but we teach from scratch. The main thing is motivation and desire to learn."
+        },
+        {
+          "q": "Will there be support after graduation?",
+          "a": "Yes! Access to graduate community, monthly webinars and priority technical support."
+        },
+        {
+          "q": "How much can I earn?",
+          "a": "Our graduates earn from ₸100k in the first month to ₸500k+ after six months."
+        },
+        {
+          "q": "Do you provide employment?",
+          "a": "We help find first clients and can offer cooperation with NeuroBoost."
+        },
+        {
+          "q": "Can I pay in installments?",
+          "a": "Yes, installment plans are available for 3-6 months without overpayments for Kazakhstan residents."
+        }
+      ]
+    },
+    "disclaimer": "NeuroBoost certificate is not a state-issued document."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to discuss your project? Leave an application and we will contact you within 30 minutes",
+    "form": {
+      "title": "Get Consultation",
+      "success": {
+        "title": "Application Sent!",
+        "message": "We will contact you soon"
+      },
+      "fields": {
+        "name": "Your Name",
+        "email": "Email",
+        "phone": "Phone",
+        "company": "Company",
+        "service": "Service of Interest",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Enter your name",
+        "email": "your@email.com",
+        "phone": "+7 (777) 123-45-67",
+        "company": "Company name",
+        "service": "Select service",
+        "message": "Tell us about your project or tasks..."
+      },
+      "submit": "Send Application"
+    },
+    "info": [
+      {
+        "title": "Email",
+        "content": "galuza_nikita@mail.ru",
+        "description": "We'll respond within 30 minutes"
+      },
+      {
+        "title": "Phone",
+        "content": "+7 (707) 506 29 00",
+        "description": "Call from 9:00 to 18:00"
+      },
+      {
+        "title": "Office",
+        "content": "Almaty, Dulatova St. 53",
+        "description": "Turksib district, 050003"
+      },
+      {
+        "title": "Working Hours",
+        "content": "Mon-Fri: 9:00 - 18:00",
+        "description": "Sat-Sun: by appointment"
+      }
+    ],
+    "whyUs": {
+      "title": "Why Choose Us",
+      "responseTime": "response time",
+      "satisfiedClients": "satisfied clients",
+      "successfulProjects": "successful projects",
+      "support": "technical support"
+    },
+    "services": [
+      "AI Business Audit",
+      "ChatGPT Consultant",
+      "Application Automation",
+      "Text Generator",
+      "AI Cold Outreach",
+      "Speech Analytics",
+      "Reputation Management",
+      "Sales Forecasting",
+      "Social Media Content",
+      "Messenger Bots",
+      "AI Recruiter",
+      "Document Processing",
+      "CRM Assistant",
+      "AI for Accounting",
+      "Image Generation",
+      "Competitor Analysis",
+      "VoiceBot",
+      "AI for Courses",
+      "Custom GPT",
+      "AI Transformation"
+    ],
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "questions": [
+        {
+          "q": "How long does implementation take?",
+          "a": "Depending on project complexity — from 5 days to 2 months. We can launch simple solutions in a week."
+        },
+        {
+          "q": "Do you provide technical support?",
+          "a": "Yes, all our clients receive 24/7 technical support and regular system updates."
+        },
+        {
+          "q": "Can I try the solution before buying?",
+          "a": "We offer demo versions and pilot projects so you can evaluate the solution's effectiveness."
+        },
+        {
+          "q": "Do you work with small businesses?",
+          "a": "Yes, we have solutions for companies of any size — from startups to large corporations."
+        }
+      ]
+    }
+  },
+  "reviews": {
+    "title": "Client Reviews",
+    "subtitle": "Learn what our clients say about the results of AI solutions implementation",
+    "rating": "4.9/5",
+    "reviewsCount": "reviews",
+    "pagination": {
+      "back": "Back",
+      "forward": "Forward"
+    },
+    "results": {
+      "title": "Our Clients' Results",
+      "satisfiedClients": "clients satisfied with results",
+      "efficiencyGrowth": "average efficiency growth",
+      "paybackPeriod": "average payback period"
+    }
+  }
+}

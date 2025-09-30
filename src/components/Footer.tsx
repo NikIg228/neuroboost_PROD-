@@ -6,12 +6,14 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useNavigateWithScroll } from '@/utils/navigation';
 import { Brain, Mail, Phone, MessageCircle, Shield } from 'lucide-react';
 import ConsultationModal from './ConsultationModal';
+import { useTranslation } from 'react-i18next';
 
 const Footer: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const navigateWithScroll = useNavigateWithScroll(navigate);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
+  const { t } = useTranslation('footer');
 
   const handleConsultation = () => {
     if (!user) {
@@ -61,20 +63,17 @@ const Footer: React.FC = () => {
                 >
                   <Brain className="h-6 w-6 text-white" />
                 </motion.div>
-                <span className="text-xl font-bold">NeuroBoost</span>
+                <span className="text-xl font-bold">{t('company.name')}</span>
               </motion.div>
-              <p className="text-gray-400 mb-4 max-w-md">
-                Мы помогаем бизнесам внедрять ИИ-решения для автоматизации процессов, 
-                увеличения продаж и повышения эффективности работы.
-              </p>
+              <p className="text-gray-400 mb-4 max-w-md">{t('company.description')}</p>
               <div className="space-y-2 mb-4">
                 <div className="flex items-center text-gray-400">
                   <Mail className="h-4 w-4 mr-2" />
-                  <span>galuza_nikita@mail.ru</span>
+                  <span>{t('contact.email')}</span>
                 </div>
                 <div className="flex items-center text-gray-400">
                   <Phone className="h-4 w-4 mr-2" />
-                  <span>+7 (707) 506 29 00</span>
+                  <span>{t('contact.phone')}</span>
                 </div>
               </div>
               
@@ -83,26 +82,25 @@ const Footer: React.FC = () => {
                 className="flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all mb-4"
               >
                 <MessageCircle className="h-4 w-4 mr-2" />
-                Получить консультацию
+                {t('contact.consultation')}
               </button>
               
               <div className="text-gray-400 text-sm">
-                <p className="font-semibold mb-1">ТОО "Ворлд Трейд"</p>
-                <p>БИН: 240740019557</p>
-                <p>Казахстан, г. Алматы, Турксибский район,</p>
-                <p>ул. Дулатова 53, 050003</p>
+                <p className="font-semibold mb-1">{t('company_info.name')}</p>
+                <p>{t('company_info.bin')}</p>
+                <p>{t('company_info.address')}</p>
               </div>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4">Услуги</h3>
+              <h3 className="text-lg font-semibold mb-4">{t('sections.services')}</h3>
               <ul className="space-y-2">
                 <li>
                   <button 
                     onClick={() => handleLinkClick('/catalog')} 
                     className="text-gray-400 hover:text-white transition-colors text-left"
                   >
-                    AI-Аудит бизнеса
+                    {t('services.ai_audit')}
                   </button>
                 </li>
                 <li>
@@ -110,7 +108,7 @@ const Footer: React.FC = () => {
                     onClick={() => handleLinkClick('/catalog')} 
                     className="text-gray-400 hover:text-white transition-colors text-left"
                   >
-                    ChatGPT-консультант
+                    {t('services.chatgpt_consultant')}
                   </button>
                 </li>
                 <li>
@@ -118,7 +116,7 @@ const Footer: React.FC = () => {
                     onClick={() => handleLinkClick('/catalog')} 
                     className="text-gray-400 hover:text-white transition-colors text-left"
                   >
-                    Автоматизация заявок
+                    {t('services.request_automation')}
                   </button>
                 </li>
                 <li>
@@ -126,21 +124,21 @@ const Footer: React.FC = () => {
                     onClick={() => handleLinkClick('/catalog')} 
                     className="text-gray-400 hover:text-white transition-colors text-left"
                   >
-                    Все услуги
+                    {t('services.all_services')}
                   </button>
                 </li>
               </ul>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-4">Юридическая информация</h3>
+              <h3 className="text-lg font-semibold mb-4">{t('sections.legal')}</h3>
               <ul className="space-y-2">
                 <li>
                   <button 
                     onClick={() => handleLinkClick('/privacy-policy')} 
                     className="text-gray-400 hover:text-white transition-colors text-left"
                   >
-                    Политика конфиденциальности
+                    {t('legal.privacy_policy')}
                   </button>
                 </li>
                 <li>
@@ -148,7 +146,7 @@ const Footer: React.FC = () => {
                     onClick={() => handleLinkClick('/public-offer')} 
                     className="text-gray-400 hover:text-white transition-colors text-left"
                   >
-                    Публичная оферта
+                    {t('legal.public_offer')}
                   </button>
                 </li>
                 <li>
@@ -156,7 +154,7 @@ const Footer: React.FC = () => {
                     onClick={() => handleLinkClick('/consent')} 
                     className="text-gray-400 hover:text-white transition-colors text-left"
                   >
-                    Согласие на обработку данных
+                    {t('legal.data_consent')}
                   </button>
                 </li>
                 <li>
@@ -164,7 +162,7 @@ const Footer: React.FC = () => {
                     onClick={() => handleLinkClick('/telegram-agreement')} 
                     className="text-gray-400 hover:text-white transition-colors text-left"
                   >
-                    Пользовательское соглашение Telegram-бота
+                    {t('legal.telegram_agreement')}
                   </button>
                 </li>
               </ul>
@@ -175,7 +173,7 @@ const Footer: React.FC = () => {
           <div className="border-t border-gray-800 mt-8 pt-8">
             <div className="flex flex-col md:flex-row items-center justify-between">
               <div className="flex items-center space-x-6 mb-4 md:mb-0">
-                <span className="text-gray-400 text-sm">Принимаем к оплате:</span>
+                <span className="text-gray-400 text-sm">{t('payment.accepted')}</span>
                 <div className="flex items-center space-x-4">
                   {paymentSystems.map((system, index) => (
                     <div key={index} className="flex items-center space-x-1 text-gray-400">
@@ -186,13 +184,13 @@ const Footer: React.FC = () => {
               </div>
               <div className="flex items-center space-x-2 text-green-400">
                 <Shield className="h-4 w-4" />
-                <span className="text-sm font-medium">🔒 SSL Secured</span>
+                <span className="text-sm font-medium">🔒 {t('payment.secured')}</span>
               </div>
             </div>
           </div>
 
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 NeuroBoost. Все права защищены.</p>
+            <p>{t('copyright')}</p>
           </div>
         </div>
       </motion.footer>

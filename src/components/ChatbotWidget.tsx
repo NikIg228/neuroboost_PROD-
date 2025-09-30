@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { MessageCircle, X, Send, Bot, User, Loader2, Maximize2, Minimize2 } from 'lucide-react';
 import { useChatbot } from '@/contexts/ChatbotContext';
 
@@ -8,6 +9,7 @@ interface ChatbotWidgetProps {
 }
 
 const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
+  const { t } = useTranslation('components');
   const { isOpen, setIsOpen, messages, addMessage, isLoading, setIsLoading } = useChatbot();
   const [isExpanded, setIsExpanded] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -33,7 +35,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
     if (isOpen && messages.length === 0) {
       const welcomeMessage = {
         id: Date.now(),
-        text: "Привет! Я умный помощник от NeuroBoost! Задавайте любой вопрос!",
+        text: t('chatbot.welcomeMessage'),
         isUser: false,
         timestamp: new Date()
       };
@@ -114,7 +116,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
       });
 
       if (!response.ok) {
-        throw new Error('Ошибка сервера');
+        throw new Error(t('chatbot.serverError'));
       }
 
       const data = await response.json();
@@ -126,7 +128,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
     } catch (error) {
       console.error('Ошибка отправки сообщения:', error);
       addMessage({
-        text: 'Извините, произошла ошибка. Попробуйте еще раз или обратитесь в поддержку.',
+        text: t('chatbot.errorMessage'),
         isUser: false
       });
     } finally {
@@ -252,15 +254,15 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                     <Bot className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">Умный помощник</h3>
-                    <p className="text-xs text-blue-100">NeuroBoost AI</p>
+                    <h3 className="font-semibold">{t('chatbot.title')}</h3>
+                    <p className="text-xs text-blue-100">{t('chatbot.subtitle')}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
                   <motion.button
                     onClick={handleClose}
                     className="text-white/80 hover:text-white transition-colors p-1 rounded hover:bg-white/10"
-                    title="Закрыть"
+                    title={t('chatbot.close')}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                   >
@@ -310,7 +312,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                       <div className="bg-gray-100 rounded-2xl px-4 py-2">
                         <div className="flex items-center space-x-1">
                           <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
-                          <span className="text-sm text-gray-500">Думает...</span>
+                          <span className="text-sm text-gray-500">{t('chatbot.thinking')}</span>
                         </div>
                       </div>
                     </div>
@@ -329,7 +331,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={handleKeyPress}
-                      placeholder={isLoading ? "Думает... (можно продолжать писать)" : "Напишите ваш вопрос..."}
+                      placeholder={isLoading ? t('chatbot.placeholderLoading') : t('chatbot.placeholder')}
                       className={`flex-1 rounded-xl border px-3 py-2 outline-none border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition-all duration-200 ${
                         isLoading 
                           ? 'border-blue-300 bg-blue-50 opacity-60' 
@@ -346,7 +348,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                     </button>
                   </div>
                   <p className="text-xs text-gray-500 mt-2 text-center">
-                    Нажмите Enter для отправки
+                    {t('chatbot.sendHint')}
                   </p>
                 </div>
             </motion.div>
@@ -375,15 +377,15 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                   <Bot className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">Умный помощник</h3>
-                  <p className="text-xs text-blue-100">NeuroBoost AI</p>
+                  <h3 className="font-semibold">{t('chatbot.title')}</h3>
+                  <p className="text-xs text-blue-100">{t('chatbot.subtitle')}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
                 <motion.button
                   onClick={handleExpand}
                   className="text-white/80 hover:text-white transition-colors p-1 rounded hover:bg-white/10"
-                  title={isExpanded ? "Свернуть" : "Развернуть"}
+                  title={isExpanded ? t('chatbot.minimize') : t('chatbot.expand')}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -397,7 +399,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                 <motion.button
                   onClick={handleClose}
                   className="text-white/80 hover:text-white transition-colors p-1 rounded hover:bg-white/10"
-                  title="Закрыть"
+                  title={t('chatbot.close')}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                 >
@@ -447,7 +449,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                     <div className="bg-gray-100 rounded-2xl px-4 py-2">
                       <div className="flex items-center space-x-1">
                         <Loader2 className="h-4 w-4 animate-spin text-gray-500" />
-                        <span className="text-sm text-gray-500">Думает...</span>
+                        <span className="text-sm text-gray-500">{t('chatbot.thinking')}</span>
                       </div>
                     </div>
                   </div>
@@ -467,7 +469,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder={isLoading ? "Думает... (можно продолжать писать)" : "Напишите ваш вопрос..."}
+                  placeholder={isLoading ? t('chatbot.placeholderLoading') : t('chatbot.placeholder')}
                   className={`flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition-all duration-200 ${
                     isLoading 
                       ? 'border-blue-300 bg-blue-50' 
@@ -483,7 +485,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                 </button>
               </div>
               <p className="text-xs text-gray-500 mt-2 text-center">
-                Нажмите Enter для отправки
+                {t('chatbot.sendHint')}
               </p>
             </div>
           </motion.div>

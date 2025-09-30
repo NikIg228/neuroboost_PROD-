@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { reviews } from '@/data/reviews';
 import { services } from '@/data/services';
 import ReviewCard from '@/components/ReviewCard';
@@ -8,6 +9,7 @@ import { Service } from '@/types/index';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 const Reviews: React.FC = () => {
+  const { t } = useTranslation('pages');
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -41,10 +43,10 @@ const Reviews: React.FC = () => {
         <AnimatedSection>
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Отзывы <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">клиентов</span>
+              {t('reviews.title')} <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">клиентов</span>
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-              Узнайте, что говорят наши клиенты о результатах внедрения ИИ-решений
+              {t('reviews.subtitle')}
             </p>
             
             <div className="flex justify-center items-center gap-2 mb-8">
@@ -53,8 +55,8 @@ const Reviews: React.FC = () => {
                   <Star key={i} className="h-6 w-6 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <span className="text-lg font-semibold text-gray-900 ml-2">4.9/5</span>
-              <span className="text-gray-600">({reviews.length} отзывов)</span>
+              <span className="text-lg font-semibold text-gray-900 ml-2">{t('reviews.rating')}</span>
+              <span className="text-gray-600">({reviews.length} {t('reviews.reviewsCount')})</span>
             </div>
           </div>
         </AnimatedSection>
@@ -80,7 +82,7 @@ const Reviews: React.FC = () => {
               className="flex items-center px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
               <ChevronLeft className="h-4 w-4 mr-1" />
-              Назад
+              {t('reviews.pagination.back')}
             </button>
 
             <div className="flex space-x-1">
@@ -107,7 +109,7 @@ const Reviews: React.FC = () => {
               disabled={currentPage === totalPages}
               className="flex items-center px-4 py-2 text-gray-600 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
             >
-              Вперед
+              {t('reviews.pagination.forward')}
               <ChevronRight className="h-4 w-4 ml-1" />
             </button>
           </div>
@@ -117,20 +119,20 @@ const Reviews: React.FC = () => {
         <AnimatedSection delay={200}>
           <div className="bg-white rounded-2xl shadow-lg p-8 mt-16">
             <h2 className="text-2xl font-bold text-center text-gray-900 mb-8">
-              Результаты наших клиентов
+              {t('reviews.results.title')}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">95%</div>
-                <div className="text-gray-600">клиентов довольны результатом</div>
+                <div className="text-gray-600">{t('reviews.results.satisfiedClients')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-purple-600 mb-2">200%</div>
-                <div className="text-gray-600">средний рост эффективности</div>
+                <div className="text-gray-600">{t('reviews.results.efficiencyGrowth')}</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-blue-600 mb-2">3 мес</div>
-                <div className="text-gray-600">окупаемость в среднем</div>
+                <div className="text-gray-600">{t('reviews.results.paybackPeriod')}</div>
               </div>
             </div>
           </div>

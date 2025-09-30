@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { X, MessageCircle } from 'lucide-react';
 
 interface ConsultationModalProps {
@@ -8,6 +9,8 @@ interface ConsultationModalProps {
 }
 
 const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }) => {
+  const { t } = useTranslation('components');
+  
   const handleTelegramRedirect = () => {
     window.open('https://t.me/neurboosthelpbot', '_blank');
     onClose();
@@ -45,7 +48,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                 >
                   <MessageCircle className="h-6 w-6 text-blue-600" />
                 </motion.div>
-                <h2 className="text-xl font-bold text-gray-900">Консультация</h2>
+                <h2 className="text-xl font-bold text-gray-900">{t('consultation.title')}</h2>
               </div>
               <motion.button
                 onClick={onClose}
@@ -64,10 +67,10 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
               transition={{ delay: 0.3 }}
             >
               <p className="text-gray-600 mb-4">
-                Мы перенаправим вас в Telegram для связи с консультантом
+                {t('consultation.description')}
               </p>
               <p className="text-sm text-gray-500">
-                Наш эксперт ответит на все ваши вопросы и поможет выбрать подходящее решение
+                {t('consultation.subtitle')}
               </p>
             </motion.div>
 
@@ -83,7 +86,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                 whileHover={{ scale: 1.02, backgroundColor: "#f9fafb" }}
                 whileTap={{ scale: 0.98 }}
               >
-                Отмена
+                {t('consultation.cancel')}
               </motion.button>
               <motion.button
                 onClick={handleTelegramRedirect}
@@ -91,7 +94,7 @@ const ConsultationModal: React.FC<ConsultationModalProps> = ({ isOpen, onClose }
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Перейти
+                {t('consultation.proceed')}
               </motion.button>
             </motion.div>
           </motion.div>

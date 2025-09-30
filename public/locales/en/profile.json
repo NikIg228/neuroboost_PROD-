@@ -1,0 +1,41 @@
+{
+  "title": "Personal Account",
+  "logout": "Sign Out",
+  "profileInfo": {
+    "title": "Profile Information",
+    "name": "Name",
+    "email": "Email",
+    "newPassword": "New password (leave empty if you don't want to change)",
+    "newPasswordPlaceholder": "New password",
+    "saveChanges": "Save Changes",
+    "saving": "Saving...",
+    "success": "Profile updated successfully",
+    "error": "Error updating profile"
+  },
+  "stats": {
+    "title": "Statistics",
+    "totalOrders": "Total Orders",
+    "paidOrders": "Paid Orders"
+  },
+  "favorites": {
+    "title": "My Favorite Plans",
+    "empty": "You don't have any favorite plans yet",
+    "buy": "Buy",
+    "remove": "Remove from favorites"
+  },
+  "orders": {
+    "title": "Order History",
+    "empty": "You don't have any orders yet",
+    "service": "Service",
+    "amount": "Amount",
+    "status": "Status",
+    "date": "Date",
+    "statuses": {
+      "paid": "Paid",
+      "pending": "Pending Payment",
+      "cancelled": "Cancelled",
+      "failed": "Payment Failed"
+    }
+  },
+  "loading": "Loading..."
+}

@@ -1,133 +1,114 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import AnimatedSection from '@/components/AnimatedSection';
 
 const PrivacyPolicy: React.FC = () => {
+  const { t } = useTranslation('legal');
+  
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimatedSection>
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
-              Политика конфиденциальности
+              {t('privacyPolicy.title')}
             </h1>
             <p className="text-gray-600 mb-8">
-              ТОО "Ворлд Трейд" (NeuroBoost)(далее – Компания) в соответствии с требованиями Закона Республики Казахстан "О персональных данных и их защите".
+              {t('privacyPolicy.intro')}
             </p>
 
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Общие положения</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.general.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Настоящая Политика конфиденциальности определяет порядок обработки персональных данных 
-                и меры по обеспечению безопасности персональных данных, предпринимаемые NeuroBoost 
-                (далее – Компания) в соответствии с требованиями Закона Республики Казахстан "О персональных данных и их защите".
+                {t('privacyPolicy.sections.general.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Цели обработки персональных данных</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.purposes.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Компания обрабатывает персональные данные в следующих целях:
+                {t('privacyPolicy.sections.purposes.intro')}
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>Предоставление услуг по внедрению ИИ-решений</li>
-                <li>Консультирование клиентов</li>
-                <li>Выполнение договорных обязательств</li>
-                <li>Техническая поддержка</li>
-                <li>Информирование о новых услугах и продуктах</li>
-                <li>Проведение маркетинговых исследований</li>
+                {t('privacyPolicy.sections.purposes.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Виды обрабатываемых персональных данных</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.dataTypes.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Компания может обрабатывать следующие персональные данные:
+                {t('privacyPolicy.sections.dataTypes.intro')}
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>Фамилия, имя, отчество</li>
-                <li>Контактные данные (телефон, email, адрес)</li>
-                <li>Информация о компании и должности</li>
-                <li>Данные об использовании сайта и услуг</li>
-                <li>Другие данные, предоставленные субъектом добровольно</li>
+                {t('privacyPolicy.sections.dataTypes.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Способы обработки персональных данных</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.processingMethods.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Компания обрабатывает персональные данные как с использованием средств автоматизации, 
-                так и без их использования. Обработка включает сбор, запись, систематизацию, накопление, 
-                хранение, уточнение, извлечение, использование, передачу, обезличивание, блокирование, 
-                удаление и уничтожение персональных данных.
+                {t('privacyPolicy.sections.processingMethods.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Правовые основания обработки</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.legalBasis.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Правовыми основаниями обработки персональных данных являются:
+                {t('privacyPolicy.sections.legalBasis.intro')}
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>Согласие субъекта персональных данных</li>
-                <li>Необходимость исполнения договора</li>
-                <li>Необходимость соблюдения правовых обязательств</li>
-                <li>Защита жизненно важных интересов субъекта</li>
+                {t('privacyPolicy.sections.legalBasis.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">6. Сроки обработки персональных данных</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.retentionPeriod.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Персональные данные обрабатываются в течение срока, необходимого для достижения целей 
-                обработки, если иной срок не предусмотрен договором или законодательством. По истечении 
-                срока обработки персональные данные подлежат уничтожению либо обезличиванию.
+                {t('privacyPolicy.sections.retentionPeriod.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">7. Передача персональных данных третьим лицам</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.thirdPartyTransfer.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Компания не передает персональные данные третьим лицам, за исключением случаев, 
-                предусмотренных законодательством или с согласия субъекта персональных данных. 
-                Передача может осуществляться подрядчикам и партнерам для выполнения договорных обязательств.
+                {t('privacyPolicy.sections.thirdPartyTransfer.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">8. Меры защиты персональных данных</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.securityMeasures.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Компания принимает необходимые технические и организационные меры для защиты персональных данных:
+                {t('privacyPolicy.sections.securityMeasures.intro')}
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>Шифрование данных при передаче и хранении</li>
-                <li>Контроль доступа к персональным данным</li>
-                <li>Регулярное обновление систем безопасности</li>
-                <li>Обучение сотрудников вопросам защиты данных</li>
-                <li>Резервное копирование и восстановление данных</li>
+                {t('privacyPolicy.sections.securityMeasures.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">9. Права субъекта персональных данных</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.dataSubjectRights.title')}</h2>
               <p className="text-gray-700 mb-4">
-                Субъект персональных данных имеет право:
+                {t('privacyPolicy.sections.dataSubjectRights.intro')}
               </p>
               <ul className="list-disc pl-6 mb-6 text-gray-700">
-                <li>Получать информацию об обработке своих персональных данных</li>
-                <li>Требовать уточнения, блокирования или уничтожения персональных данных</li>
-                <li>Отзывать согласие на обработку персональных данных</li>
-                <li>Обращаться с жалобами в уполномоченный орган</li>
-                <li>Защищать свои права в судебном порядке</li>
+                {t('privacyPolicy.sections.dataSubjectRights.items', { returnObjects: true }).map((item: string, index: number) => (
+                  <li key={index}>{item}</li>
+                ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">10. Использование cookies</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.cookies.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Сайт использует файлы cookies для улучшения пользовательского опыта, анализа трафика 
-                и персонализации контента. Вы можете отключить cookies в настройках браузера, однако 
-                это может ограничить функциональность сайта.
+                {t('privacyPolicy.sections.cookies.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">11. Изменения в Политике конфиденциальности</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.policyChanges.title')}</h2>
               <p className="text-gray-700 mb-6">
-                Компания оставляет за собой право вносить изменения в настоящую Политику конфиденциальности. 
-                Актуальная версия размещается на сайте с указанием даты последнего обновления.
+                {t('privacyPolicy.sections.policyChanges.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">12. Контактная информация</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('privacyPolicy.sections.contactInfo.title')}</h2>
               <p className="text-gray-700 mb-4">
-                По вопросам обработки персональных данных обращайтесь:
+                {t('privacyPolicy.sections.contactInfo.intro')}
               </p>
               <div className="bg-gray-50 p-4 rounded-lg mb-6">
                 <p className="text-gray-700">
-                  <strong>ТОО "Ворлд Трейд" (NeuroBoost)</strong><br />
-                  БИН: 240740019557<br />
-                  Email: galuza_nikita@mail.ru<br />
-                  Телефон: +7 (707) 506 29 00<br />
-                  Адрес: Казахстан, г. Алматы, Турксибский район, ул. Дулатова 53, 050003
+                  <strong>{t('privacyPolicy.sections.contactInfo.company')}</strong><br />
+                  {t('privacyPolicy.sections.contactInfo.bin')}<br />
+                  {t('privacyPolicy.sections.contactInfo.email')}<br />
+                  {t('privacyPolicy.sections.contactInfo.phone')}<br />
+                  {t('privacyPolicy.sections.contactInfo.address')}
                 </p>
               </div>
             </div>

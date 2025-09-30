@@ -6,6 +6,7 @@ import { useCurrency } from '@/contexts/CurrencyContext';
 import { supabase } from '../lib/supabase';
 import { Service } from '@/types/index';
 import { CheckCircle, Heart, MessageCircle, Bot, Filter, Type, Image as ImageIcon, PhoneCall, LineChart, Zap, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface ServiceCardProps {
   service: Service;
@@ -31,6 +32,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const { user } = useAuth();
   const [favoriteLoading, setFavoriteLoading] = useState(false);
   const { formatPrice, convertPrice } = useCurrency();
+  const { t } = useTranslation('services');
 
   const getIconByService = (serviceId: string) => {
     switch (serviceId) {
@@ -56,31 +58,32 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   const getSubtitle = (serviceId: string): string => {
     switch (serviceId) {
       case 'request-automation':
-        return 'Сократи время обработки в 10 раз';
+        return t('subtitles.request-automation');
       case 'chatgpt-consultant':
-        return 'Умный ассистент 24/7 на вашем сайте';
+        return t('subtitles.chatgpt-consultant');
       case 'marketing-generator':
-        return 'Контент, который продаёт';
+        return t('subtitles.marketing-generator');
       case 'image-generation':
-        return 'Сэкономьте до 80% на дизайне';
+        return t('subtitles.image-generation');
       case 'voice-bot':
-        return 'Голосовой ИИ, как живой оператор';
+        return t('subtitles.voice-bot');
       case 'sales-analytics':
-        return 'Точность прогнозов до 95%';
+        return t('subtitles.sales-analytics');
       default:
         return '';
     }
   };
 
-  const getBadgeIcon = (badge: string) => {
-    switch (badge) {
-      case 'Самый популярный':
+  const getBadgeIcon = (serviceId: string) => {
+    // Иконку бейджа привязываем к serviceId, чтобы не зависеть от локализации текста
+    switch (serviceId) {
+      case 'chatgpt-consultant':
         return '🔥';
-      case 'Быстрее всего окупается':
+      case 'marketing-generator':
         return '⚡';
-      case 'Выбор малого бизнеса':
+      case 'ai-audit':
         return '💼';
-      case 'Комплексное внедрение':
+      case 'ai-transformation':
         return '🚀';
       default:
         return '⭐';
@@ -167,7 +170,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             animate={{ scale: 1, rotate: 0 }}
             transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
           >
-            <span className="mr-1">{getBadgeIcon(badge)}</span>
+            <span className="mr-1">{getBadgeIcon(service.id)}</span>
             {badge}
           </motion.div>
         )}
@@ -181,25 +184,25 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
       <div className="px-6 pt-8 pb-6 flex flex-col h-full">
         <h3 className="text-2xl font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors leading-tight">
-          {service.title}
+          {t(service.title)}
         </h3>
         {getSubtitle(service.id) && (
           <p className="text-sm text-blue-600/80 font-medium mb-4">{getSubtitle(service.id)}</p>
         )}
 
         <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-          {service.description}
+          {t(service.description)}
         </p>
 
         <div className="mb-6">
           <h4 className="text-sm font-semibold text-gray-900 mb-3 uppercase tracking-wide">
-            Что входит в услугу:
+            {t('labels.featuresTitle')}
           </h4>
           <ul className="space-y-2">
             {service.features.slice(0, 4).map((feature, index) => (
               <li key={index} className="flex items-start text-sm text-gray-700">
                 <CheckCircle className="h-4 w-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                <span>{feature}</span>
+                <span>{t(feature)}</span>
               </li>
             ))}
           </ul>
@@ -212,7 +215,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </div>
           </div>
           <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-200 text-xs text-blue-700">
-            Ежемесячное обслуживание: <strong>5%</strong> + ваши фактические расходы на <strong>API провайдера</strong>.
+            {t('labels.monthlyNote')}
           </div>
           <div className="flex gap-2">
             <motion.button 
@@ -225,7 +228,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              Купить
+              {t('labels.buy')}
             </motion.button>
             <motion.button 
               className="px-3 py-2 border border-green-600 text-green-600 font-semibold rounded-lg text-sm flex items-center"
@@ -238,7 +241,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               transition={{ type: "spring", stiffness: 300 }}
             >
               <MessageCircle className="h-4 w-4 mr-1" />
-              Консультация
+              {t('labels.consult')}
             </motion.button>
           </div>
           <motion.button 
@@ -251,7 +254,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             whileTap={{ scale: 0.98 }}
             transition={{ type: "spring", stiffness: 300 }}
           >
-            Подробнее
+            {t('labels.more')}
           </motion.button>
         </div>
       </div>

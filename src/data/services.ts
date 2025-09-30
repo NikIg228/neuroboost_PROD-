@@ -3,38 +3,38 @@ import { Service } from '@/types/index';
 export const services: Service[] = [
   {
     id: 'ai-audit',
-    title: 'AI-Аудит бизнеса',
-    description: 'Комплексный анализ бизнес-процессов вашей компании для выявления возможностей автоматизации с помощью искусственного интеллекта. Получите детальную дорожную карту внедрения ИИ-решений.',
+    title: 'services:ai-audit.title',
+    description: 'services:ai-audit.description',
     price: '74 990 тг',
     benefits: [
-      'Выявление узких мест в бизнес-процессах',
-      'Рекомендации по внедрению ИИ-решений',
-      'Оценка потенциальной экономии',
-      'Дорожная карта цифровой трансформации'
+      'services:ai-audit.benefits.0',
+      'services:ai-audit.benefits.1',
+      'services:ai-audit.benefits.2',
+      'services:ai-audit.benefits.3'
     ],
     features: [
-      'Анализ до 20 бизнес-процессов',
-      'Отчет с визуализацией данных',
-      'Консультация с экспертом',
-      'Гарантия качества 30 дней'
+      'services:ai-audit.features.0',
+      'services:ai-audit.features.1',
+      'services:ai-audit.features.2',
+      'services:ai-audit.features.3'
     ]
   },
   {
     id: 'chatgpt-consultant',
-    title: 'Внедрение ChatGPT-консультанта на сайт',
-    description: 'Умный чат-бот на базе ChatGPT, обученный специально под ваш продукт и базу знаний. Автоматизирует до 80% типовых вопросов клиентов и работает круглосуточно.',
+    title: 'services:chatgpt-consultant.title',
+    description: 'services:chatgpt-consultant.description',
     price: '99 990 тг',
     benefits: [
-      'Автоматизация 80% типовых вопросов',
-      'Круглосуточная поддержка клиентов',
-      'Увеличение конверсии до 25%',
-      'Снижение нагрузки на службу поддержки'
+      'services:chatgpt-consultant.benefits.0',
+      'services:chatgpt-consultant.benefits.1',
+      'services:chatgpt-consultant.benefits.2',
+      'services:chatgpt-consultant.benefits.3'
     ],
     features: [
-      'Обучение на базе ваших данных',
-      'Интеграция с популярными CMS',
-      'Аналитика и отчеты',
-      'Многоязычная поддержка'
+      'services:chatgpt-consultant.features.0',
+      'services:chatgpt-consultant.features.1',
+      'services:chatgpt-consultant.features.2',
+      'services:chatgpt-consultant.features.3'
     ]
   },
   {

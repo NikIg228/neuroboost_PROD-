@@ -3,6 +3,7 @@ import { Calculator, DollarSign, Zap, TrendingUp } from 'lucide-react';
 import AnimatedSection from '@/components/AnimatedSection';
 import CurrencyToggle from '@/components/common/CurrencyToggle';
 import { useCurrency } from '@/contexts/CurrencyContext';
+import { useTranslation } from 'react-i18next';
 
 interface AIProvider {
   id: string;
@@ -16,43 +17,43 @@ interface AIProvider {
 const providers: AIProvider[] = [
   {
     id: 'openai-gpt4',
-    name: 'OpenAI ChatGPT 5',
+    name: 'calculator:providers.openai-gpt4.name',
     inputPricePerToken: 0.01,
     outputPricePerToken: 0.03,
     logo: '/logo dlya nb/openai-logo.svg',
-    description: 'Наиболее продвинутая модель для сложных задач'
+    description: 'calculator:providers.openai-gpt4.description'
   },
   {
     id: 'openai-gpt3.5',
-    name: 'OpenAI ChatGPT 4o',
+    name: 'calculator:providers.openai-gpt3.5.name',
     inputPricePerToken: 0.0005,
     outputPricePerToken: 0.0015,
     logo: '/logo dlya nb/openai-logo.svg',
-    description: 'Быстрая и экономичная модель для базовых задач'
+    description: 'calculator:providers.openai-gpt3.5.description'
   },
   {
     id: 'anthropic-claude',
-    name: 'Anthropic Claude 4 Sonnet',
+    name: 'calculator:providers.anthropic-claude.name',
     inputPricePerToken: 0.015,
     outputPricePerToken: 0.075,
     logo: '/logo dlya nb/anthropic-logo.svg',
-    description: 'Отличная модель для анализа и длинных текстов'
+    description: 'calculator:providers.anthropic-claude.description'
   },
   {
     id: 'google-gemini',
-    name: 'Google Gemini Pro',
+    name: 'calculator:providers.google-gemini.name',
     inputPricePerToken: 0.0005,
     outputPricePerToken: 0.0015,
     logo: '/logo dlya nb/google-gemini.svg',
-    description: 'Мультимодальная модель с поддержкой изображений'
+    description: 'calculator:providers.google-gemini.description'
   },
   {
     id: 'mistral-large',
-    name: 'Mistral Large',
+    name: 'calculator:providers.mistral-large.name',
     inputPricePerToken: 0.008,
     outputPricePerToken: 0.024,
     logo: '/logo dlya nb/mistral-ai.svg',
-    description: 'Европейская модель с фокусом на точность'
+    description: 'calculator:providers.mistral-large.description'
   }
 ];
 
@@ -130,6 +131,7 @@ const TokenCalculator: React.FC = () => {
   const [requestsPerMonth, setRequestsPerMonth] = useState<number>(100);
   const [selectedScenario, setSelectedScenario] = useState<string>('');
   const { formatPrice, currency } = useCurrency();
+  const { t } = useTranslation('calculator');
 
   // Курсы валют для конвертации из USD
   const getUsdRate = () => {
@@ -183,15 +185,15 @@ const TokenCalculator: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6">
               <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2">
                 <Calculator className="h-5 w-5 text-blue-400" />
-                <span className="text-white font-medium">Калькулятор токенов</span>
+                <span className="text-white font-medium">{t('subtitle')}</span>
               </div>
               <CurrencyToggle />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Расчёт потребления <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">токенов ИИ</span>
+              {t('title')}
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Рассчитайте стоимость использования различных ИИ-моделей для вашего проекта
+              {t('description')}
             </p>
           </div>
         </AnimatedSection>
@@ -199,7 +201,7 @@ const TokenCalculator: React.FC = () => {
         {/* Сценарии использования */}
         <AnimatedSection delay={100}>
           <div className="mb-8">
-            <h2 className="text-2xl font-bold text-white mb-4 text-center">Готовые сценарии использования</h2>
+            <h2 className="text-2xl font-bold text-white mb-4 text-center">{t('scenarios.title')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {usageScenarios.map((scenario) => (
                 <button
@@ -211,12 +213,12 @@ const TokenCalculator: React.FC = () => {
                       : 'border-white/20 bg-white/5 hover:bg-white/10'
                   }`}
                 >
-                  <h3 className="text-white font-medium mb-2">{scenario.title}</h3>
-                  <p className="text-gray-300 text-sm mb-3">{scenario.description}</p>
+                  <h3 className="text-white font-medium mb-2">{t(`scenarios.${scenario.id}.title`)}</h3>
+                  <p className="text-gray-300 text-sm mb-3">{t(`scenarios.${scenario.id}.description`)}</p>
                   <div className="text-xs text-gray-400 space-y-1">
-                    <div>Запросов: {scenario.requestsPerMonth}/мес</div>
-                    <div>Токены: {scenario.inputTokens} вх / {scenario.outputTokens} исх</div>
-                    <div className="text-blue-300">Связано: {scenario.relatedService}</div>
+                    <div>{t('scenarios.labels.requests', { count: scenario.requestsPerMonth })}</div>
+                    <div>{t('scenarios.labels.tokens', { in: scenario.inputTokens, out: scenario.outputTokens })}</div>
+                    <div className="text-blue-300">{t('scenarios.labels.related', { service: t(`scenarios.${scenario.id}.relatedService`) })}</div>
                   </div>
                 </button>
               ))}
@@ -231,7 +233,7 @@ const TokenCalculator: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20">
               <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <Zap className="h-5 w-5 text-yellow-400" />
-                Выберите ИИ-модель
+                {t('providers.title')}
               </h2>
               <div className="space-y-3">
                 {providers.map((provider) => (
@@ -245,12 +247,12 @@ const TokenCalculator: React.FC = () => {
                     }`}
                   >
                     <div className="flex items-center gap-3">
-                      <img src={provider.logo} alt={provider.name} className="h-8 w-8 object-contain" />
+                      <img src={provider.logo} alt={t(provider.name)} className="h-8 w-8 object-contain" />
                       <div className="text-left">
-                        <div className="text-white font-medium">{provider.name}</div>
+                        <div className="text-white font-medium">{t(provider.name)}</div>
                       </div>
                     </div>
-                    <p className="text-gray-400 text-xs mt-2 text-left">{provider.description}</p>
+                    <p className="text-gray-400 text-xs mt-2 text-left">{t(provider.description)}</p>
                   </button>
                 ))}
               </div>
@@ -262,12 +264,12 @@ const TokenCalculator: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20">
               <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <TrendingUp className="h-5 w-5 text-green-400" />
-                Параметры использования
+                {t('parameters.title')}
               </h2>
               
               <div className="space-y-4">
                 <div>
-                  <label className="block text-white font-medium mb-2">Входящие токены (промт)</label>
+                  <label className="block text-white font-medium mb-2">{t('parameters.inputTokens')}</label>
                   <input
                     type="number"
                     value={inputTokens}
@@ -275,11 +277,11 @@ const TokenCalculator: React.FC = () => {
                     className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent text-white"
                     min="1"
                   />
-                  <p className="text-gray-400 text-xs mt-1">Примерно {Math.round(inputTokens / 4)} слов</p>
+                  <p className="text-gray-400 text-xs mt-1">{t('parameters.wordsHint', { count: Math.round(inputTokens / 4) })}</p>
                 </div>
 
                 <div>
-                  <label className="block text-white font-medium mb-2">Исходящие токены (ответ)</label>
+                  <label className="block text-white font-medium mb-2">{t('parameters.outputTokens')}</label>
                   <input
                     type="number"
                     value={outputTokens}
@@ -287,11 +289,11 @@ const TokenCalculator: React.FC = () => {
                     className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg focus:ring-2 focus:ring-blue-400 focus:border-transparent text-white"
                     min="1"
                   />
-                  <p className="text-gray-400 text-xs mt-1">Примерно {Math.round(outputTokens / 4)} слов</p>
+                  <p className="text-gray-400 text-xs mt-1">{t('parameters.wordsHint', { count: Math.round(outputTokens / 4) })}</p>
                 </div>
 
                 <div>
-                  <label className="block text-white font-medium mb-2">Запросов в месяц</label>
+                  <label className="block text-white font-medium mb-2">{t('parameters.requestsPerMonth')}</label>
                   <input
                     type="number"
                     value={requestsPerMonth}
@@ -303,10 +305,10 @@ const TokenCalculator: React.FC = () => {
               </div>
 
               <div className="mt-6 p-4 bg-white/5 rounded-lg border border-white/10">
-                <div className="text-white font-medium mb-2">Текущие тарифы ({selectedProvider.name})</div>
+                <div className="text-white font-medium mb-2">{t('providerRates.title', { name: t(selectedProvider.name) })}</div>
                 <div className="text-sm text-gray-300 space-y-1">
-                  <div>Входящие: ${selectedProvider.inputPricePerToken}/1K токенов</div>
-                  <div>Исходящие: ${selectedProvider.outputPricePerToken}/1K токенов</div>
+                  <div>{t('providerRates.input', { price: selectedProvider.inputPricePerToken })}</div>
+                  <div>{t('providerRates.output', { price: selectedProvider.outputPricePerToken })}</div>
                 </div>
               </div>
             </div>
@@ -317,40 +319,40 @@ const TokenCalculator: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-xl rounded-2xl p-6 border border-white/20">
               <h2 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                 <DollarSign className="h-5 w-5 text-green-400" />
-                Расчёт стоимости
+                {t('results.title')}
               </h2>
 
               <div className="space-y-4">
                 <div className="bg-white/5 rounded-lg p-4 border border-white/10">
-                  <div className="text-white font-medium mb-2">Стоимость 1 запроса</div>
+                  <div className="text-white font-medium mb-2">{t('results.costPerRequest')}</div>
                   <div className="text-2xl font-bold text-green-400">
                     {formatPrice(costs.costPerRequestLocal)}
                   </div>
                   <div className="text-gray-300 text-xs">
-                    ≈ ${costs.costPerRequestUSD.toFixed(4)} USD
+                    {t('results.approxUSD', { price: costs.costPerRequestUSD.toFixed(4) })}
                   </div>
                 </div>
 
                 <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-lg p-4 border border-blue-400/30">
-                  <div className="text-white font-medium mb-2">Ежемесячные расходы</div>
+                  <div className="text-white font-medium mb-2">{t('results.monthlyExpenses')}</div>
                   <div className="text-3xl font-bold text-blue-300">
                     {formatPrice(costs.monthlyRequestsCostLocal)}
                   </div>
                   <div className="text-gray-200 text-xs">
-                    ≈ ${costs.monthlyRequestsCostUSD.toFixed(2)} USD
+                    {t('results.approxUSD', { price: costs.monthlyRequestsCostUSD.toFixed(2) })}
                   </div>
                 </div>
 
                 <div className="text-xs text-gray-400 space-y-1">
-                  <div>Входящие токены: ${costs.inputCostUSD.toFixed(4)} USD</div>
-                  <div>Исходящие токены: ${costs.outputCostUSD.toFixed(4)} USD</div>
-                  <div>Курс USD/{currency}: {getUsdRate()}</div>
+                  <div>{t('results.inputTokensUSD', { price: costs.inputCostUSD.toFixed(4) })}</div>
+                  <div>{t('results.outputTokensUSD', { price: costs.outputCostUSD.toFixed(4) })}</div>
+                  <div>{t('results.usdRate', { currency, rate: getUsdRate() })}</div>
                 </div>
               </div>
 
               <div className="mt-6 p-4 bg-yellow-500/10 rounded-lg border border-yellow-400/30">
                 <p className="text-yellow-200 text-sm">
-                  💡 Цены могут изменяться. Указанные тарифы актуальны на момент создания калькулятора.
+                  💡 {t('results.note')}
                 </p>
               </div>
             </div>
@@ -360,11 +362,9 @@ const TokenCalculator: React.FC = () => {
         {/* Скрин: OpenRouter пример работы и пояснение */}
         <AnimatedSection delay={450}>
           <div className="mt-12">
-            <h2 className="text-2xl font-bold text-white mb-4 text-center">Как выглядит реальный запрос/ответ в шлюзе OpenRouter</h2>
+            <h2 className="text-2xl font-bold text-white mb-4 text-center">{t('openRouter.title')}</h2>
             <p className="text-gray-300 text-sm max-w-4xl mx-auto mb-6 text-center">
-              На скрине показан типичный цикл работы: вы отправляете промт (входящие токены), модель генерирует ответ (исходящие токены). 
-              Именно эти два потока формируют стоимость каждого запроса в калькуляторе выше. Даже наш собственный бот работает по тому же принципу: 
-              мы аккуратно считаем вход и выход в токенах и маршрутизируем запросы через оптимальные модели, чтобы вы платили только за реальную ценность ответа.
+              {t('openRouter.description')}
             </p>
             <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-2 border border-white/10">
               <img
@@ -379,31 +379,31 @@ const TokenCalculator: React.FC = () => {
         {/* Дополнительная информация */}
         <AnimatedSection delay={500}>
           <div className="mt-12 bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
-            <h2 className="text-2xl font-bold text-white mb-6 text-center">Как мы помогаем оптимизировать расходы</h2>
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">{t('optimization.title')}</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
                 <div className="bg-gradient-to-r from-blue-500 to-purple-600 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <TrendingUp className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-white font-semibold mb-2">Аналитика</h3>
-                <p className="text-gray-300 text-sm">Отслеживаем расход токенов и предоставляем детальную аналитику</p>
+                <h3 className="text-white font-semibold mb-2">{t('optimization.analytics.title')}</h3>
+                <p className="text-gray-300 text-sm">{t('optimization.analytics.description')}</p>
               </div>
               
               <div className="text-center">
                 <div className="bg-gradient-to-r from-green-500 to-emerald-600 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <Zap className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-white font-semibold mb-2">Оптимизация</h3>
-                <p className="text-gray-300 text-sm">Помогаем выбрать оптимальную модель для ваших задач</p>
+                <h3 className="text-white font-semibold mb-2">{t('optimization.optimization.title')}</h3>
+                <p className="text-gray-300 text-sm">{t('optimization.optimization.description')}</p>
               </div>
               
               <div className="text-center">
                 <div className="bg-gradient-to-r from-pink-500 to-orange-500 w-12 h-12 rounded-lg flex items-center justify-center mx-auto mb-4">
                   <DollarSign className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-white font-semibold mb-2">Экономия</h3>
-                <p className="text-gray-300 text-sm">Снижаем затраты до 40% благодаря умной маршрутизации запросов</p>
+                <h3 className="text-white font-semibold mb-2">{t('optimization.economy.title')}</h3>
+                <p className="text-gray-300 text-sm">{t('optimization.economy.description')}</p>
               </div>
             </div>
           </div>

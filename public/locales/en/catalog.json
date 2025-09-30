@@ -1,0 +1,31 @@
+{
+  "title": "Catalog",
+  "subtitle": "AI Services",
+  "description": "Choose the right solution for automation and optimization",
+  "search": {
+    "placeholder": "Search services...",
+    "no_results": "No results found for your query. Try changing search parameters."
+  },
+  "filters": {
+    "sort_by": "Sort by",
+    "by_name": "By name",
+    "by_price": "By price"
+  },
+  "tariffs": {
+    "title": "Plans and Programs"
+  },
+  "services": {
+    "title": "Additional Services",
+    "badges": {
+      "most_popular": "Most Popular",
+      "fastest_payback": "Fastest Payback",
+      "small_business_choice": "Small Business Choice",
+      "comprehensive": "Comprehensive Implementation"
+    }
+  },
+  "cta": {
+    "title": "Can't find the right solution?",
+    "description": "We create custom AI solutions for your specific tasks. Contact us to discuss your project.",
+    "button": "Order Custom Solution"
+  }
+}
