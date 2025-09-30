@@ -95,13 +95,13 @@ const Home: React.FC = () => {
                     }}
                   >
                     {/* Исправленный текст без эффекта печатной машинки */}
-                    Ваш помощник с ИИ — для бизнеса и частных лиц, где бы вы ни находились!
+                    Ваш помощник с ИИ — на каждый день и для любых идей!
                   </motion.span>
                 </h1>
                 
                 <p className="text-lg sm:text-xl lg:text-2xl text-white/80 mb-8 sm:mb-10 max-w-4xl mx-auto leading-relaxed">
-                Мы помогаем бизнесам внедрять ИИ-решения для автоматизации процессов, 
-                увеличения продаж и повышения эффективности работы. Более 20 стран доверяют нам.
+                Мы помогаем внедрять ИИ-решения для автоматизации процессов, 
+                увеличения продаж и повышения эффективности работы.
               </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
@@ -172,7 +172,7 @@ const Home: React.FC = () => {
                     О нас
                   </h2>
                   <h3 className="text-xl sm:text-2xl text-blue-300 font-semibold mb-6 sm:mb-8">
-                Мы помогаем бизнесам внедрять ИИ
+                
               </h3>
                 </motion.div>
                 
@@ -185,9 +185,7 @@ const Home: React.FC = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10"
                   >
                     <p>
-                      <span className="text-blue-300 font-bold">Кто мы:</span> NeuroBoost — команда экспертов по искусственному интеллекту 
-                  и автоматизации бизнес-процессов. Мы специализируемся на внедрении ИИ-решений 
-                  для компаний любого масштаба.
+                      <span className="text-blue-300 font-bold">Кто мы:</span> NeuroBoost — команда экспертов по искусственному интеллекту и автоматизации процессов. Мы специализируемся на внедрении ИИ-решений для любых задач и сфер.
                 </p>
                   </motion.div>
                   
@@ -199,8 +197,7 @@ const Home: React.FC = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10"
                   >
                     <p>
-                      <span className="text-purple-300 font-bold">Чем занимаемся:</span> Разрабатываем и внедряем индивидуальные ИИ-решения: 
-                  от чат-ботов и автоматизации до полной цифровой трансформации бизнеса.
+                      <span className="text-purple-300 font-bold">Чем занимаемся:</span> Разрабатываем и внедряем индивидуальные ИИ-решения: от чат-ботов и автоматизации до комплексной цифровой трансформации.
                 </p>
                   </motion.div>
                   
@@ -212,8 +209,7 @@ const Home: React.FC = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10"
                   >
                     <p>
-                      <span className="text-pink-300 font-bold">В чем наше отличие:</span> Мы не просто поставщики технологий — мы партнеры 
-                  в вашем развитии. Каждое решение адаптируется под специфику вашего бизнеса.
+                      <span className="text-pink-300 font-bold">В чем наше отличие:</span> Мы не просто поставщики технологий — мы партнёры в развитии. Каждое решение адаптируется под ваши цели и специфику.
                 </p>
                   </motion.div>
                   
@@ -225,8 +221,7 @@ const Home: React.FC = () => {
                     className="bg-white/5 backdrop-blur-sm rounded-xl p-4 sm:p-6 border border-white/10"
                   >
                     <p>
-                      <span className="text-orange-300 font-bold">Для кого:</span> Наши услуги предназначены для руководителей и владельцев 
-                  бизнеса, которые стремятся оптимизировать процессы и повысить эффективность.
+                      <span className="text-orange-300 font-bold">Для кого:</span> Наши услуги предназначены для всех, кто хочет использовать возможности ИИ для упрощения задач, повышения эффективности и создания новых возможностей.
                 </p>
                   </motion.div>
                 </div>
@@ -248,7 +243,7 @@ const Home: React.FC = () => {
                     <div className="bg-gradient-to-r from-blue-500 to-blue-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <Users className="h-8 w-8 text-white" />
                   </div>
-                    <div className="text-3xl sm:text-4xl font-bold text-white mb-2">100+</div>
+                    <div className="text-3xl sm:text-4xl font-bold text-white mb-2">1000+</div>
                     <div className="text-sm sm:text-base text-blue-200">реализованных проектов</div>
                   </motion.div>
                   
@@ -410,7 +405,7 @@ const Home: React.FC = () => {
                       <div>
                         <h3 className="text-lg font-semibold text-white mb-2">Персональный подход</h3>
                         <p className="text-gray-300 text-sm sm:text-base">
-                          ИИ адаптируется под ваши потребности и дает рекомендации, подходящие именно вашему бизнесу
+                          ИИ адаптируется под ваши потребности и дает рекомендации, подходящие именно вашему запросу!
                         </p>
                       </div>
                     </div>
@@ -664,7 +659,8 @@ const Home: React.FC = () => {
             </h2>
               
               <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
-              Получите бесплатную консультацию и узнайте, как ИИ может изменить ваш бизнес
+
+              Получите бесплатную консультацию и узнайте, как ИИ может помочь вам в автоматизации, улучшении продаж и повышении эффективности работы!
             </p>
               
               <motion.div

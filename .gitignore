@@ -1,9 +1,1 @@
-
-backend/.env
-backend/config.py
-backend/secrets.py
-backend/api_keys.py
-
-
-
 node_modules

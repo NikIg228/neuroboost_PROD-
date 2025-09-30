@@ -2,7 +2,7 @@
   {
     "audience": "business",
     "title": "Старт ИИ",
-    "price_kzt": 49000,
+    "price_kzt": 24490,
     "badge": "Старт",
     "features": [
       "Аудит процессов",
@@ -16,7 +16,7 @@
   {
     "audience": "business",
     "title": "Про ИИ",
-    "price_kzt": 149000,
+    "price_kzt": 74490,
     "badge": "Оптимально",
     "features": [
       "Мультимодельные промты (OpenAI/Claude/Mistral)",
@@ -44,7 +44,7 @@
   {
     "audience": "individual",
     "title": "Личный ассистент",
-    "price_kzt": 9900,
+    "price_kzt": 4990,
     "badge": "Доступно",
     "features": [
       "ИИ-консультации",
@@ -58,7 +58,7 @@
   {
     "audience": "individual",
     "title": "Учёба+Голос",
-    "price_kzt": 19900,
+    "price_kzt": 9990,
     "badge": "Хит",
     "features": [
       "Подготовка к экзаменам",
@@ -72,7 +72,7 @@
   {
     "audience": "individual",
     "title": "Креатор Про",
-    "price_kzt": 29900,
+    "price_kzt": 14990,
     "badge": "Для контента",
     "features": [
       "Генерация контента",

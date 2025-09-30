@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
 import { supabase } from '../lib/supabase';
 import { Service } from '@/types/index';
 import { CheckCircle, Heart, MessageCircle, Bot, Filter, Type, Image as ImageIcon, PhoneCall, LineChart, Zap, Sparkles } from 'lucide-react';
@@ -29,6 +30,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => {
   const { user } = useAuth();
   const [favoriteLoading, setFavoriteLoading] = useState(false);
+  const { formatPrice, convertPrice } = useCurrency();
 
   const getIconByService = (serviceId: string) => {
     switch (serviceId) {
@@ -206,7 +208,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <div className="mt-auto">
           <div className="flex items-center justify-between mb-3">
             <div className="text-3xl font-extrabold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              {service.price}
+              {formatPrice(convertPrice(parseInt(service.price.replace(/\D/g, ''))))}
             </div>
           </div>
           <div className="mb-4 p-3 bg-blue-50 rounded-lg border border-blue-200 text-xs text-blue-700">

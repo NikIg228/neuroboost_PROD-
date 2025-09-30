@@ -40,43 +40,27 @@ const ProvidersBilling: React.FC = () => {
               </p>
             </motion.div>
 
-            {/* Бегущая дорожка логотипов (marquee) */}
-            <div className="relative mt-4 bg-white rounded-xl overflow-hidden py-4">
+			{/* Бегущая дорожка логотипов (marquee) — одна лента */}
+			<div className="relative mt-4 bg-white rounded-xl overflow-hidden py-4">
               {/* Градиентные маски по краям */}
               <div className="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-white via-white/90 to-transparent z-10" />
               <div className="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-white via-white/90 to-transparent z-10" />
 
-              {/* Лента 1 - движется влево */}
-              <div className="overflow-hidden py-2">
-                <div className="flex items-center gap-12 whitespace-nowrap animate-marquee-left">
-                  {[...providers, ...providers, ...providers].map((p, idx) => (
-                    <div key={`row1-${p.name}-${idx}`} className="flex items-center shrink-0">
-                      <img
-                        src={p.src}
-                        alt={p.logoAlt}
-                        className="h-10 w-auto object-contain filter drop-shadow-sm"
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Лента 2 - движется вправо */}
-              <div className="overflow-hidden py-2 mt-2">
-                <div className="flex items-center gap-12 whitespace-nowrap animate-marquee-right">
-                  {[...providers, ...providers, ...providers].map((p, idx) => (
-                    <div key={`row2-${p.name}-${idx}`} className="flex items-center shrink-0">
-                      <img
-                        src={p.src}
-                        alt={p.logoAlt}
-                        className="h-10 w-auto object-contain filter drop-shadow-sm"
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
+				{/* Лента - движется влево */}
+				<div className="overflow-hidden py-2">
+					<div className="flex items-center gap-12 sm:gap-16 whitespace-nowrap animate-marquee-left">
+						{[...providers, ...providers, ...providers].map((p, idx) => (
+							<div key={`row-${p.name}-${idx}`} className="flex items-center shrink-0">
+								<img
+									src={p.src}
+									alt={p.logoAlt}
+									className="h-8 sm:h-10 md:h-12 w-auto max-w-[160px] object-contain filter drop-shadow-sm"
+									loading="lazy"
+								/>
+							</div>
+						))}
+					</div>
+				</div>
             </div>
 
             <p className="text-xs text-gray-400 mt-4">
@@ -117,9 +101,9 @@ const ProvidersBilling: React.FC = () => {
                   <Wallet className="h-5 w-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-white font-medium">Оплата от клиентов</p>
-                  <p className="text-gray-300 text-sm">подписки, внедрение, сопровождение, обучение</p>
-                  <p className="text-green-200 text-xs mt-1">✓ Клиенты оплачивают: 5% обслуживание + API расходы</p>
+                  <p className="text-white font-medium">Оплата от Вас</p>
+                  <p className="text-gray-300 text-sm">Подписки, внедрение, сопровождение, обучение</p>
+                  <p className="text-green-200 text-xs mt-1">✓ Вы оплачиваете: 5% обслуживание + API расходы</p>
                 </div>
               </div>
               <div className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
@@ -128,7 +112,7 @@ const ProvidersBilling: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-white font-medium">Оплата провайдерам API</p>
-                  <p className="text-gray-300 text-sm">клиенты оплачивают API напрямую через нас</p>
+                  <p className="text-gray-300 text-sm">Вы оплачиваете использование API напрямую через нас</p>
                   <p className="text-blue-200 text-xs mt-1">✓ Прозрачная передача всех API-расходов</p>
                 </div>
               </div>
@@ -148,15 +132,15 @@ const ProvidersBilling: React.FC = () => {
 
               <div className="bg-white/5 rounded-2xl p-4 border border-white/10">
                 <p className="text-gray-200 text-sm">
-                  <strong>Учёт и отчётность:</strong> ведём учёт потребления, предоставляем счета/акты по запросу. 
-                  <strong>Клиенты оплачивают API-расходы + 5% за техническое обслуживание.</strong> Без скрытых наценок!
+                  <strong> Учёт и отчётность:</strong> ведём учёт потребления, предоставляем счета/акты по запросу. 
+                  <strong> Вы оплачиваете API-расходы + 5% за техническое обслуживание.</strong> Без скрытых наценок!
                 </p>
               </div>
             </div>
 
             <div className="mt-6">
               <div className="grid grid-cols-3 items-center text-center mb-4">
-                <div className="text-white text-sm font-medium">Клиент</div>
+                <div className="text-white text-sm font-medium">Вы</div>
                 <div className="text-white/70 text-xs">⇄ NeuroBoost ⇄</div>
                 <div className="text-white text-sm font-medium">Провайдеры API</div>
               </div>

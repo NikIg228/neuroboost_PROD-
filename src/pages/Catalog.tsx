@@ -13,9 +13,11 @@ import ConsultationModal from '@/components/ConsultationModal';
 import AnimatedSection from '@/components/AnimatedSection';
 import { Service } from '@/types/index';
 import { Search, Filter } from 'lucide-react';
+import { useCurrency } from '@/contexts/CurrencyContext';
 
 const Catalog: React.FC = () => {
   const { user } = useAuth();
+  const { convertPrice } = useCurrency();
   const [selectedService, setSelectedService] = useState<Service | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [purchaseService, setPurchaseService] = useState<Service | null>(null);
@@ -26,7 +28,7 @@ const Catalog: React.FC = () => {
   const [sortBy, setSortBy] = useState<'name' | 'price'>('name');
   const [audience, setAudience] = useState<'business' | 'individual'>('business');
   const [tariffs, setTariffs] = useState<TariffItem[]>([]);
-  const [showTariffs, setShowTariffs] = useState(true);
+  const [showTariffs] = useState(true);
 
   useEffect(() => {
     if (user) {
@@ -117,9 +119,11 @@ const Catalog: React.FC = () => {
       if (sortBy === 'name') {
         return a.title.localeCompare(b.title);
       } else {
-        const priceA = parseInt(a.price.replace(/\D/g, ''));
-        const priceB = parseInt(b.price.replace(/\D/g, ''));
-        return priceA - priceB;
+        const priceAKzt = parseInt(a.price.replace(/\D/g, '')) || 0;
+        const priceBKzt = parseInt(b.price.replace(/\D/g, '')) || 0;
+        const convertedA = convertPrice(priceAKzt);
+        const convertedB = convertPrice(priceBKzt);
+        return convertedA - convertedB;
       }
     });
 
@@ -158,7 +162,7 @@ const Catalog: React.FC = () => {
               Каталог <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">ИИ-услуг</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Выберите подходящее решение для автоматизации и оптимизации вашего бизнеса
+              Выберите подходящее решение для автоматизации и оптимизации
             </p>
           </div>
         </AnimatedSection>

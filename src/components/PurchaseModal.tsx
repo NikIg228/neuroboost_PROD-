@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
 import { supabase } from '../lib/supabase';
 import { Service } from '@/types/index';
 import { X, Building, Hash, User, Mail, Phone, Globe, MessageSquare, CreditCard } from 'lucide-react';
@@ -22,6 +23,7 @@ interface FormData {
 
 const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose }) => {
   const { user } = useAuth();
+  const { formatPrice, convertPrice } = useCurrency();
   const [formData, setFormData] = useState<FormData>({
     company_name: '',
     bin: '',
@@ -51,7 +53,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
     setError('');
 
     try {
-      // Extract price number from string like "150 000 тг"
+      // Always charge in base KZT extracted from catalog price string
       const amount = parseInt(service.price.replace(/\D/g, ''));
 
       // Create payment request
@@ -123,7 +125,7 @@ const PurchaseModal: React.FC<PurchaseModalProps> = ({ service, isOpen, onClose 
             <div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">Оформление заказа</h2>
               <p className="text-gray-600">{service.title}</p>
-              <p className="text-2xl font-bold text-blue-600 mt-2">{service.price}</p>
+              <p className="text-2xl font-bold text-blue-600 mt-2">{formatPrice(convertPrice(parseInt(service.price.replace(/\D/g, ''))))}</p>
             </div>
             <button
               onClick={onClose}

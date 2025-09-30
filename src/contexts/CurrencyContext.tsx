@@ -48,13 +48,19 @@ const roundPrice = (price: number, currency: Currency): number => {
       return Math.round(price / 10) * 10 - 1; // 199, 299
     }
   } else { // USD
-    // Округляем до красивых чисел
-    if (price >= 1000) {
-      return Math.round(price / 10) * 10 - 1; // 459, 999
-    } else if (price >= 100) {
-      return Math.round(price / 5) * 5 - 1; // 199, 299, 459
+    // Психологическое округление к значениям с окончанием .99
+    if (price >= 100) {
+      // До ближайшего большего десятка и "-0.01" → 319.99, 459.99
+      const upToTen = Math.ceil(price / 10) * 10;
+      return parseFloat((upToTen - 0.01).toFixed(2));
+    } else if (price >= 20) {
+      // До ближайшего большего шага 5 и "-0.01" → 24.99, 29.99
+      const upToFive = Math.ceil(price / 5) * 5;
+      return parseFloat((upToFive - 0.01).toFixed(2));
     } else {
-      return Math.round(price); // Как есть для малых сумм
+      // Небольшие суммы: к следующему целому и "-0.01" плюс шаг вверх
+      const upToOne = Math.ceil(price) + 1;
+      return parseFloat((upToOne - 0.01).toFixed(2));
     }
   }
 };
@@ -73,14 +79,16 @@ export const CurrencyProvider: React.FC<{ children: ReactNode }> = ({ children }
     if (price === 0) return 'По запросу';
     
     const formatted = new Intl.NumberFormat('ru-RU').format(price);
-    
+
     switch (currency) {
       case 'KZT':
         return `${formatted} ₸`;
       case 'RUB':
         return `${formatted} ₽`;
       case 'USD':
-        return `$${formatted}`;
+        // Для USD показываем две цифры после запятой и знак доллара в конце
+        const usd = new Intl.NumberFormat('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(price);
+        return `${usd}$`;
       default:
         return `${formatted} ₸`;
     }

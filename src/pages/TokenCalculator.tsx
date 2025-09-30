@@ -7,7 +7,6 @@ import { useCurrency } from '@/contexts/CurrencyContext';
 interface AIProvider {
   id: string;
   name: string;
-  model: string;
   inputPricePerToken: number; // в USD за 1000 токенов
   outputPricePerToken: number;
   logo: string;
@@ -17,8 +16,7 @@ interface AIProvider {
 const providers: AIProvider[] = [
   {
     id: 'openai-gpt4',
-    name: 'OpenAI GPT-4',
-    model: 'gpt-4-turbo',
+    name: 'OpenAI ChatGPT 5',
     inputPricePerToken: 0.01,
     outputPricePerToken: 0.03,
     logo: '/logo dlya nb/openai-logo.svg',
@@ -26,8 +24,7 @@ const providers: AIProvider[] = [
   },
   {
     id: 'openai-gpt3.5',
-    name: 'OpenAI GPT-3.5',
-    model: 'gpt-3.5-turbo',
+    name: 'OpenAI ChatGPT 4o',
     inputPricePerToken: 0.0005,
     outputPricePerToken: 0.0015,
     logo: '/logo dlya nb/openai-logo.svg',
@@ -35,8 +32,7 @@ const providers: AIProvider[] = [
   },
   {
     id: 'anthropic-claude',
-    name: 'Anthropic Claude',
-    model: 'claude-3-opus',
+    name: 'Anthropic Claude 4 Sonnet',
     inputPricePerToken: 0.015,
     outputPricePerToken: 0.075,
     logo: '/logo dlya nb/anthropic-logo.svg',
@@ -45,7 +41,6 @@ const providers: AIProvider[] = [
   {
     id: 'google-gemini',
     name: 'Google Gemini Pro',
-    model: 'gemini-pro',
     inputPricePerToken: 0.0005,
     outputPricePerToken: 0.0015,
     logo: '/logo dlya nb/google-gemini.svg',
@@ -54,7 +49,6 @@ const providers: AIProvider[] = [
   {
     id: 'mistral-large',
     name: 'Mistral Large',
-    model: 'mistral-large',
     inputPricePerToken: 0.008,
     outputPricePerToken: 0.024,
     logo: '/logo dlya nb/mistral-ai.svg',
@@ -254,7 +248,6 @@ const TokenCalculator: React.FC = () => {
                       <img src={provider.logo} alt={provider.name} className="h-8 w-8 object-contain" />
                       <div className="text-left">
                         <div className="text-white font-medium">{provider.name}</div>
-                        <div className="text-gray-300 text-sm">{provider.model}</div>
                       </div>
                     </div>
                     <p className="text-gray-400 text-xs mt-2 text-left">{provider.description}</p>
@@ -364,6 +357,25 @@ const TokenCalculator: React.FC = () => {
           </AnimatedSection>
         </div>
 
+        {/* Скрин: OpenRouter пример работы и пояснение */}
+        <AnimatedSection delay={450}>
+          <div className="mt-12">
+            <h2 className="text-2xl font-bold text-white mb-4 text-center">Как выглядит реальный запрос/ответ в шлюзе OpenRouter</h2>
+            <p className="text-gray-300 text-sm max-w-4xl mx-auto mb-6 text-center">
+              На скрине показан типичный цикл работы: вы отправляете промт (входящие токены), модель генерирует ответ (исходящие токены). 
+              Именно эти два потока формируют стоимость каждого запроса в калькуляторе выше. Даже наш собственный бот работает по тому же принципу: 
+              мы аккуратно считаем вход и выход в токенах и маршрутизируем запросы через оптимальные модели, чтобы вы платили только за реальную ценность ответа.
+            </p>
+            <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-2 border border-white/10">
+              <img
+                src="/screen/OpenRouter.png"
+                alt="Пример диалога и биллинга токенов в OpenRouter"
+                className="w-full h-auto rounded-xl"
+              />
+            </div>
+          </div>
+        </AnimatedSection>
+
         {/* Дополнительная информация */}
         <AnimatedSection delay={500}>
           <div className="mt-12 bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
@@ -402,3 +414,5 @@ const TokenCalculator: React.FC = () => {
 };
 
 export default TokenCalculator;
+
+

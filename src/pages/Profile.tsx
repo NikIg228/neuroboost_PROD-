@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useAuth } from '@/contexts/AuthContext'
 import { supabase, Order } from '../lib/supabase'
 import { services } from '@/data/services'
+import { useCurrency } from '@/contexts/CurrencyContext'
 import AnimatedSection from '@/components/AnimatedSection'
 import PurchaseModal from '@/components/PurchaseModal'
 import { User, Mail, Lock, LogOut, Package, Calendar, DollarSign, Heart, Trash2 } from 'lucide-react'
@@ -9,6 +10,7 @@ import { Service } from '@/types/index'
 
 const Profile: React.FC = () => {
   const { user, signOut, updateProfile, updatePassword } = useAuth()
+  const { formatPrice, convertPrice } = useCurrency()
   const [orders, setOrders] = useState<Order[]>([])
   const [favoriteServices, setFavoriteServices] = useState<Service[]>([])
   const [loading, setLoading] = useState(false)
@@ -323,7 +325,7 @@ const Profile: React.FC = () => {
                     </div>
                     <p className="text-gray-600 text-sm mb-3 line-clamp-2">{service.description}</p>
                     <div className="flex justify-between items-center">
-                      <span className="text-lg font-bold text-blue-600">{service.price}</span>
+                      <span className="text-lg font-bold text-blue-600">{formatPrice(convertPrice(parseInt(service.price.replace(/\D/g, ''))))}</span>
                       <button
                         onClick={() => handlePurchase(service)}
                         className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all"

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
+import { useCurrency } from '@/contexts/CurrencyContext';
 import { Service } from '@/types/index';
 import { X, CheckCircle, Star, MessageCircle } from 'lucide-react';
 import PurchaseModal from './PurchaseModal';
@@ -14,6 +15,7 @@ interface ServiceModalProps {
 
 const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onClose }) => {
   const { user } = useAuth();
+  const { formatPrice, convertPrice } = useCurrency();
   const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false);
   const [isConsultationModalOpen, setIsConsultationModalOpen] = useState(false);
 
@@ -56,7 +58,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({ service, isOpen, onClose })
 
             {/* Price */}
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 mb-6">
-              <span className="text-3xl font-bold text-blue-600">{service.price}</span>
+              <span className="text-3xl font-bold text-blue-600">{formatPrice(convertPrice(parseInt(service.price.replace(/\D/g, ''))))}</span>
               <p className="text-gray-600 text-sm mt-1">Стоимость внедрения</p>
             </div>
 
