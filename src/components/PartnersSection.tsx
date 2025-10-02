@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const PartnersSection: React.FC = () => {
+  const { t } = useTranslation('home');
   const [partners, setPartners] = useState([
     { name: 'Air Astana', logo: '/partners/air-astana-logo-brandlogos.net_r1iucuymj.svg' },
     { name: 'Beeline', logo: '/partners/beeline-logo-brandlogos.net_t37xqisxx.svg' },
@@ -27,10 +29,10 @@ const PartnersSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-3 sm:mb-4 lg:mb-6">
-            Нам <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">доверяют</span>
+            {t('trust.title')}
           </h2>
           <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
-            Ведущие компании выбирают наши ИИ-решения
+            {t('trust.subtitle')}
           </p>
         </div>
 

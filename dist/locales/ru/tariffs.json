@@ -1,0 +1,19 @@
+{
+  "titles": {
+    "start_ai": "Старт ИИ",
+    "pro_ai": "Про ИИ",
+    "corp_ai": "Корпоративный ИИ",
+    "personal_assistant": "Личный ассистент",
+    "study_voice": "Учёба+Голос",
+    "creator_pro": "Креатор Про"
+  },
+  "badges": {
+    "start": "Старт",
+    "optimal": "Оптимально",
+    "by_request": "По запросу",
+    "affordable": "Доступно",
+    "hit": "Хит",
+    "for_content": "Для контента"
+  }
+}
+

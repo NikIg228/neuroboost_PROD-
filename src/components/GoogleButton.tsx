@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { supabase } from '../lib/supabase';
 
 interface GoogleButtonProps {
@@ -7,6 +8,7 @@ interface GoogleButtonProps {
 }
 
 const GoogleButton: React.FC<GoogleButtonProps> = ({ onSuccess, onError }) => {
+  const { t } = useTranslation('auth');
   const [loading, setLoading] = useState(false);
 
   const handleGoogleSignIn = async () => {
@@ -27,7 +29,7 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({ onSuccess, onError }) => {
       onSuccess?.();
     } catch (error: any) {
       console.error('Google sign in error:', error);
-      onError?.(error.message || 'Ошибка входа через Google');
+      onError?.(error.message || t('common.googleAuthError'));
     } finally {
       setLoading(false);
     }
@@ -39,7 +41,7 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({ onSuccess, onError }) => {
       onClick={handleGoogleSignIn}
       disabled={loading}
       role="button"
-      aria-label="Войти через Google"
+      aria-label={t('common.googleAuth')}
       className="w-full flex items-center justify-center px-4 py-3 border border-gray-300 rounded-lg bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 dark:bg-gray-800 dark:border-gray-600 dark:hover:bg-gray-700"
     >
       {loading ? (
@@ -69,7 +71,7 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({ onSuccess, onError }) => {
             />
           </svg>
           <span className="text-gray-700 font-medium dark:text-gray-200">
-            Войти через Google
+            {t('common.googleAuth')}
           </span>
         </>
       )}

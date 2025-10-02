@@ -6,13 +6,38 @@
     "placeholder": "Search services...",
     "no_results": "No results found for your query. Try changing search parameters."
   },
+  "comparison": {
+    "title": "Plan comparison",
+    "monthly": "/mo",
+    "yearly": "/yr (-20%)",
+    "toggle": "↔",
+    "columns": {
+      "plan": "Plan",
+      "price": "Price",
+      "active": "Active",
+      "order": "Order"
+    },
+    "yes": "Yes",
+    "no": "No"
+  },
   "filters": {
     "sort_by": "Sort by",
     "by_name": "By name",
-    "by_price": "By price"
+    "by_price": "By price",
+    "all": "All",
+    "local_only": "Local only"
+  },
+  "tabs": {
+    "business": "Business",
+    "individual": "Private Individuals"
   },
   "tariffs": {
-    "title": "Plans and Programs"
+    "title": "Plans and Programs",
+    "one_time_setup": "one-time setup",
+    "monthly_note_title": "Monthly, you additionally pay:",
+    "monthly_note_value": "5% of the plan + your API costs",
+    "apply": "Request",
+    "apply_aria": "Request plan {{title}}"
   },
   "services": {
     "title": "Additional Services",

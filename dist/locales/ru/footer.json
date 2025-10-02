@@ -1,0 +1,37 @@
+{
+  "company": {
+    "name": "NeuroBoost",
+    "description": "Мы помогаем бизнесам внедрять ИИ-решения для автоматизации процессов, увеличения продаж и повышения эффективности работы."
+  },
+  "contact": {
+    "email": "galuza_nikita@mail.ru",
+    "phone": "+7 (707) 506 29 00",
+    "consultation": "Получить консультацию"
+  },
+  "company_info": {
+    "name": "ТОО \"Ворлд Трейд\"",
+    "bin": "БИН: 240740019557",
+    "address": "Казахстан, г. Алматы, Турксибский район, ул. Дулатова 53, 050003"
+  },
+  "sections": {
+    "services": "Услуги",
+    "legal": "Юридическая информация"
+  },
+  "services": {
+    "ai_audit": "AI-Аудит бизнеса",
+    "chatgpt_consultant": "ChatGPT-консультант",
+    "request_automation": "Автоматизация заявок",
+    "all_services": "Все услуги"
+  },
+  "legal": {
+    "privacy_policy": "Политика конфиденциальности",
+    "public_offer": "Публичная оферта",
+    "data_consent": "Согласие на обработку данных",
+    "telegram_agreement": "Пользовательское соглашение Telegram-бота"
+  },
+  "payment": {
+    "accepted": "Принимаем к оплате:",
+    "secured": "SSL Secured"
+  },
+  "copyright": "© 2025 NeuroBoost. Все права защищены."
+}

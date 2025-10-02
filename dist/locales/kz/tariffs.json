@@ -1,0 +1,19 @@
+{
+  "titles": {
+    "start_ai": "ЖИ Старт",
+    "pro_ai": "ЖИ Про",
+    "corp_ai": "Корпоративтік ЖИ",
+    "personal_assistant": "Жеке көмекші",
+    "study_voice": "Оқу+Дауыс",
+    "creator_pro": "Криэйтор Про"
+  },
+  "badges": {
+    "start": "Старт",
+    "optimal": "Оңтайлы",
+    "by_request": "Сұрау бойынша",
+    "affordable": "Қолжетімді",
+    "hit": "Хит",
+    "for_content": "Контентке"
+  }
+}
+

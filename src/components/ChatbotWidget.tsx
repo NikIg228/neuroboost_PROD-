@@ -10,6 +10,7 @@ interface ChatbotWidgetProps {
 
 const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
   const { t } = useTranslation('components');
+  const { t: tHome } = useTranslation('home');
   const { isOpen, setIsOpen, messages, addMessage, isLoading, setIsLoading } = useChatbot();
   const [isExpanded, setIsExpanded] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -35,45 +36,18 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
     if (isOpen && messages.length === 0) {
       const welcomeMessage = {
         id: Date.now(),
-        text: t('chatbot.welcomeMessage'),
+        text: tHome('chatbot.messages.bot_hello'),
         isUser: false,
         timestamp: new Date()
       };
       addMessage(welcomeMessage);
     }
-  }, [isOpen, messages.length, addMessage]);
+  }, [isOpen, messages.length, addMessage, tHome]);
 
   // Управление скроллом body при открытии/закрытии чат-бота
   useEffect(() => {
-    const html = document.documentElement;
-    const body = document.body;
-    
-    if (isOpen) {
-      const scrollY = window.scrollY;
-      body.style.position = 'fixed';
-      body.style.top = `-${scrollY}px`;
-      body.style.left = '0';
-      body.style.right = '0';
-      html.classList.add('overflow-hidden');
-    } else {
-      const top = body.style.top;
-      html.classList.remove('overflow-hidden');
-      body.style.position = '';
-      body.style.top = '';
-      body.style.left = '';
-      body.style.right = '';
-      if (top) {
-        window.scrollTo(0, parseInt(top || '0') * -1);
-      }
-    }
-
-    return () => {
-      html.classList.remove('overflow-hidden');
-      body.style.position = '';
-      body.style.top = '';
-      body.style.left = '';
-      body.style.right = '';
-    };
+    // Убираем все блокировки скролла - позволяем пользователю свободно скроллить страницу
+    // Чат-бот будет отображаться поверх контента без блокировки взаимодействия
   }, [isOpen]);
 
   // Поддержка iOS клавиатуры: двигаем нижнюю панель, если visualViewport меняется
@@ -161,7 +135,8 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
   };
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('ru-RU', { 
+    const locale = t('common.locale', { defaultValue: 'ru-RU' });
+    return date.toLocaleTimeString(locale, { 
       hour: '2-digit', 
       minute: '2-digit' 
     });
@@ -239,14 +214,23 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
       <AnimatePresence>
         {isOpen && (
           <>
-            {/* Мобильная версия - полноэкранная */}
+            {/* Мобильная версия - модальное окно */}
             <motion.div
-              className="fixed inset-0 z-[80] bg-white flex flex-col md:hidden"
-              initial={{ opacity: 0, y: '100%' }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: '100%' }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed inset-0 z-[80] bg-black/50 flex items-end justify-center md:hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={handleClose}
             >
+              <motion.div
+                className="w-full max-w-md bg-white rounded-t-2xl flex flex-col max-h-[80vh]"
+                initial={{ y: '100%' }}
+                animate={{ y: 0 }}
+                exit={{ y: '100%' }}
+                transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                onClick={(e) => e.stopPropagation()}
+              >
               {/* Заголовок чата - фиксированный */}
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-4 flex items-center justify-between sticky top-0 z-10">
                 <div className="flex items-center space-x-3">
@@ -254,8 +238,8 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                     <Bot className="h-5 w-5" />
                   </div>
                   <div>
-                    <h3 className="font-semibold">{t('chatbot.title')}</h3>
-                    <p className="text-xs text-blue-100">{t('chatbot.subtitle')}</p>
+                    <h3 className="font-semibold">{tHome('chatbot.chat_title')}</h3>
+                    <p className="text-xs text-blue-100">{tHome('chatbot.chat_status')}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -331,7 +315,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       onKeyPress={handleKeyPress}
-                      placeholder={isLoading ? t('chatbot.placeholderLoading') : t('chatbot.placeholder')}
+                      placeholder={isLoading ? t('chatbot.placeholderLoading') : tHome('chatbot.placeholder')}
                       className={`flex-1 rounded-xl border px-3 py-2 outline-none border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition-all duration-200 ${
                         isLoading 
                           ? 'border-blue-300 bg-blue-50 opacity-60' 
@@ -351,6 +335,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                     {t('chatbot.sendHint')}
                   </p>
                 </div>
+              </motion.div>
             </motion.div>
 
             {/* Десктопная версия */}
@@ -377,8 +362,8 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                   <Bot className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold">{t('chatbot.title')}</h3>
-                  <p className="text-xs text-blue-100">{t('chatbot.subtitle')}</p>
+                  <h3 className="font-semibold">{tHome('chatbot.chat_title')}</h3>
+                  <p className="text-xs text-blue-100">{tHome('chatbot.chat_status')}</p>
                 </div>
               </div>
               <div className="flex items-center space-x-2">
@@ -469,7 +454,7 @@ const ChatbotWidget: React.FC<ChatbotWidgetProps> = ({ className = '' }) => {
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
-                  placeholder={isLoading ? t('chatbot.placeholderLoading') : t('chatbot.placeholder')}
+                  placeholder={isLoading ? t('chatbot.placeholderLoading') : tHome('chatbot.placeholder')}
                   className={`flex-1 px-3 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm transition-all duration-200 ${
                     isLoading 
                       ? 'border-blue-300 bg-blue-50' 

@@ -58,5 +58,70 @@
       "privacy": "privacy",
       "support": "support"
     }
+  },
+  "trust": {
+    "title": "They trust us",
+    "subtitle": "Leading companies choose our AI solutions"
+  },
+  "cases": {
+    "title": "Our cases",
+    "subtitle": "Real results of our clients after implementing AI solutions",
+    "success": "Successfully",
+    "items": [
+      {
+        "title": "Automation of \"SharkStore\" online store",
+        "description": "Implemented ChatGPT consultant and automated application processing for a large electronics online store."
+      },
+      {
+        "title": "AI recruiter for \"QazTech Ventures\" company",
+        "description": "Developed an automatic candidate selection system with resume analysis and success prediction."
+      },
+      {
+        "title": "Sales forecasting for \"abr+\" network",
+        "description": "Implemented AI analytics for demand forecasting and procurement optimization in a restaurant chain."
+      }
+    ]
+  },
+  "integrations": {
+    "title": "We integrate AI through official APIs of leading providers",
+    "subtitle": "ChatGPT (OpenAI), Claude (Anthropic), Google AI, Mistral, ElevenLabs and others — legally, transparently, and taking into account API costs.",
+    "note": "Note: logos and service names belong to their respective copyright holders.",
+    "buttons": {
+      "integrations": "More about integrations →",
+      "calculator": "Token calculator →"
+    }
+  },
+  "transparency": {
+    "title": "Transparent money flow in both directions",
+    "sections": {
+      "payment_from_you": {
+        "title": "Payment from You",
+        "description": "Subscriptions, implementation, support, training",
+        "note": "✓ You pay: 5% service fee + API costs"
+      },
+      "payment_to_providers": {
+        "title": "Payment to API Providers",
+        "description": "You pay for API usage directly through us",
+        "note": "✓ Transparent transfer of all API costs"
+      },
+      "how_it_works": {
+        "title": "• How does our model work?",
+        "points": {
+          "0": "You pay for the actual usage of API providers",
+          "1": "We optimize requests and monitor expenses",
+          "2": "Transparent cost transfer without API markups",
+          "3": "Detailed reporting for each request and expense"
+        }
+      },
+      "accounting": {
+        "title": "Accounting and Reporting",
+        "description": "Accounting and reporting: we keep track of consumption, provide invoices/acts upon request. You pay API costs +15% for technical support. No hidden markups!"
+      },
+      "flow": {
+        "you": "You",
+        "api_providers": "API Providers",
+        "full_transparency": "Full financial transparency"
+      }
+    }
   }
 }

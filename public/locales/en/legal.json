@@ -173,27 +173,27 @@
   },
   "consent": {
     "title": "Consent to Personal Data Processing",
-    "intro": "I hereby give consent to LLP \"World Trade\" (NeuroBoost) to process my personal data.",
+    "intro": "In accordance with the Law of the Republic of Kazakhstan 'On Personal Data and Their Protection', I, as a personal data subject, freely, by my will and in my interest, give my consent to Limited Liability Partnership 'World Trade' (BIN: 240740019557, address: Republic of Kazakhstan, Almaty, Turksib District, Dulatova St. 53, 050003) to process my personal data provided when using the NeuroBoost service, as well as when interacting with the website, chatbots and other company services.",
     "sections": {
       "dataProcessing": {
         "title": "1. Personal Data Processing",
-        "content": "I agree to the processing of my personal data, including collection, recording, systematization, accumulation, storage, clarification, extraction, use, transfer, depersonalization, blocking, deletion and destruction."
+        "content": "Personal data processing means any actions (operations) performed using automation tools or without them, including: collection, recording, systematization, accumulation, storage, clarification (updating, modification), retrieval, use, transfer (dissemination, provision, access), depersonalization, blocking, deletion, destruction."
       },
       "purposes": {
         "title": "2. Processing Purposes",
-        "content": "Personal data is processed for the purposes of providing AI solution implementation services, consulting, technical support, informing about new services and products."
+        "content": "The purposes of processing personal data are: providing access to NeuroBoost platform services and functionality; concluding and fulfilling contracts; providing consulting, information and other services; improving service quality and personalizing the provided services; fulfilling the requirements of the legislation of the Republic of Kazakhstan."
       },
       "dataTypes": {
         "title": "3. Types of Personal Data",
-        "content": "The following personal data is subject to processing: last name, first name, patronymic, contact data (phone, email, address), company and position information, website and service usage data."
+        "content": "The following personal data may be processed: last name, first name, patronymic (if any); contact details (phone number, email address); information provided by the user during registration or use of the service; other data voluntarily provided by the personal data subject."
       },
       "consentWithdrawal": {
         "title": "4. Consent Withdrawal",
-        "content": "I understand that I can withdraw this consent at any time by sending written notice to: galuza_nikita@mail.ru"
+        "content": "Consent may be withdrawn by sending a written notice to the company's address: 050003, Republic of Kazakhstan, Almaty, Turksib District, Dulatova St. 53, LLP 'World Trade'."
       },
       "dataRetention": {
-        "title": "5. Data Retention Period",
-        "content": "Personal data is stored for the period necessary to achieve processing purposes, but not more than 5 years from the last interaction."
+        "title": "5. Term of Consent",
+        "content": "The consent is valid from the moment it is provided and until it is withdrawn by the personal data subject."
       }
     }
   },

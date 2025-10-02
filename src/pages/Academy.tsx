@@ -40,6 +40,11 @@ const Academy: React.FC = () => {
     }
   ];
 
+  const faqQuestions = t('academy.faq.questions', { returnObjects: true }) as Array<{
+    q: string;
+    a: string;
+  }>;
+
   const stats = [
     { number: '85%', label: t('academy.stats.0') },
     { number: '500 000₸+', label: t('academy.stats.1') },
@@ -59,7 +64,7 @@ const Academy: React.FC = () => {
               <span className='text-white font-medium'>{t('academy.badge')}</span>
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {t('academy.title')} <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">ИИ</span>
+              {t('academy.title')} <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{t('academy.gradient')}</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
               {t('academy.subtitle')}
@@ -192,7 +197,7 @@ const Academy: React.FC = () => {
           <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
             <h3 className="text-2xl font-bold text-white mb-6 text-center">{t('academy.faq.title')}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {t('academy.faq.questions', { returnObjects: true }).map((faq: {q: string, a: string}, idx: number) => (
+              {faqQuestions.map((faq, idx) => (
                 <div key={idx} className="bg-white/5 rounded-xl p-4 border border-white/10">
                   <p className="font-medium text-white mb-2">{faq.q}</p>
                   <p className="text-sm text-gray-300">{faq.a}</p>

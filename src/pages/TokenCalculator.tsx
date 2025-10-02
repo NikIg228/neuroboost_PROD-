@@ -190,7 +190,7 @@ const TokenCalculator: React.FC = () => {
               <CurrencyToggle />
             </div>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {t('title')}
+              {t('title')} <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">{t('gradient')}</span>
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               {t('description')}

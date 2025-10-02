@@ -1,0 +1,243 @@
+{
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "intro": "LLP \"World Trade\" (NeuroBoost) (hereinafter - Company) in accordance with the requirements of the Law of the Republic of Kazakhstan \"On Personal Data and Their Protection\".",
+    "sections": {
+      "general": {
+        "title": "1. General Provisions",
+        "content": "This Privacy Policy defines the procedure for processing personal data and measures to ensure the security of personal data taken by NeuroBoost (hereinafter - Company) in accordance with the requirements of the Law of the Republic of Kazakhstan \"On Personal Data and Their Protection\"."
+      },
+      "purposes": {
+        "title": "2. Purposes of Personal Data Processing",
+        "intro": "The Company processes personal data for the following purposes:",
+        "items": [
+          "Providing AI solution implementation services",
+          "Client consulting",
+          "Fulfillment of contractual obligations",
+          "Technical support",
+          "Informing about new services and products",
+          "Conducting marketing research"
+        ]
+      },
+      "dataTypes": {
+        "title": "3. Types of Processed Personal Data",
+        "intro": "The Company may process the following personal data:",
+        "items": [
+          "Last name, first name, patronymic",
+          "Contact data (phone, email, address)",
+          "Company and position information",
+          "Website and service usage data",
+          "Other data voluntarily provided by the subject"
+        ]
+      },
+      "processingMethods": {
+        "title": "4. Methods of Personal Data Processing",
+        "content": "The Company processes personal data both using automation tools and without them. Processing includes collection, recording, systematization, accumulation, storage, clarification, extraction, use, transfer, depersonalization, blocking, deletion and destruction of personal data."
+      },
+      "legalBasis": {
+        "title": "5. Legal Basis for Processing",
+        "intro": "The legal basis for processing personal data includes:",
+        "items": [
+          "Consent of the personal data subject",
+          "Necessity for contract performance",
+          "Necessity for compliance with legal obligations",
+          "Protection of vital interests of the subject"
+        ]
+      },
+      "retentionPeriod": {
+        "title": "6. Personal Data Processing Periods",
+        "content": "Personal data is processed for the period necessary to achieve processing purposes, unless a different period is provided by contract or legislation. Upon expiration of the processing period, personal data is subject to destruction or depersonalization."
+      },
+      "thirdPartyTransfer": {
+        "title": "7. Transfer of Personal Data to Third Parties",
+        "content": "The Company does not transfer personal data to third parties, except in cases provided by legislation or with the consent of the personal data subject. Transfer may be carried out to contractors and partners for fulfillment of contractual obligations."
+      },
+      "securityMeasures": {
+        "title": "8. Personal Data Protection Measures",
+        "intro": "The Company takes necessary technical and organizational measures to protect personal data:",
+        "items": [
+          "Data encryption during transmission and storage",
+          "Access control to personal data",
+          "Regular security system updates",
+          "Staff training on data protection issues",
+          "Data backup and recovery"
+        ]
+      },
+      "dataSubjectRights": {
+        "title": "9. Personal Data Subject Rights",
+        "intro": "The personal data subject has the right to:",
+        "items": [
+          "Receive information about processing of their personal data",
+          "Require clarification, blocking or destruction of personal data",
+          "Withdraw consent for personal data processing",
+          "File complaints with the authorized body",
+          "Protect their rights in court"
+        ]
+      },
+      "cookies": {
+        "title": "10. Use of Cookies",
+        "content": "The website uses cookies to improve user experience, analyze traffic and personalize content. You can disable cookies in browser settings, however this may limit website functionality."
+      },
+      "policyChanges": {
+        "title": "11. Privacy Policy Changes",
+        "content": "The Company reserves the right to make changes to this Privacy Policy. The current version is posted on the website with the date of last update."
+      },
+      "contactInfo": {
+        "title": "12. Contact Information",
+        "intro": "For questions about personal data processing, contact:",
+        "company": "LLP \"World Trade\" (NeuroBoost)",
+        "bin": "BIN: 240740019557",
+        "email": "Email: galuza_nikita@mail.ru",
+        "phone": "Phone: +7 (707) 506 29 00",
+        "address": "Address: Kazakhstan, Almaty, Turksib district, Dulatova str. 53, 050003"
+      }
+    }
+  },
+  "publicOffer": {
+    "title": "Public Offer",
+    "intro": "This public offer defines the terms of service provision by LLP \"World Trade\" (NeuroBoost).",
+    "sections": {
+      "general": {
+        "title": "1. General Provisions",
+        "content": "This public offer (hereinafter - Offer) defines the terms of providing AI solution implementation, consulting and technical support services provided by LLP \"World Trade\" (NeuroBoost) (hereinafter - Contractor)."
+      },
+      "definitions": {
+        "title": "2. Definitions",
+        "items": {
+          "offer": "Offer - this document posted on the Contractor's website",
+          "acceptance": "Acceptance - full and unconditional acceptance of the Offer terms",
+          "services": "Services - a set of works on AI solution implementation, consulting and technical support",
+          "client": "Customer - an individual or legal entity that has accepted the Offer terms"
+        }
+      },
+      "subject": {
+        "title": "3. Subject of the Agreement",
+        "content": "The Contractor undertakes to provide the Customer with AI solution implementation, consulting and technical support services, and the Customer undertakes to accept and pay for the specified services in accordance with the terms of this Offer."
+      },
+      "rightsObligations": {
+        "title": "4. Rights and Obligations of the Parties",
+        "executorRights": {
+          "title": "4.1. Contractor Rights:",
+          "items": [
+            "Require the Customer to provide necessary information",
+            "Suspend service provision in case of payment terms violation",
+            "Make changes to technical specifications in agreement with the Customer"
+          ]
+        },
+        "executorObligations": {
+          "title": "4.2. Contractor Obligations:",
+          "items": [
+            "Provide services in full and within established timeframes",
+            "Ensure confidentiality of Customer information",
+            "Provide technical support within the contract framework"
+          ]
+        },
+        "clientRights": {
+          "title": "4.3. Customer Rights:",
+          "items": [
+            "Require quality service provision",
+            "Receive consultations on AI solution usage",
+            "Require confidentiality compliance"
+          ]
+        },
+        "clientObligations": {
+          "title": "4.4. Customer Obligations:",
+          "items": [
+            "Pay for services on time",
+            "Provide necessary information and documents",
+            "Comply with terms of use of provided solutions"
+          ]
+        }
+      },
+      "payment": {
+        "title": "5. Payment Procedure",
+        "content": "Service costs are determined in accordance with the current price list. Payment is made in the national currency of the Republic of Kazakhstan (tenge) in the manner provided by the contract. VAT is not subject to taxation in accordance with current legislation."
+      },
+      "liability": {
+        "title": "6. Liability of the Parties",
+        "content": "The parties are liable for non-performance or improper performance of their obligations in accordance with the current legislation of the Republic of Kazakhstan. The Contractor is not liable for damage caused as a result of third party actions or force majeure circumstances."
+      },
+      "confidentiality": {
+        "title": "7. Confidentiality",
+        "content": "The parties undertake not to disclose confidential information received during contract performance. Confidentiality obligations are valid for 5 years after the contract expiration date."
+      },
+      "disputeResolution": {
+        "title": "8. Dispute Resolution",
+        "content": "All disputes and disagreements are resolved through negotiations. If agreement cannot be reached, disputes are subject to consideration in court at the Contractor's location."
+      },
+      "finalProvisions": {
+        "title": "9. Final Provisions",
+        "content": "This Offer comes into force from the moment of its posting on the website and is valid until withdrawal. The Contractor has the right to unilaterally change the Offer terms with 10 days' notice to the Customer before changes take effect."
+      }
+    }
+  },
+  "consent": {
+    "title": "Consent to Personal Data Processing",
+    "intro": "I hereby give consent to LLP \"World Trade\" (NeuroBoost) to process my personal data.",
+    "sections": {
+      "dataProcessing": {
+        "title": "1. Personal Data Processing",
+        "content": "I agree to the processing of my personal data, including collection, recording, systematization, accumulation, storage, clarification, extraction, use, transfer, depersonalization, blocking, deletion and destruction."
+      },
+      "purposes": {
+        "title": "2. Processing Purposes",
+        "content": "Personal data is processed for the purposes of providing AI solution implementation services, consulting, technical support, informing about new services and products."
+      },
+      "dataTypes": {
+        "title": "3. Types of Personal Data",
+        "content": "The following personal data is subject to processing: last name, first name, patronymic, contact data (phone, email, address), company and position information, website and service usage data."
+      },
+      "consentWithdrawal": {
+        "title": "4. Consent Withdrawal",
+        "content": "I understand that I can withdraw this consent at any time by sending written notice to: galuza_nikita@mail.ru"
+      },
+      "dataRetention": {
+        "title": "5. Data Retention Period",
+        "content": "Personal data is stored for the period necessary to achieve processing purposes, but not more than 5 years from the last interaction."
+      }
+    }
+  },
+  "telegramAgreement": {
+    "title": "Telegram Bot User Agreement",
+    "intro": "This agreement defines the terms of use of the NeuroBoost Telegram bot.",
+    "sections": {
+      "general": {
+        "title": "1. General Provisions",
+        "content": "This User Agreement (hereinafter - Agreement) defines the terms of use of the NeuroBoost Telegram bot (hereinafter - Bot), owned by LLP \"World Trade\" (NeuroBoost)."
+      },
+      "acceptance": {
+        "title": "2. Acceptance of Terms",
+        "content": "Using the Bot means full and unconditional acceptance of this Agreement terms. If you disagree with any terms, do not use the Bot."
+      },
+      "functionality": {
+        "title": "3. Bot Functionality",
+        "content": "The Bot provides the following capabilities: AI solution consulting, service cost calculation, tariff information, technical support, notifications about new services."
+      },
+      "userObligations": {
+        "title": "4. User Obligations",
+        "items": [
+          "Use the Bot in accordance with its purpose",
+          "Do not share other users' personal data with third parties",
+          "Do not use the Bot for illegal purposes",
+          "Maintain confidentiality of received information"
+        ]
+      },
+      "liability": {
+        "title": "5. Liability",
+        "content": "The Bot administration is not liable for damage caused as a result of Bot use, except in cases provided by current legislation."
+      },
+      "dataProcessing": {
+        "title": "6. Data Processing",
+        "content": "By using the Bot, you agree to the processing of your personal data in accordance with the Privacy Policy."
+      },
+      "changes": {
+        "title": "7. Agreement Changes",
+        "content": "The Bot administration has the right to unilaterally change this Agreement terms. Changes take effect from the moment of their publication in the Bot."
+      },
+      "contactInfo": {
+        "title": "8. Contact Information",
+        "content": "For all questions related to Bot use, contact: galuza_nikita@mail.ru"
+      }
+    }
+  }
+}

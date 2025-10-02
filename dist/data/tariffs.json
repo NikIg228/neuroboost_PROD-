@@ -1,0 +1,98 @@
+[
+  {
+    "audience": "business",
+    "title": "Старт ИИ",
+    "title_key": "start_ai",
+    "price_kzt": 24490,
+    "badge": "Старт",
+    "badge_key": "start",
+    "features": [
+      "Аудит процессов",
+      "Быстрые сценарии",
+      "Базовая интеграция бота",
+      "Онбординг"
+    ],
+    "is_active": true,
+    "sort_order": 5
+  },
+  {
+    "audience": "business",
+    "title": "Про ИИ",
+    "title_key": "pro_ai",
+    "price_kzt": 74490,
+    "badge": "Оптимально",
+    "badge_key": "optimal",
+    "features": [
+      "Мультимодельные промты (OpenAI/Claude/Mistral)",
+      "Интеграция с CRM",
+      "Отчёты по расходам API",
+      "Приоритетная поддержка"
+    ],
+    "is_active": true,
+    "sort_order": 20
+  },
+  {
+    "audience": "business",
+    "title": "Корпоративный ИИ",
+    "title_key": "corp_ai",
+    "price_kzt": 0,
+    "badge": "По запросу",
+    "badge_key": "by_request",
+    "features": [
+      "Кастомные модели",
+      "SSO, SLA",
+      "Обучение команды",
+      "Приоритетная поддержка"
+    ],
+    "is_active": true,
+    "sort_order": 30
+  },
+  {
+    "audience": "individual",
+    "title": "Личный ассистент",
+    "title_key": "personal_assistant",
+    "price_kzt": 4990,
+    "badge": "Доступно",
+    "badge_key": "affordable",
+    "features": [
+      "ИИ-консультации",
+      "Резюме/письма",
+      "Учебные задачи",
+      "Поддержка"
+    ],
+    "is_active": true,
+    "sort_order": 5
+  },
+  {
+    "audience": "individual",
+    "title": "Учёба+Голос",
+    "title_key": "study_voice",
+    "price_kzt": 9990,
+    "badge": "Хит",
+    "badge_key": "hit",
+    "features": [
+      "Подготовка к экзаменам",
+      "Проверка эссе",
+      "Озвучка/голос через TTS",
+      "Личный промт-профиль"
+    ],
+    "is_active": true,
+    "sort_order": 10
+  },
+  {
+    "audience": "individual",
+    "title": "Креатор Про",
+    "title_key": "creator_pro",
+    "price_kzt": 14990,
+    "badge": "Для контента",
+    "badge_key": "for_content",
+    "features": [
+      "Генерация контента",
+      "Сценарии",
+      "Базовый автопостинг",
+      "Промт-настройка"
+    ],
+    "is_active": true,
+    "sort_order": 15
+  }
+]

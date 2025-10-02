@@ -1,0 +1,61 @@
+{
+  "titles": {
+    "start_ai": "AI Start",
+    "pro_ai": "AI Pro",
+    "corp_ai": "Corporate AI",
+    "personal_assistant": "Personal Assistant",
+    "study_voice": "Study+Voice",
+    "creator_pro": "Creator Pro"
+  },
+  "badges": {
+    "start": "Start",
+    "optimal": "Optimal",
+    "by_request": "On request",
+    "affordable": "Affordable",
+    "hit": "Hit",
+    "for_content": "For content"
+  },
+  "features": {
+    "process_audit": "Process audit",
+    "quick_scenarios": "Quick scenarios",
+    "basic_bot_integration": "Basic bot integration",
+    "onboarding": "Onboarding",
+    "multimodal_prompts": "Multimodal prompts (OpenAI/Claude/Mistral)",
+    "crm_integration": "CRM integration",
+    "api_expense_reports": "API expense reports",
+    "priority_support": "Priority support",
+    "custom_models": "Custom models",
+    "sso_sla": "SSO, SLA",
+    "team_training": "Team training",
+    "ai_consultations": "AI consultations",
+    "resume_letters": "Resume/letters",
+    "study_tasks": "Study tasks",
+    "support": "Support",
+    "exam_preparation": "Exam preparation",
+    "essay_checking": "Essay checking",
+    "voice_tts": "Voice/TTS",
+    "personal_prompt_profile": "Personal prompt profile",
+    "content_generation": "Content generation",
+    "scenarios": "Scenarios",
+    "basic_autoposting": "Basic autoposting",
+    "prompt_setup": "Prompt setup"
+  },
+  "titles": {
+    "start_ai": "Start AI",
+    "pro_ai": "Pro AI",
+    "corp_ai": "Corporate AI",
+    "personal_assistant": "Personal Assistant",
+    "study_voice": "Study+Voice",
+    "creator_pro": "Creator Pro"
+  },
+  "badges": {
+    "start": "Start",
+    "optimal": "Optimal",
+    "by_request": "By request",
+    "affordable": "Affordable"
+  },
+  "prices": {
+    "by_request": "By request"
+  }
+}
+

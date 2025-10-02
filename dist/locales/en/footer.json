@@ -1,0 +1,37 @@
+{
+  "company": {
+    "name": "NeuroBoost",
+    "description": "We help businesses implement AI solutions for process automation, sales growth, and improved work efficiency."
+  },
+  "contact": {
+    "email": "galuza_nikita@mail.ru",
+    "phone": "+7 (707) 506 29 00",
+    "consultation": "Get consultation"
+  },
+  "company_info": {
+    "name": "LLP \"World Trade\"",
+    "bin": "BIN: 240740019557",
+    "address": "Kazakhstan, Almaty, Turksib district, Dulatova st. 53, 050003"
+  },
+  "sections": {
+    "services": "Services",
+    "legal": "Legal Information"
+  },
+  "services": {
+    "ai_audit": "AI Business Audit",
+    "chatgpt_consultant": "ChatGPT Consultant",
+    "request_automation": "Request Automation",
+    "all_services": "All Services"
+  },
+  "legal": {
+    "privacy_policy": "Privacy Policy",
+    "public_offer": "Public Offer",
+    "data_consent": "Data Processing Consent",
+    "telegram_agreement": "Telegram Bot User Agreement"
+  },
+  "payment": {
+    "accepted": "We accept:",
+    "secured": "SSL Secured"
+  },
+  "copyright": "© 2025 NeuroBoost. All rights reserved."
+}

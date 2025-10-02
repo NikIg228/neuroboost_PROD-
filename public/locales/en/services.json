@@ -21,5 +21,325 @@
       "buy": "Buy",
       "consult": "Get consultation"
     }
+  },
+  "ai-audit": {
+    "title": "AI Business Audit",
+    "description": "Comprehensive analysis of your company's business processes to identify automation opportunities using artificial intelligence. Get a detailed roadmap for implementing AI solutions.",
+    "benefits": [
+      "Identifying bottlenecks in business processes",
+      "Recommendations for AI solution implementation",
+      "Assessment of potential savings",
+      "Digital transformation roadmap"
+    ],
+    "features": [
+      "Analysis of up to 20 business processes",
+      "Report with data visualization",
+      "Expert consultation",
+      "30-day quality guarantee"
+    ]
+  },
+  "chatgpt-consultant": {
+    "title": "ChatGPT Consultant Implementation on Website",
+    "description": "Smart chatbot based on ChatGPT, trained specifically for your product and knowledge base. Automates up to 80% of typical customer questions and works around the clock.",
+    "benefits": [
+      "Automation of 80% of typical questions",
+      "24/7 customer support",
+      "Conversion increase up to 25%",
+      "Reduced support team workload"
+    ],
+    "features": [
+      "Training on your data",
+      "Integration with popular CMS",
+      "Analytics and reports",
+      "Multilingual support"
+    ]
+  },
+  "request-automation": {
+    "title": "Application Processing Automation",
+    "description": "Complete automation of incoming application processing using AI. The system automatically sorts, analyzes, and responds to customer requests.",
+    "benefits": [
+      "10x faster processing time",
+      "Automatic spam filtering",
+      "Key information extraction",
+      "Urgent application notifications"
+    ],
+    "features": [
+      "Smart spam filtering",
+      "Key information extraction",
+      "Urgent application notifications",
+      "API for integrations"
+    ]
+  },
+  "marketing-generator": {
+    "title": "Marketing Text Generator",
+    "description": "Powerful neural network for creating sales texts, advertising materials, and content for social networks. Saves up to 70% of time on content creation.",
+    "benefits": [
+      "Content that sells",
+      "Brand tone consistency",
+      "Uniqueness verification",
+      "Template library"
+    ],
+    "features": [
+      "Generation for all social networks",
+      "Brand tone",
+      "Uniqueness check",
+      "Template library"
+    ]
+  },
+  "image-generation": {
+    "title": "Advertising Image Generation",
+    "description": "Creative neural network for creating unique advertising images and banners. Generates hundreds of creative options in different styles, saving up to 80% of the design budget.",
+    "benefits": [
+      "Save up to 80% on design",
+      "Multiple style options",
+      "Branding and logos",
+      "Mass production capability"
+    ],
+    "features": [
+      "Generation in different styles",
+      "Branding and logos",
+      "Mass production",
+      "Integration with advertising accounts"
+    ]
+  },
+  "accounting-ai": {
+    "title": "AI for Accounting",
+    "description": "Complete automation of accounting processes using AI. The system automatically categorizes operations, fills out documents, and reconciles reports, reducing errors by up to 99%.",
+    "benefits": [
+      "99% error reduction",
+      "Automatic categorization",
+      "Document automation",
+      "Report reconciliation"
+    ],
+    "features": [
+      "Auto-categorization of operations",
+      "Bank statement reconciliation",
+      "Report generation",
+      "1C integration"
+    ]
+  },
+  "cold-mailing-ai": {
+    "title": "AI for Cold Mailings",
+    "description": "Intelligent system for creating and sending personalized cold emails. Increases open rates by 3x and response rates by 5x through AI-powered personalization.",
+    "benefits": [
+      "3x higher open rates",
+      "5x higher response rates",
+      "Personalized content",
+      "Automated follow-ups"
+    ],
+    "features": [
+      "AI-powered personalization",
+      "A/B testing automation",
+      "Email sequence optimization",
+      "Performance analytics"
+    ]
+  },
+  "competitor-analysis": {
+    "title": "AI Competitor Analysis",
+    "description": "Automated analysis of competitors' strategies, pricing, and marketing activities. Get insights and recommendations to stay ahead of the competition.",
+    "benefits": [
+      "Competitive advantage",
+      "Market insights",
+      "Pricing optimization",
+      "Strategy recommendations"
+    ],
+    "features": [
+      "Automated data collection",
+      "Price monitoring",
+      "Marketing analysis",
+      "Strategic recommendations"
+    ]
+  },
+  "sales-analytics": {
+    "title": "AI Sales Analytics and Demand Forecasting",
+    "description": "Advanced analytics system for sales forecasting and demand planning. Predicts sales trends with 95% accuracy and optimizes inventory management.",
+    "benefits": [
+      "95% forecast accuracy",
+      "Inventory optimization",
+      "Sales trend prediction",
+      "Revenue growth"
+    ],
+    "features": [
+      "Machine learning forecasting",
+      "Inventory optimization",
+      "Sales trend analysis",
+      "Revenue prediction"
+    ]
+  },
+  "telegram-whatsapp-bot": {
+    "title": "AI Bot for Telegram/WhatsApp",
+    "description": "Smart chatbot for Telegram and WhatsApp that handles customer inquiries, orders, and support. Integrates with your CRM and works 24/7.",
+    "benefits": [
+      "24/7 customer service",
+      "CRM integration",
+      "Multi-platform support",
+      "Automated responses"
+    ],
+    "features": [
+      "Telegram integration",
+      "WhatsApp Business API",
+      "CRM synchronization",
+      "Natural language processing"
+    ]
+  },
+  "online-courses-ai": {
+    "title": "AI Assistant for Online Courses",
+    "description": "Intelligent assistant for online learning platforms that helps students with questions, provides personalized recommendations, and tracks progress.",
+    "benefits": [
+      "Personalized learning",
+      "24/7 student support",
+      "Progress tracking",
+      "Engagement increase"
+    ],
+    "features": [
+      "Student question answering",
+      "Personalized recommendations",
+      "Progress analytics",
+      "Course optimization"
+    ]
+  },
+  "crm-ai-assistant": {
+    "title": "AI Assistant for CRM",
+    "description": "Smart assistant integrated with your CRM system that automates data entry, provides insights, and helps with customer relationship management.",
+    "benefits": [
+      "Automated data entry",
+      "Customer insights",
+      "Workflow optimization",
+      "Time savings"
+    ],
+    "features": [
+      "CRM integration",
+      "Data automation",
+      "Customer analytics",
+      "Workflow optimization"
+    ]
+  },
+  "ai-recruiter": {
+    "title": "AI Recruiter",
+    "description": "Intelligent recruitment system that automates candidate screening, resume analysis, and interview scheduling. Reduces hiring time by 60%.",
+    "benefits": [
+      "60% faster hiring",
+      "Better candidate matching",
+      "Automated screening",
+      "Bias reduction"
+    ],
+    "features": [
+      "Resume analysis",
+      "Candidate scoring",
+      "Interview scheduling",
+      "Diversity tracking"
+    ]
+  },
+  "social-content-ai": {
+    "title": "AI Social Media Content Selection",
+    "description": "Neural network for selecting and creating engaging content for social networks. Analyzes trends and generates viral content ideas.",
+    "benefits": [
+      "Viral content creation",
+      "Trend analysis",
+      "Engagement increase",
+      "Content optimization"
+    ],
+    "features": [
+      "Trend analysis",
+      "Content generation",
+      "Engagement prediction",
+      "Multi-platform posting"
+    ]
+  },
+  "document-processing": {
+    "title": "AI Document Processing",
+    "description": "Automated document processing system that extracts information, categorizes files, and generates summaries. Handles any document format with 99% accuracy.",
+    "benefits": [
+      "99% accuracy",
+      "Time savings",
+      "Error reduction",
+      "Scalable processing"
+    ],
+    "features": [
+      "Multi-format support",
+      "Information extraction",
+      "Document categorization",
+      "Summary generation"
+    ]
+  },
+  "reputation-management": {
+    "title": "AI Review and Reputation Management",
+    "description": "Intelligent system for monitoring and managing online reviews and reputation. Automatically responds to reviews and tracks sentiment analysis.",
+    "benefits": [
+      "Reputation protection",
+      "Automated responses",
+      "Sentiment analysis",
+      "Review monitoring"
+    ],
+    "features": [
+      "Multi-platform monitoring",
+      "Sentiment analysis",
+      "Automated responses",
+      "Reputation scoring"
+    ]
+  },
+  "ai-transformation": {
+    "title": "Complete AI Company Transformation",
+    "description": "Comprehensive AI transformation package that includes strategy development, implementation, and training. Transforms your entire business with AI solutions.",
+    "benefits": [
+      "Complete transformation",
+      "Strategic planning",
+      "Team training",
+      "Ongoing support"
+    ],
+    "features": [
+      "AI strategy development",
+      "Implementation planning",
+      "Team training program",
+      "Ongoing consultation"
+    ]
+  },
+  "call-analytics": {
+    "title": "Call Speech Analytics",
+    "description": "AI-powered call analytics system that analyzes conversations, identifies key topics, and provides insights for improving customer service quality.",
+    "benefits": [
+      "Service quality improvement",
+      "Customer insights",
+      "Performance tracking",
+      "Training recommendations"
+    ],
+    "features": [
+      "Speech recognition",
+      "Sentiment analysis",
+      "Topic identification",
+      "Performance metrics"
+    ]
+  },
+  "voice-bot": {
+    "title": "AI VoiceBot for Calls",
+    "description": "Advanced voice AI that handles incoming calls like a real operator. Natural conversation, appointment scheduling, and customer support automation.",
+    "benefits": [
+      "Voice AI like real operator",
+      "24/7 availability",
+      "Natural conversations",
+      "Cost reduction"
+    ],
+    "features": [
+      "Natural language processing",
+      "Voice synthesis",
+      "Call routing",
+      "Appointment scheduling"
+    ]
+  },
+  "custom-gpt": {
+    "title": "Custom GPT for Your Business",
+    "description": "Personalized GPT model trained specifically for your business needs. Handles industry-specific tasks and integrates with your existing systems.",
+    "benefits": [
+      "Industry-specific AI",
+      "Custom training",
+      "System integration",
+      "Scalable solution"
+    ],
+    "features": [
+      "Custom model training",
+      "API integration",
+      "Performance monitoring",
+      "Continuous learning"
+    ]
   }
 }

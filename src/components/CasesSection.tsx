@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle, TrendingUp, Users, DollarSign } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 interface CaseStudy {
   id: string;
@@ -12,11 +13,13 @@ interface CaseStudy {
 }
 
 const CasesSection: React.FC = () => {
+  const { t } = useTranslation('home');
+  
   const cases: CaseStudy[] = [
     {
       id: '1',
-      title: 'Автоматизация интернет-магазина "SharkStore"',
-      description: 'Внедрили ChatGPT-консультанта и автоматизацию обработки заявок для крупного интернет-магазина электроники.',
+      title: t('cases.items.0.title'),
+      description: t('cases.items.0.description'),
       result: 'Увеличение конверсии на 45% и сокращение времени обработки заявок в 3 раза',
       clientLogo: 'TS',
       icon: TrendingUp,
@@ -24,8 +27,8 @@ const CasesSection: React.FC = () => {
     },
     {
       id: '2',
-      title: 'ИИ-рекрутер для компании "QazTech Ventures"',
-      description: 'Разработали систему автоматического отбора кандидатов с анализом резюме и предсказанием успешности.',
+      title: t('cases.items.1.title'),
+      description: t('cases.items.1.description'),
       result: 'Ускорение процесса найма в 5 раз, точность отбора 92%',
       clientLogo: 'DC',
       icon: Users,
@@ -33,8 +36,8 @@ const CasesSection: React.FC = () => {
     },
     {
       id: '3',
-      title: 'Прогнозирование продаж для сети "abr+"',
-      description: 'Внедрили ИИ-аналитику для прогнозирования спроса и оптимизации закупок в сети ресторанов.',
+      title: t('cases.items.2.title'),
+      description: t('cases.items.2.description'),
       result: 'Сокращение излишков товара на 60%, рост прибыли на 35%',
       clientLogo: 'FC',
       icon: DollarSign,
@@ -47,10 +50,10 @@ const CasesSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-4 sm:mb-6">
-            Наши <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">кейсы</span>
+            {t('cases.title')}
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-            Реальные результаты наших клиентов после внедрения ИИ-решений
+            {t('cases.subtitle')}
           </p>
         </div>
 
@@ -64,7 +67,7 @@ const CasesSection: React.FC = () => {
                 </div>
                 <div className="flex items-center space-x-2 bg-green-100 px-3 py-1 rounded-full">
                   <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-500" />
-                  <span className="text-xs sm:text-sm font-semibold text-green-600">Успешно</span>
+                  <span className="text-xs sm:text-sm font-semibold text-green-600">{t('cases.success')}</span>
                 </div>
               </div>
 

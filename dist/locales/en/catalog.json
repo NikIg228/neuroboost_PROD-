@@ -1,0 +1,50 @@
+{
+  "title": "Catalog",
+  "subtitle": "AI Services",
+  "description": "Choose the right solution for automation and optimization",
+  "search": {
+    "placeholder": "Search services...",
+    "no_results": "No results found for your query. Try changing search parameters."
+  },
+  "comparison": {
+    "title": "Plan comparison",
+    "monthly": "/mo",
+    "yearly": "/yr (-20%)",
+    "toggle": "↔",
+    "columns": {
+      "plan": "Plan",
+      "price": "Price",
+      "active": "Active",
+      "order": "Order"
+    },
+    "yes": "Yes",
+    "no": "No"
+  },
+  "filters": {
+    "sort_by": "Sort by",
+    "by_name": "By name",
+    "by_price": "By price"
+  },
+  "tariffs": {
+    "title": "Plans and Programs",
+    "one_time_setup": "one-time setup",
+    "monthly_note_title": "Monthly, you additionally pay:",
+    "monthly_note_value": "5% of the plan + your API costs",
+    "apply": "Request",
+    "apply_aria": "Request plan {{title}}"
+  },
+  "services": {
+    "title": "Additional Services",
+    "badges": {
+      "most_popular": "Most Popular",
+      "fastest_payback": "Fastest Payback",
+      "small_business_choice": "Small Business Choice",
+      "comprehensive": "Comprehensive Implementation"
+    }
+  },
+  "cta": {
+    "title": "Can't find the right solution?",
+    "description": "We create custom AI solutions for your specific tasks. Contact us to discuss your project.",
+    "button": "Order Custom Solution"
+  }
+}

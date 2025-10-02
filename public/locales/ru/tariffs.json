@@ -1,0 +1,61 @@
+{
+  "titles": {
+    "start_ai": "Старт ИИ",
+    "pro_ai": "Про ИИ",
+    "corp_ai": "Корпоративный ИИ",
+    "personal_assistant": "Личный ассистент",
+    "study_voice": "Учёба+Голос",
+    "creator_pro": "Креатор Про"
+  },
+  "badges": {
+    "start": "Старт",
+    "optimal": "Оптимально",
+    "by_request": "По запросу",
+    "affordable": "Доступно",
+    "hit": "Хит",
+    "for_content": "Для контента"
+  },
+  "features": {
+    "process_audit": "Аудит процессов",
+    "quick_scenarios": "Быстрые сценарии",
+    "basic_bot_integration": "Базовая интеграция бота",
+    "onboarding": "Онбординг",
+    "multimodal_prompts": "Мультимодельные промты (OpenAI/Claude/Mistral)",
+    "crm_integration": "Интеграция с CRM",
+    "api_expense_reports": "Отчёты по расходам API",
+    "priority_support": "Приоритетная поддержка",
+    "custom_models": "Кастомные модели",
+    "sso_sla": "SSO, SLA",
+    "team_training": "Обучение команды",
+    "ai_consultations": "ИИ-консультации",
+    "resume_letters": "Резюме/письма",
+    "study_tasks": "Учебные задачи",
+    "support": "Поддержка",
+    "exam_preparation": "Подготовка к экзаменам",
+    "essay_checking": "Проверка эссе",
+    "voice_tts": "Озвучка/голос через TTS",
+    "personal_prompt_profile": "Личный промт-профиль",
+    "content_generation": "Генерация контента",
+    "scenarios": "Сценарии",
+    "basic_autoposting": "Базовый автопостинг",
+    "prompt_setup": "Промт-настройка"
+  },
+  "titles": {
+    "start_ai": "Старт ИИ",
+    "pro_ai": "Про ИИ",
+    "corp_ai": "Корпоративный ИИ",
+    "personal_assistant": "Личный ассистент",
+    "study_voice": "Учёба+Голос",
+    "creator_pro": "Креатор Про"
+  },
+  "badges": {
+    "start": "Старт",
+    "optimal": "Оптимально",
+    "by_request": "По запросу",
+    "affordable": "Доступно"
+  },
+  "prices": {
+    "by_request": "По запросу"
+  }
+}
+

@@ -1,0 +1,19 @@
+{
+  "titles": {
+    "start_ai": "AI Start",
+    "pro_ai": "AI Pro",
+    "corp_ai": "Corporate AI",
+    "personal_assistant": "Personal Assistant",
+    "study_voice": "Study+Voice",
+    "creator_pro": "Creator Pro"
+  },
+  "badges": {
+    "start": "Start",
+    "optimal": "Optimal",
+    "by_request": "On request",
+    "affordable": "Affordable",
+    "hit": "Hit",
+    "for_content": "For content"
+  }
+}
+

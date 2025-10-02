@@ -1,0 +1,61 @@
+{
+  "titles": {
+    "start_ai": "ЖИ Старт",
+    "pro_ai": "ЖИ Про",
+    "corp_ai": "Корпоративтік ЖИ",
+    "personal_assistant": "Жеке көмекші",
+    "study_voice": "Оқу+Дауыс",
+    "creator_pro": "Криэйтор Про"
+  },
+  "badges": {
+    "start": "Старт",
+    "optimal": "Оңтайлы",
+    "by_request": "Сұрау бойынша",
+    "affordable": "Қолжетімді",
+    "hit": "Хит",
+    "for_content": "Контентке"
+  },
+  "features": {
+    "process_audit": "Процестерді аудит",
+    "quick_scenarios": "Жылдам сценарийлер",
+    "basic_bot_integration": "Ботты негізгі интеграция",
+    "onboarding": "Онбординг",
+    "multimodal_prompts": "Мультимодальды промпттар (OpenAI/Claude/Mistral)",
+    "crm_integration": "CRM интеграциясы",
+    "api_expense_reports": "API шығындары туралы есептер",
+    "priority_support": "Басымдық қолдау",
+    "custom_models": "Кастомды модельдер",
+    "sso_sla": "SSO, SLA",
+    "team_training": "Команданы оқыту",
+    "ai_consultations": "ЖИ консультациялары",
+    "resume_letters": "Резюме/хаттар",
+    "study_tasks": "Оқу тапсырмалары",
+    "support": "Қолдау",
+    "exam_preparation": "Емтиханға дайындық",
+    "essay_checking": "Эссе тексеру",
+    "voice_tts": "Дауыс/TTS",
+    "personal_prompt_profile": "Жеке промпт профилі",
+    "content_generation": "Контент генерациясы",
+    "scenarios": "Сценарийлер",
+    "basic_autoposting": "Негізгі автопостинг",
+    "prompt_setup": "Промпт баптауы"
+  },
+  "titles": {
+    "start_ai": "ЖИ-старт",
+    "pro_ai": "ЖИ-про",
+    "corp_ai": "Корпоративтік ЖИ",
+    "personal_assistant": "Жеке көмекші",
+    "study_voice": "Оқу+Дауыс",
+    "creator_pro": "Креатор Про"
+  },
+  "badges": {
+    "start": "Старт",
+    "optimal": "Оңтайлы",
+    "by_request": "Сұрау бойынша",
+    "affordable": "Қолжетімді"
+  },
+  "prices": {
+    "by_request": "Сұрау бойынша"
+  }
+}
+

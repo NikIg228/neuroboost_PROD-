@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 interface TariffTabsProps {
   value: 'business' | 'individual';
@@ -6,6 +7,8 @@ interface TariffTabsProps {
 }
 
 const TariffTabs: React.FC<TariffTabsProps> = ({ value, onChange }) => {
+  const { t } = useTranslation('catalog');
+  
   return (
     <div className="inline-flex p-1 rounded-xl bg-white/10 border border-white/20">
       {(['business', 'individual'] as const).map((v) => {
@@ -21,7 +24,7 @@ const TariffTabs: React.FC<TariffTabsProps> = ({ value, onChange }) => {
             }`}
             aria-pressed={active}
           >
-            {v === 'business' ? 'Бизнес' : 'Частные лица'}
+            {v === 'business' ? t('tabs.business') : t('tabs.individual')}
           </button>
         );
       })}

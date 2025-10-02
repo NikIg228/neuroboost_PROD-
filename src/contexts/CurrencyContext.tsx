@@ -28,14 +28,9 @@ const CURRENCY_RATES: CurrencyRates = {
 // Функция для "красивого" округления
 const roundPrice = (price: number, currency: Currency): number => {
   if (currency === 'KZT') {
-    // Округляем до ближайшей тысячи или сотни
-    if (price >= 100000) {
-      return Math.round(price / 1000) * 1000;
-    } else if (price >= 10000) {
-      return Math.round(price / 500) * 500;
-    } else {
-      return Math.round(price / 100) * 100;
-    }
+    // Для тенге показываем фактическую цену без грубого округления,
+    // сохраняем максимум десятки, чтобы не "съедать" 990 и т.п.
+    return Math.round(price / 10) * 10;
   } else if (currency === 'RUB') {
     // Округляем до 99 или красивых чисел
     if (price >= 50000) {

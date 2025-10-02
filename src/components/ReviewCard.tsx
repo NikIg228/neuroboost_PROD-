@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Review } from '@/types/index';
 import { User, Calendar } from 'lucide-react';
 
@@ -8,6 +9,7 @@ interface ReviewCardProps {
 }
 
 const ReviewCard: React.FC<ReviewCardProps> = ({ review, onServiceClick }) => {
+  const { t } = useTranslation('pages');
   return (
     <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300">
       <div className="flex items-start justify-between mb-4">
@@ -32,7 +34,7 @@ const ReviewCard: React.FC<ReviewCardProps> = ({ review, onServiceClick }) => {
           onClick={() => onServiceClick(review.serviceId)}
           className="text-blue-600 hover:text-blue-800 text-sm font-medium transition-colors"
         >
-          Услуга: {review.serviceName} →
+          {t('reviews.serviceLabel', { defaultValue: 'Услуга:' })} {review.serviceName} →
         </button>
       </div>
     </div>

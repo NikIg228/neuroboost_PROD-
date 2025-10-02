@@ -43,5 +43,19 @@
       "website": "https://company.com",
       "comment": "Additional wishes or questions..."
     }
+  },
+  "leadForm": {
+    "name": "Your Name",
+    "email": "Email",
+    "phone": "Phone",
+    "note": "Comment",
+    "submit": "Send Request",
+    "submitting": "Sending…",
+    "success": "Thank you! We will contact you shortly.",
+    "error": "Submission failed. Please try again later.",
+    "source": "Source: {{source}}"
+  },
+  "common": {
+    "locale": "en-US"
   }
 }

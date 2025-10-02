@@ -1,0 +1,27 @@
+{
+  "brand": "NeuroBoost",
+  "nav": {
+    "catalog": "Каталог",
+    "calculator": "Калькулятор",
+    "academy": "Обучение",
+    "reviews": "Отзывы",
+    "about": "О нас",
+    "contact": "Контакты"
+  },
+  "auth": {
+    "login": "Войти",
+    "register": "Регистрация",
+    "profile": "Личный кабинет",
+    "logout": "Выйти",
+    "consult": "Консультация"
+  },
+  "assistant": "Умный помощник",
+  "menu": {
+    "open": "Открыть меню",
+    "close": "Закрыть меню",
+    "navigation": "Навигация",
+    "help": "Помощь",
+    "account": "Аккаунт",
+    "language": "Язык"
+  }
+}

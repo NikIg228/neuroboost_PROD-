@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import TariffTabs from '@/components/catalog/TariffTabs';
 import TariffCard, { TariffItem } from '@/components/catalog/TariffCard';
-import TariffComparison from '@/components/catalog/TariffComparison';
+// import TariffComparison from '@/components/catalog/TariffComparison';
 import CurrencyToggle from '@/components/common/CurrencyToggle';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase, Favorite } from '../lib/supabase';
@@ -12,6 +12,7 @@ import PurchaseModal from '@/components/PurchaseModal';
 import ConsultationModal from '@/components/ConsultationModal';
 import AnimatedSection from '@/components/AnimatedSection';
 import { Service } from '@/types/index';
+import localTariffs from '@/data/tariffs.json';
 import { Search, Filter } from 'lucide-react';
 import { useCurrency } from '@/contexts/CurrencyContext';
 import { useTranslation } from 'react-i18next';
@@ -48,7 +49,9 @@ const Catalog: React.FC = () => {
         const active = json.filter(t => t.is_active);
         setTariffs(active.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0)));
       } catch (e) {
-        console.error('Не удалось загрузить тарифы:', e);
+        console.error('Не удалось загрузить тарифы из public, используем локальные:', e);
+        const active = (localTariffs as unknown as TariffItem[]).filter(t => t.is_active);
+        setTariffs(active.sort((a, b) => (a.sort_order || 0) - (b.sort_order || 0)));
       }
     };
     load();
@@ -195,6 +198,14 @@ const Catalog: React.FC = () => {
                   <option value="name">{t('filters.by_name')}</option>
                   <option value="price">{t('filters.by_price')}</option>
                 </select>
+                <div className="flex gap-2">
+                  <button className="px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white text-sm hover:bg-white/30 transition-colors">
+                    {t('filters.all')}
+                  </button>
+                  <button className="px-3 py-2 bg-white/20 border border-white/30 rounded-lg text-white text-sm hover:bg-white/30 transition-colors">
+                    {t('filters.local_only')}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -216,10 +227,7 @@ const Catalog: React.FC = () => {
                 ))}
             </div>
 
-            {/* Сравнение тарифов */}
-            <AnimatedSection delay={300}>
-              <TariffComparison items={tariffs.filter(t => t.audience === audience)} />
-            </AnimatedSection>
+            {/* Сравнение тарифов отключено */}
           </div>
         )}
 

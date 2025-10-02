@@ -18,109 +18,30 @@ const Consent: React.FC = () => {
             </p>
 
             <div className="prose prose-lg max-w-none">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.subject.title')}</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.dataProcessing.title')}</h2>
               <p className="text-gray-700 mb-6">
-                {t('consent.sections.subject.content')}
+                {t('consent.sections.dataProcessing.content')}
               </p>
-
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.categories.title')}</h2>
-              <p className="text-gray-700 mb-4">
-                {t('consent.sections.categories.intro')}
-              </p>
-              <ul className="list-disc pl-6 mb-6 text-gray-700">
-                {t('consent.sections.categories.items', { returnObjects: true }).map((item: string, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
 
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.purposes.title')}</h2>
-              <p className="text-gray-700 mb-4">
-                {t('consent.sections.purposes.intro')}
-              </p>
-              <ul className="list-disc pl-6 mb-6 text-gray-700">
-                {t('consent.sections.purposes.items', { returnObjects: true }).map((item: string, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.methods.title')}</h2>
-              <p className="text-gray-700 mb-4">
-                {t('consent.sections.methods.intro')}
-              </p>
-              <ul className="list-disc pl-6 mb-6 text-gray-700">
-                {t('consent.sections.methods.items', { returnObjects: true }).map((item: string, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.timeline.title')}</h2>
               <p className="text-gray-700 mb-6">
-                {t('consent.sections.timeline.content')}
+                {t('consent.sections.purposes.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.transfer.title')}</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.dataTypes.title')}</h2>
               <p className="text-gray-700 mb-6">
-                {t('consent.sections.transfer.content')}
+                {t('consent.sections.dataTypes.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.withoutConsent.title')}</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.consentWithdrawal.title')}</h2>
               <p className="text-gray-700 mb-6">
-                {t('consent.sections.withoutConsent.content')}
+                {t('consent.sections.consentWithdrawal.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.protection.title')}</h2>
-              <p className="text-gray-700 mb-4">
-                {t('consent.sections.protection.intro')}
-              </p>
-              <ul className="list-disc pl-6 mb-6 text-gray-700">
-                {t('consent.sections.protection.items', { returnObjects: true }).map((item: string, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.rights.title')}</h2>
-              <p className="text-gray-700 mb-4">
-                {t('consent.sections.rights.intro')}
-              </p>
-              <ul className="list-disc pl-6 mb-6 text-gray-700">
-                {t('consent.sections.rights.items', { returnObjects: true }).map((item: string, index: number) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
-
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.transborder.title')}</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.dataRetention.title')}</h2>
               <p className="text-gray-700 mb-6">
-                {t('consent.sections.transborder.content')}
+                {t('consent.sections.dataRetention.content')}
               </p>
-
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.infoConsent.title')}</h2>
-              <p className="text-gray-700 mb-6">
-                {t('consent.sections.infoConsent.content')}
-              </p>
-
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('consent.sections.confirmation.title')}</h2>
-              <p className="text-gray-700 mb-6">
-                {t('consent.sections.confirmation.content')}
-              </p>
-
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-8">
-                <h3 className="text-lg font-semibold text-blue-900 mb-3">
-                  {t('consent.contact.title')}
-                </h3>
-                <div className="text-blue-800">
-                  <p><strong>{t('consent.contact.company')}</strong></p>
-                  <p>{t('consent.contact.bin')}</p>
-                  <p>{t('consent.contact.email')}</p>
-                  <p>{t('consent.contact.phone')}</p>
-                  <p>{t('consent.contact.address')}</p>
-                </div>
-              </div>
-
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mt-6">
-                <p className="text-yellow-800">
-                  <strong>{t('consent.important.title')}:</strong> {t('consent.important.content')}
-                </p>
-              </div>
             </div>
           </div>
         </AnimatedSection>

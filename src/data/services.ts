@@ -39,326 +39,326 @@ export const services: Service[] = [
   },
   {
     id: 'request-automation',
-    title: 'Автоматизация обработки заявок',
-    description: 'Полная автоматизация процесса обработки входящих заявок с помощью ИИ. Система автоматически сортирует, анализирует и отвечает на заявки клиентов.',
+    title: 'services:request-automation.title',
+    description: 'services:request-automation.description',
     price: '124 990 тг',
     benefits: [
-      'Сокращение времени обработки заявок в 10 раз',
-      'Автоматическая категоризация по важности',
-      'Предварительные ответы клиентам',
-      'Интеграция с CRM-системами'
+      'services:request-automation.benefits.0',
+      'services:request-automation.benefits.1',
+      'services:request-automation.benefits.2',
+      'services:request-automation.benefits.3'
     ],
     features: [
-      'Умная фильтрация спама',
-      'Извлечение ключевой информации',
-      'Уведомления о срочных заявках',
-      'API для интеграций'
+      'services:request-automation.features.0',
+      'services:request-automation.features.1',
+      'services:request-automation.features.2',
+      'services:request-automation.features.3'
     ]
   },
   {
     id: 'marketing-generator',
-    title: 'Генератор текстов для маркетинга',
-    description: 'Мощная нейросеть для создания продающих текстов, рекламных материалов и контента для социальных сетей. Экономит до 70% времени на создание контента.',
+    title: 'services:marketing-generator.title',
+    description: 'services:marketing-generator.description',
     price: '89 990 тг',
     benefits: [
-      'Экономия до 70% времени на создание контента',
-      'Уникальные тексты для разных платформ',
-      'Адаптация под целевую аудиторию',
-      'Оптимизация под SEO'
+      'services:marketing-generator.benefits.0',
+      'services:marketing-generator.benefits.1',
+      'services:marketing-generator.benefits.2',
+      'services:marketing-generator.benefits.3'
     ],
     features: [
-      'Генерация для всех соцсетей',
-      'Тональность под бренд',
-      'Проверка на уникальность',
-      'Библиотека шаблонов'
+      'services:marketing-generator.features.0',
+      'services:marketing-generator.features.1',
+      'services:marketing-generator.features.2',
+      'services:marketing-generator.features.3'
     ]
   },
   {
-    id: 'cold-outreach',
-    title: 'ИИ для холодных рассылок',
-    description: 'Революционная система для создания персонализированных холодных писем и сообщений. Повышает отклик до 40% благодаря индивидуальному подходу к каждому получателю.',
+    id: 'cold-mailing-ai',
+    title: 'services:cold-mailing-ai.title',
+    description: 'services:cold-mailing-ai.description',
     price: '149 990 тг',
     benefits: [
-      'Повышение отклика до 40%',
-      'Персонализация каждого письма',
-      'A/B тестирование сообщений',
-      'Автоматическое follow-up'
+      'services:cold-mailing-ai.benefits.0',
+      'services:cold-mailing-ai.benefits.1',
+      'services:cold-mailing-ai.benefits.2',
+      'services:cold-mailing-ai.benefits.3'
     ],
     features: [
-      'Анализ профилей получателей',
-      'Интеграция с email-платформами',
-      'Отслеживание метрик',
-      'Антиспам оптимизация'
+      'services:cold-mailing-ai.features.0',
+      'services:cold-mailing-ai.features.1',
+      'services:cold-mailing-ai.features.2',
+      'services:cold-mailing-ai.features.3'
     ]
   },
   {
-    id: 'voice-analytics',
-    title: 'Речевая аналитика звонков',
-    description: 'Передовая система анализа телефонных разговоров с помощью ИИ. Контролирует качество всех звонков, выявляет ошибки в скриптах и помогает повысить эффективность продаж.',
+    id: 'call-analytics',
+    title: 'services:call-analytics.title',
+    description: 'services:call-analytics.description',
     price: '224 990 тг',
     benefits: [
-      'Контроль качества 100% звонков',
-      'Выявление причин потери клиентов',
-      'Повышение эффективности продаж',
-      'Обучение сотрудников на основе данных'
+      'services:call-analytics.benefits.0',
+      'services:call-analytics.benefits.1',
+      'services:call-analytics.benefits.2',
+      'services:call-analytics.benefits.3'
     ],
     features: [
-      'Распознавание речи в реальном времени',
-      'Анализ эмоций клиентов',
-      'Оценка соблюдения скриптов',
-      'Детальные отчеты и рекомендации'
+      'services:call-analytics.features.0',
+      'services:call-analytics.features.1',
+      'services:call-analytics.features.2',
+      'services:call-analytics.features.3'
     ]
   },
   {
     id: 'reputation-management',
-    title: 'Обработка отзывов и репутации ИИ',
-    description: 'Комплексная система мониторинга и управления репутацией в интернете. ИИ собирает и анализирует отзывы с более чем 50 площадок, обеспечивая круглосуточный контроль.',
+    title: 'services:reputation-management.title',
+    description: 'services:reputation-management.description',
     price: '109 990 тг',
     benefits: [
-      'Мониторинг репутации 24/7',
-      'Быстрое реагирование на негатив',
-      'Анализ настроений клиентов',
-      'Автоматические ответы на отзывы'
+      'services:reputation-management.benefits.0',
+      'services:reputation-management.benefits.1',
+      'services:reputation-management.benefits.2',
+      'services:reputation-management.benefits.3'
     ],
     features: [
-      'Сбор с 50+ площадок',
-      'Sentiment анализ',
-      'Уведомления о новых отзывах',
-      'Конкурентный анализ'
+      'services:reputation-management.features.0',
+      'services:reputation-management.features.1',
+      'services:reputation-management.features.2',
+      'services:reputation-management.features.3'
     ]
   },
   {
     id: 'sales-analytics',
-    title: 'ИИ-аналитика продаж и прогнозирование спроса',
-    description: 'Интеллектуальная система прогнозирования продаж и спроса на основе машинного обучения. Точность прогнозов до 95%, что позволяет оптимизировать складские запасы и планирование.',
+    title: 'services:sales-analytics.title',
+    description: 'services:sales-analytics.description',
     price: '349 990 тг',
     benefits: [
-      'Точность прогнозов до 95%',
-      'Оптимизация складских запасов',
-      'Планирование закупок и производства',
-      'Выявление трендов и сезонности'
+      'services:sales-analytics.benefits.0',
+      'services:sales-analytics.benefits.1',
+      'services:sales-analytics.benefits.2',
+      'services:sales-analytics.benefits.3'
     ],
     features: [
-      'Машинное обучение на ваших данных',
-      'Интеграция с учетными системами',
-      'Интерактивные дашборды',
-      'Автоматические рекомендации'
+      'services:sales-analytics.features.0',
+      'services:sales-analytics.features.1',
+      'services:sales-analytics.features.2',
+      'services:sales-analytics.features.3'
     ]
   },
   {
-    id: 'content-ai',
-    title: 'Нейросеть для подбора контента в соцсетях',
-    description: 'Умная система создания вирусного контента для социальных сетей. Анализирует тренды в реальном времени и генерирует посты, которые максимально вовлекают вашу аудиторию.',
+    id: 'social-content-ai',
+    title: 'services:social-content-ai.title',
+    description: 'services:social-content-ai.description',
     price: '174 990 тг',
     benefits: [
-      'Рост вовлеченности до 300%',
-      'Контент по трендам в реальном времени',
-      'Адаптация под разные аудитории',
-      'Автоматическая публикация'
+      'services:social-content-ai.benefits.0',
+      'services:social-content-ai.benefits.1',
+      'services:social-content-ai.benefits.2',
+      'services:social-content-ai.benefits.3'
     ],
     features: [
-      'Анализ трендов и хештегов',
-      'Генерация изображений и текстов',
-      'Планировщик публикаций',
-      'Аналитика эффективности'
+      'services:social-content-ai.features.0',
+      'services:social-content-ai.features.1',
+      'services:social-content-ai.features.2',
+      'services:social-content-ai.features.3'
     ]
   },
   {
-    id: 'messenger-bot',
-    title: 'ИИ-бот для Telegram/WhatsApp',
-    description: 'Продвинутый многофункциональный бот для мессенджеров с естественным пониманием языка. Принимает заказы, консультирует клиентов и интегрируется с вашими бизнес-системами.',
+    id: 'telegram-whatsapp-bot',
+    title: 'services:telegram-whatsapp-bot.title',
+    description: 'services:telegram-whatsapp-bot.description',
     price: '199 990 тг',
     benefits: [
-      'Автоматизация клиентского сервиса',
-      'Прием заказов и платежей',
-      'Уведомления и рассылки',
-      'Интеграция с бизнес-системами'
+      'services:telegram-whatsapp-bot.benefits.0',
+      'services:telegram-whatsapp-bot.benefits.1',
+      'services:telegram-whatsapp-bot.benefits.2',
+      'services:telegram-whatsapp-bot.benefits.3'
     ],
     features: [
-      'Естественное понимание языка',
-      'Голосовые сообщения',
-      'Файлы и документы',
-      'Веб-панель управления'
+      'services:telegram-whatsapp-bot.features.0',
+      'services:telegram-whatsapp-bot.features.1',
+      'services:telegram-whatsapp-bot.features.2',
+      'services:telegram-whatsapp-bot.features.3'
     ]
   },
   {
     id: 'ai-recruiter',
-    title: 'ИИ-рекрутер',
-    description: 'Революционная система подбора персонала на базе ИИ. Автоматически оценивает резюме, проводит первичный скрининг и предсказывает успешность кандидатов с точностью до 90%.',
+    title: 'services:ai-recruiter.title',
+    description: 'services:ai-recruiter.description',
     price: '299 990 тг',
     benefits: [
-      'Ускорение отбора кандидатов в 5 раз',
-      'Объективная оценка без предвзятости',
-      'Предсказание успешности кандидата',
-      'Автоматизация первичного скрининга'
+      'services:ai-recruiter.benefits.0',
+      'services:ai-recruiter.benefits.1',
+      'services:ai-recruiter.benefits.2',
+      'services:ai-recruiter.benefits.3'
     ],
     features: [
-      'Парсинг резюме с любых площадок',
-      'Скоринг по 50+ критериям',
-      'Интеграция с HR-системами',
-      'Аналитика по рынку труда'
+      'services:ai-recruiter.features.0',
+      'services:ai-recruiter.features.1',
+      'services:ai-recruiter.features.2',
+      'services:ai-recruiter.features.3'
     ]
   },
   {
     id: 'document-processing',
-    title: 'Обработка документов с помощью ИИ',
-    description: 'Интеллектуальная система обработки любых документов. Автоматически извлекает данные из счетов, договоров, PDF-файлов и интегрирует их в ваши учетные системы.',
+    title: 'services:document-processing.title',
+    description: 'services:document-processing.description',
     price: '274 990 тг',
     benefits: [
-      'Сокращение времени обработки на 90%',
-      'Исключение человеческих ошибок',
-      'Автоматическое извлечение данных',
-      'Интеграция с учетными системами'
+      'services:document-processing.benefits.0',
+      'services:document-processing.benefits.1',
+      'services:document-processing.benefits.2',
+      'services:document-processing.benefits.3'
     ],
     features: [
-      'Распознавание любых форматов',
-      'Извлечение структурированных данных',
-      'Проверка на соответствие',
-      'API для интеграций'
+      'services:document-processing.features.0',
+      'services:document-processing.features.1',
+      'services:document-processing.features.2',
+      'services:document-processing.features.3'
     ]
   },
   {
-    id: 'crm-assistant',
-    title: 'ИИ-помощник для CRM',
-    description: 'Умный помощник для вашей CRM-системы. Автоматически заполняет карточки клиентов, предсказывает вероятность сделок и дает персональные рекомендации по работе с каждым клиентом.',
+    id: 'crm-ai-assistant',
+    title: 'services:crm-ai-assistant.title',
+    description: 'services:crm-ai-assistant.description',
     price: '249 990 тг',
     benefits: [
-      'Автоматическое заполнение карточек',
-      'Предсказание вероятности сделки',
-      'Рекомендации по работе с клиентами',
-      'Автоматические напоминания'
+      'services:crm-ai-assistant.benefits.0',
+      'services:crm-ai-assistant.benefits.1',
+      'services:crm-ai-assistant.benefits.2',
+      'services:crm-ai-assistant.benefits.3'
     ],
     features: [
-      'Интеграция с популярными CRM',
-      'Анализ воронки продаж',
-      'Прогнозирование выручки',
-      'Персональные рекомендации'
+      'services:crm-ai-assistant.features.0',
+      'services:crm-ai-assistant.features.1',
+      'services:crm-ai-assistant.features.2',
+      'services:crm-ai-assistant.features.3'
     ]
   },
   {
     id: 'accounting-ai',
-    title: 'ИИ для бухгалтерии',
-    description: 'Полная автоматизация бухгалтерских процессов с помощью ИИ. Система автоматически категоризирует операции, заполняет документы и сверяет отчеты, снижая ошибки до 99%.',
+    title: 'services:accounting-ai.title',
+    description: 'services:accounting-ai.description',
     price: '374 990 тг',
     benefits: [
-      'Автоматизация рутинных операций',
-      'Снижение ошибок до 99%',
-      'Ускорение закрытия периодов',
-      'Compliance с законодательством'
+      'services:accounting-ai.benefits.0',
+      'services:accounting-ai.benefits.1',
+      'services:accounting-ai.benefits.2',
+      'services:accounting-ai.benefits.3'
     ],
     features: [
-      'Автокатегоризация операций',
-      'Сверка банковских выписок',
-      'Генерация отчетности',
-      'Интеграция с 1С'
+      'services:accounting-ai.features.0',
+      'services:accounting-ai.features.1',
+      'services:accounting-ai.features.2',
+      'services:accounting-ai.features.3'
     ]
   },
   {
     id: 'image-generation',
-    title: 'Генерация изображений для рекламы',
-    description: 'Творческая нейросеть для создания уникальных рекламных изображений и баннеров. Генерирует сотни вариантов креативов в разных стилях, экономя до 80% бюджета на дизайн.',
+    title: 'services:image-generation.title',
+    description: 'services:image-generation.description',
     price: '89 990 тг',
     benefits: [
-      'Экономия на дизайнерах до 80%',
-      'Быстрое создание A/B тестов',
-      'Уникальные креативы под бренд',
-      'Адаптация под разные форматы'
+      'services:image-generation.benefits.0',
+      'services:image-generation.benefits.1',
+      'services:image-generation.benefits.2',
+      'services:image-generation.benefits.3'
     ],
     features: [
-      'Генерация в разных стилях',
-      'Брендинг и логотипы',
-      'Массовое производство',
-      'Интеграция с рекламными кабинетами'
+      'services:image-generation.features.0',
+      'services:image-generation.features.1',
+      'services:image-generation.features.2',
+      'services:image-generation.features.3'
     ]
   },
   {
     id: 'competitor-analysis',
-    title: 'ИИ-анализ конкурентов',
-    description: 'Система непрерывного мониторинга конкурентов с помощью ИИ. Собирает данные с сайтов, соцсетей и маркетплейсов, анализирует стратегии и выявляет новые возможности для роста.',
+    title: 'services:competitor-analysis.title',
+    description: 'services:competitor-analysis.description',
     price: '324 990 тг',
     benefits: [
-      'Постоянный мониторинг конкурентов',
-      'Выявление новых угроз и возможностей',
-      'Анализ ценовой политики',
-      'Отслеживание маркетинговых активностей'
+      'services:competitor-analysis.benefits.0',
+      'services:competitor-analysis.benefits.1',
+      'services:competitor-analysis.benefits.2',
+      'services:competitor-analysis.benefits.3'
     ],
     features: [
-      'Сбор данных с сайтов и соцсетей',
-      'Анализ отзывов конкурентов',
-      'Мониторинг цен и акций',
-      'Еженедельные отчеты'
+      'services:competitor-analysis.features.0',
+      'services:competitor-analysis.features.1',
+      'services:competitor-analysis.features.2',
+      'services:competitor-analysis.features.3'
     ]
   },
   {
     id: 'voice-bot',
-    title: 'AI VoiceBot для звонков',
-    description: 'Передовой голосовой ИИ-бот для телефонных звонков. Звучит как живой человек, принимает и совершает звонки, квалифицирует лиды и интегрируется с вашей телефонией.',
+    title: 'services:voice-bot.title',
+    description: 'services:voice-bot.description',
     price: '499 990 тг',
     benefits: [
-      'Круглосуточный прием звонков',
-      'Квалификация лидов в режиме реального времени',
-      'Запись и анализ всех разговоров',
-      'Интеграция с CRM и телефонией'
+      'services:voice-bot.benefits.0',
+      'services:voice-bot.benefits.1',
+      'services:voice-bot.benefits.2',
+      'services:voice-bot.benefits.3'
     ],
     features: [
-      'Естественная речь с эмоциями',
-      'Многоязычная поддержка',
-      'Сценарии разной сложности',
-      'Аналитика эффективности'
+      'services:voice-bot.features.0',
+      'services:voice-bot.features.1',
+      'services:voice-bot.features.2',
+      'services:voice-bot.features.3'
     ]
   },
   {
-    id: 'course-assistant',
-    title: 'ИИ-помощник для онлайн-курсов',
-    description: 'Интеллектуальный куратор для онлайн-образования. Персонализирует обучение под каждого студента, автоматически проверяет задания и повышает завершаемость курсов до 80%.',
+    id: 'online-courses-ai',
+    title: 'services:online-courses-ai.title',
+    description: 'services:online-courses-ai.description',
     price: '424 990 тг',
     benefits: [
-      'Персонализация обучения под каждого студента',
-      'Автоматическая проверка заданий',
-      'Адаптивные рекомендации по материалам',
-      'Повышение завершаемости курсов до 80%'
+      'services:online-courses-ai.benefits.0',
+      'services:online-courses-ai.benefits.1',
+      'services:online-courses-ai.benefits.2',
+      'services:online-courses-ai.benefits.3'
     ],
     features: [
-      'Анализ успеваемости студентов',
-      'Интеллектуальные тесты',
-      'Автоматическая обратная связь',
-      'Интеграция с LMS платформами'
+      'services:online-courses-ai.features.0',
+      'services:online-courses-ai.features.1',
+      'services:online-courses-ai.features.2',
+      'services:online-courses-ai.features.3'
     ]
   },
   {
     id: 'custom-gpt',
-    title: 'Custom GPT под ваш бизнес',
-    description: 'Эксклюзивная GPT-модель, обученная специально на ваших корпоративных данных. Максимальная точность для вашей сферы деятельности с полной конфиденциальностью и безопасностью.',
+    title: 'services:custom-gpt.title',
+    description: 'services:custom-gpt.description',
     price: '749 990 тг',
     benefits: [
-      'Полностью персонализированная ИИ-модель',
-      'Обучение на ваших корпоративных данных',
-      'Максимальная точность для вашей сферы',
-      'Конфиденциальность и безопасность'
+      'services:custom-gpt.benefits.0',
+      'services:custom-gpt.benefits.1',
+      'services:custom-gpt.benefits.2',
+      'services:custom-gpt.benefits.3'
     ],
     features: [
-      'Fine-tuning на ваших данных',
-      'Приватное облако или on-premise',
-      'API для интеграций',
-      'Постоянные обновления модели'
+      'services:custom-gpt.features.0',
+      'services:custom-gpt.features.1',
+      'services:custom-gpt.features.2',
+      'services:custom-gpt.features.3'
     ]
   },
   {
     id: 'ai-transformation',
-    title: 'Полная AI-трансформация компании',
-    description: 'Комплексная цифровая трансформация всей компании с помощью ИИ. Полное переосмысление бизнес-процессов, внедрение передовых технологий и обучение команды работе с ИИ.',
+    title: 'services:ai-transformation.title',
+    description: 'services:ai-transformation.description',
     price: '999 990 тг',
     benefits: [
-      'Комплексная цифровая трансформация',
-      'Интеграция всех бизнес-процессов',
-      'Обучение команды работе с ИИ',
-      'Сопровождение и техподдержка'
+      'services:ai-transformation.benefits.0',
+      'services:ai-transformation.benefits.1',
+      'services:ai-transformation.benefits.2',
+      'services:ai-transformation.benefits.3'
     ],
     features: [
-      'Аудит всех процессов компании',
-      'Поэтапное внедрение решений',
-      'Обучение персонала',
-      'Долгосрочная поддержка'
+      'services:ai-transformation.features.0',
+      'services:ai-transformation.features.1',
+      'services:ai-transformation.features.2',
+      'services:ai-transformation.features.3'
     ]
   }
 ];
