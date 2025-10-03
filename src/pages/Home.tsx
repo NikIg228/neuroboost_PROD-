@@ -91,7 +91,7 @@ const Home: React.FC = () => {
                     initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
                     animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                     transition={{ duration: 0.9, ease: 'easeOut', delay: 0.6 }}
-                    className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent inline-block"
+                    className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent inline-block py-1 overflow-visible"
                     style={{
                       backgroundSize: '200% 100%'
                     }}
@@ -169,7 +169,7 @@ const Home: React.FC = () => {
                   transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent py-2 overflow-visible">
                     {t('about.title')}
                   </h2>
                   <h3 className="text-xl sm:text-2xl text-blue-300 font-semibold mb-6 sm:mb-8">
@@ -256,7 +256,7 @@ const Home: React.FC = () => {
                     <div className="bg-gradient-to-r from-purple-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg">
                       <Clock className="h-8 w-8 text-white" />
                   </div>
-                    <div className="text-3xl sm:text-4xl font-bold text-white mb-2">от 5 дней</div>
+                    <div className="text-3xl sm:text-4xl font-bold text-white mb-2">{t('stats.speed_value')}</div>
                     <div className="text-sm sm:text-base text-purple-200">{t('stats.speed')}</div>
                   </motion.div>
                   
@@ -337,10 +337,8 @@ const Home: React.FC = () => {
                     <Star className="h-4 w-4 text-yellow-400" />
                   </div>
                   
-                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6">
-                    <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                      {t('chatbot.subtitle')}
-                    </span>
+                  <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent py-2 overflow-visible">
+                    {t('chatbot.subtitle')}
                   </h2>
                   
                   <p className="text-lg sm:text-xl text-gray-300 leading-relaxed">
@@ -460,8 +458,8 @@ const Home: React.FC = () => {
                       <MessageCircle className="h-6 w-6 text-white" />
                     </motion.div>
                     <div>
-                      <h3 className="text-lg font-semibold text-white">ИИ-Помощник NeuroBoost</h3>
-                      <p className="text-sm text-cyan-300">Онлайн • Готов помочь</p>
+                      <h3 className="text-lg font-semibold text-white">{t('chatbot.chat_title')}</h3>
+                      <p className="text-sm text-cyan-300">{t('chatbot.chat_status')}</p>
                     </div>
                     <motion.div
                       className="ml-auto w-3 h-3 bg-green-400 rounded-full"
@@ -489,7 +487,7 @@ const Home: React.FC = () => {
                         <MessageCircle className="h-4 w-4 text-white" />
                       </div>
                       <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-4 py-3 max-w-xs">
-                        <p className="text-white text-sm">Привет! Я ваш ИИ-помощник. Чем могу помочь?</p>
+                        <p className="text-white text-sm">{t('chatbot.messages.bot_hello')}</p>
                       </div>
                     </motion.div>
                     
@@ -500,7 +498,7 @@ const Home: React.FC = () => {
                       className="flex items-start gap-3 justify-end"
                     >
                       <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl px-4 py-3 max-w-xs">
-                        <p className="text-white text-sm">Расскажите про ваши услуги</p>
+                        <p className="text-white text-sm">{t('chatbot.messages.user_question')}</p>
                       </div>
                       <div className="bg-gradient-to-r from-purple-500 to-pink-500 w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
                         <Users className="h-4 w-4 text-white" />
@@ -517,7 +515,7 @@ const Home: React.FC = () => {
                         <MessageCircle className="h-4 w-4 text-white" />
                       </div>
                       <div className="bg-white/20 backdrop-blur-sm rounded-2xl px-4 py-3 max-w-xs">
-                        <p className="text-white text-sm">У нас есть 20+ ИИ-решений для автоматизации вашего бизнеса!</p>
+                        <p className="text-white text-sm">{t('chatbot.messages.bot_response')}</p>
                       </div>
                     </motion.div>
                     
@@ -563,7 +561,7 @@ const Home: React.FC = () => {
                     <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm rounded-2xl px-4 py-3 border border-white/20">
                       <input
                         type="text"
-                        placeholder="Напишите ваш вопрос..."
+                        placeholder={t('chatbot.placeholder')}
                         className="flex-1 bg-transparent text-white placeholder-gray-300 text-sm focus:outline-none"
                         disabled
                       />
@@ -652,13 +650,25 @@ const Home: React.FC = () => {
                 <Star className="h-5 w-5 text-yellow-300" />
               </motion.div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 sm:mb-8 leading-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent py-2 overflow-visible">
               {t('cta_section.title')}
             </h2>
               
-              <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 sm:mb-12 max-w-4xl mx-auto leading-relaxed">
-              {t('cta_section.subtitle')}
-            </p>
+              <motion.p
+                className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 sm:mb-12 max-w-4xl mx-auto leading-relaxed"
+                animate={{
+                  scale: [1, 1.02, 1],
+                  opacity: [0.9, 1, 0.9],
+                  textShadow: [
+                    '0 0 0px rgba(255,255,255,0.0)',
+                    '0 0 8px rgba(255,255,255,0.35)',
+                    '0 0 0px rgba(255,255,255,0.0)'
+                  ]
+                }}
+                transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+              >
+                {t('cta_section.subtitle')}
+              </motion.p>
               
               <motion.div
                 initial={{ opacity: 0, y: 30 }}

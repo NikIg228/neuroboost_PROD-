@@ -20,7 +20,7 @@ const CasesSection: React.FC = () => {
       id: '1',
       title: t('cases.items.0.title'),
       description: t('cases.items.0.description'),
-      result: 'Увеличение конверсии на 45% и сокращение времени обработки заявок в 3 раза',
+      result: t('transparency.sections.results.items.0.description'),
       clientLogo: 'TS',
       icon: TrendingUp,
       metrics: '+45%'
@@ -29,7 +29,7 @@ const CasesSection: React.FC = () => {
       id: '2',
       title: t('cases.items.1.title'),
       description: t('cases.items.1.description'),
-      result: 'Ускорение процесса найма в 5 раз, точность отбора 92%',
+      result: t('transparency.sections.results.items.1.description'),
       clientLogo: 'DC',
       icon: Users,
       metrics: '5x'
@@ -38,7 +38,7 @@ const CasesSection: React.FC = () => {
       id: '3',
       title: t('cases.items.2.title'),
       description: t('cases.items.2.description'),
-      result: 'Сокращение излишков товара на 60%, рост прибыли на 35%',
+      result: t('transparency.sections.results.items.2.description'),
       clientLogo: 'FC',
       icon: DollarSign,
       metrics: '+35%'
@@ -49,7 +49,7 @@ const CasesSection: React.FC = () => {
     <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-50 via-white to-blue-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-4 sm:mb-6 py-2 overflow-visible">
             {t('cases.title')}
           </h2>
           <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -85,7 +85,7 @@ const CasesSection: React.FC = () => {
               <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-xl p-4 sm:p-5 mb-4 sm:mb-6 border border-blue-100 group-hover:border-blue-200 transition-colors duration-300">
                 <div className="flex items-center mb-2 sm:mb-3">
                   <caseStudy.icon className="h-5 w-5 sm:h-6 sm:w-6 text-blue-600 mr-2" />
-                  <span className="text-sm sm:text-base font-semibold text-blue-600">Результат:</span>
+                  <span className="text-sm sm:text-base font-semibold text-blue-600">{t('transparency.sections.results.title')}</span>
                 </div>
                 <p className="text-sm sm:text-base text-gray-800 font-medium leading-relaxed">
                   {caseStudy.result}

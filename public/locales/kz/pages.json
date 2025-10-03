@@ -12,8 +12,8 @@
       "countries": "ел",
       "projects": "жоба",
       "efficiency": "тиімділіктің өсуі",
-      "implementation": "күн енгізу",
-      "implementationValue": "5 күннен"
+      "implementation": "енгізу жылдамдығы",
+      "implementationValue": "5 күннен бастап"
     },
     "values": {
       "title": "Біздің құндылықтар",
@@ -97,7 +97,7 @@
         "message": "Хабарлама",
         "placeholders": {
           "name": "Атыңызды енгізіңіз",
-          "email": "your@email.com",
+          "email": "Сіздің email",
           "phone": "+7 (777) 123-45-67",
           "company": "Компания атауы",
           "message": "Жобаңыз немесе тапсырмаларыңыз туралы айтыңыз..."
@@ -262,7 +262,7 @@
       },
       "placeholders": {
         "name": "Атыңызды енгізіңіз",
-        "email": "your@email.com",
+        "email": "Сіздің email",
         "phone": "+7 (777) 123-45-67",
         "company": "Компания атауы",
         "service": "Қызметті таңдаңыз",

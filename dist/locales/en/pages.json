@@ -97,7 +97,7 @@
         "message": "Message",
         "placeholders": {
           "name": "Enter your name",
-          "email": "your@email.com",
+          "email": "Your email",
           "phone": "+7 (777) 123-45-67",
           "company": "Company name",
           "message": "Tell us about your project or tasks..."
@@ -262,7 +262,7 @@
       },
       "placeholders": {
         "name": "Enter your name",
-        "email": "your@email.com",
+        "email": "Your email",
         "phone": "+7 (777) 123-45-67",
         "company": "Company name",
         "service": "Select service",

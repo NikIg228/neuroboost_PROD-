@@ -97,7 +97,7 @@
         "message": "Сообщение",
         "placeholders": {
           "name": "Введите ваше имя",
-          "email": "your@email.com",
+          "email": "Ваш email",
           "phone": "+7 (777) 123-45-67",
           "company": "Название компании",
           "message": "Расскажите о вашем проекте или задачах..."

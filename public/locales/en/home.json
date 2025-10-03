@@ -20,6 +20,7 @@
   "stats": {
     "projects": "completed projects",
     "speed": "implementation speed",
+    "speed_value": "from 5 days",
     "countries": "countries with us",
     "support": "support",
     "team": "Team of engineers and marketers"
@@ -61,7 +62,18 @@
   },
   "trust": {
     "title": "They trust us",
-    "subtitle": "Leading companies choose our AI solutions"
+    "subtitle": "Leading companies choose our AI solutions",
+    "join_text": "Join",
+    "companies_count": "100+",
+    "companies_text": "companies already using our AI solutions",
+    "stats_footer": {
+      "countries": "countries",
+      "countries_value": "20+",
+      "satisfied": "satisfied clients",
+      "satisfied_value": "95%",
+      "support": "support",
+      "support_value": "24/7"
+    }
   },
   "cases": {
     "title": "Our cases",
@@ -87,8 +99,8 @@
     "subtitle": "ChatGPT (OpenAI), Claude (Anthropic), Google AI, Mistral, ElevenLabs and others — legally, transparently, and taking into account API costs.",
     "note": "Note: logos and service names belong to their respective copyright holders.",
     "buttons": {
-      "integrations": "More about integrations →",
-      "calculator": "Token calculator →"
+      "integrations": "More about integrations",
+      "calculator": "Token calculator"
     }
   },
   "transparency": {
@@ -121,6 +133,20 @@
         "you": "You",
         "api_providers": "API Providers",
         "full_transparency": "Full financial transparency"
+      },
+      "results": {
+        "title": "Result:",
+        "items": [
+          {
+            "description": "Conversion increase by 45% and reduction in application processing time by 3 times"
+          },
+          {
+            "description": "Hiring process acceleration by 5 times, selection accuracy 92%"
+          },
+          {
+            "description": "Reduction of excess inventory by 60%, profit growth by 35%"
+          }
+        ]
       }
     }
   }

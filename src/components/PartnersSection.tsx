@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 const PartnersSection: React.FC = () => {
   const { t } = useTranslation('home');
-  const [partners, setPartners] = useState([
+  const [partners] = useState([
     { name: 'Air Astana', logo: '/partners/air-astana-logo-brandlogos.net_r1iucuymj.svg' },
     { name: 'Beeline', logo: '/partners/beeline-logo-brandlogos.net_t37xqisxx.svg' },
     { name: 'Samruk-Kazyna', logo: '/partners/samruk-kazyna-logo-brandlogos.net_5x8tj711h.svg' },
@@ -28,7 +28,7 @@ const PartnersSection: React.FC = () => {
     <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-white via-gray-50 to-blue-50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-3 sm:mb-4 lg:mb-6">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-3 sm:mb-4 lg:mb-6 py-2 overflow-visible">
             {t('trust.title')}
           </h2>
           <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed px-4">
@@ -162,21 +162,20 @@ const PartnersSection: React.FC = () => {
         <div className="text-center mt-8 sm:mt-12 lg:mt-16">
           <div className="bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 lg:p-8 border border-white/50 shadow-xl">
             <p className="text-sm sm:text-base lg:text-lg xl:text-xl text-gray-600 mb-4 px-2">
-              Присоединяйтесь к <span className="font-bold text-blue-600 text-lg sm:text-xl lg:text-2xl">100+</span> компаниям, 
-              которые уже используют наши ИИ-решения
+              {t('trust.join_text')} <span className="font-bold text-blue-600 text-lg sm:text-xl lg:text-2xl">{t('trust.companies_count')}</span> {t('trust.companies_text')}
             </p>
             <div className="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 lg:space-x-8 text-xs sm:text-sm lg:text-base text-gray-500">
               <div className="text-center">
-                <div className="font-bold text-blue-600 text-lg sm:text-xl">20+</div>
-                <div>стран</div>
+                <div className="font-bold text-blue-600 text-lg sm:text-xl">{t('trust.stats_footer.countries_value')}</div>
+                <div>{t('trust.stats_footer.countries')}</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-purple-600 text-lg sm:text-xl">95%</div>
-                <div>довольных клиентов</div>
+                <div className="font-bold text-purple-600 text-lg sm:text-xl">{t('trust.stats_footer.satisfied_value')}</div>
+                <div>{t('trust.stats_footer.satisfied')}</div>
               </div>
               <div className="text-center">
-                <div className="font-bold text-green-600 text-lg sm:text-xl">24/7</div>
-                <div>поддержка</div>
+                <div className="font-bold text-green-600 text-lg sm:text-xl">{t('trust.stats_footer.support_value')}</div>
+                <div>{t('trust.stats_footer.support')}</div>
               </div>
             </div>
           </div>

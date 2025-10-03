@@ -35,7 +35,7 @@ const ProvidersBilling: React.FC = () => {
               transition={{ duration: 0.7 }}
               className="mb-6"
             >
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-3 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent py-2 overflow-visible">
                 {t('integrations.title')}
               </h2>
               <p className="text-lg sm:text-xl text-blue-200">
@@ -142,14 +142,14 @@ const ProvidersBilling: React.FC = () => {
 
                   <div className="mt-6">
                     <div className="grid grid-cols-3 items-center text-center mb-4">
-                      <div className="text-white text-sm font-medium">{t('transparency.flow.you')}</div>
+                      <div className="text-white text-sm font-medium">{t('transparency.sections.flow.you')}</div>
                       <div className="text-white/70 text-xs">⇄ NeuroBoost ⇄</div>
-                      <div className="text-white text-sm font-medium">{t('transparency.flow.api_providers')}</div>
+                      <div className="text-white text-sm font-medium">{t('transparency.sections.flow.api_providers')}</div>
                     </div>
                     <div className="text-center">
                       <span className="inline-flex items-center gap-2 bg-green-500/20 border border-green-400/30 rounded-full px-3 py-1 text-xs text-green-200">
                         <div className="w-1.5 h-1.5 bg-green-400 rounded-full"></div>
-                        {t('transparency.flow.full_transparency')}
+                        {t('transparency.sections.flow.full_transparency')}
                       </span>
                     </div>
                   </div>

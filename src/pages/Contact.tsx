@@ -234,6 +234,75 @@ const Contact: React.FC = () => {
                 );
               })}
 
+              {/* Дополнительные контакты (прямо на странице) */}
+              <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
+                <div className="space-y-5">
+                  <div className="flex items-start">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 mr-4">
+                      <Mail className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Email</h3>
+                      <p className="text-blue-600 font-medium mb-1">galuza_nikita@mail.ru</p>
+                      <p className="text-gray-600 text-sm">Ответим в течение 30 минут</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 mr-4">
+                      <Phone className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Телефон</h3>
+                      <p className="text-blue-600 font-medium mb-1">+7 (707) 506 29 00</p>
+                      <p className="text-gray-600 text-sm">Звоните с 9:00 до 18:00</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 mr-4">
+                      <MapPin className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Офис</h3>
+                      <p className="text-blue-600 font-medium mb-1">Алматы, ул. Дулатова 53</p>
+                      <p className="text-gray-600 text-sm">Турксибский район, 050003</p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start">
+                    <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg p-3 mr-4">
+                      <Clock className="h-6 w-6 text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-gray-900 mb-1">Режим работы</h3>
+                      <p className="text-blue-600 font-medium mb-1">Пн-Пт: 9:00 - 18:00</p>
+                      <p className="text-gray-600 text-sm">Сб-Вс: по договоренности</p>
+                    </div>
+                  </div>
+
+                  {/* Кнопки связи */}
+                  <div className="pt-2 flex flex-wrap gap-3">
+                    <a
+                      href="https://wa.me/77075062900?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%BD%D0%B5%20%D0%BD%D1%83%D0%B6%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8F!"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-white font-medium shadow hover:shadow-lg transition-all bg-gradient-to-r from-green-500 to-emerald-600"
+                    >
+                      WhatsApp
+                    </a>
+                    <a
+                      href="https://t.me/neurboosthelpbot"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-white font-medium shadow hover:shadow-lg transition-all bg-gradient-to-r from-sky-500 to-blue-600"
+                    >
+                      Telegram
+                    </a>
+                  </div>
+                </div>
+              </div>
+
               {/* Quick Stats */}
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-6 text-white">
                 <h3 className="text-lg font-semibold mb-4">{t('contact.whyUs.title')}</h3>

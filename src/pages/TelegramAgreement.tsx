@@ -21,14 +21,19 @@ const TelegramAgreement: React.FC = () => {
                 {t('telegramAgreement.intro')}
               </p>
 
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.general.title')}</h2>
+              <p className="text-gray-700 mb-6">
+                {t('telegramAgreement.sections.general.content')}
+              </p>
+
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.acceptance.title')}</h2>
               <p className="text-gray-700 mb-6">
                 {t('telegramAgreement.sections.acceptance.content')}
               </p>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.general.title')}</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.functionality.title')}</h2>
               <p className="text-gray-700 mb-6">
-                {t('telegramAgreement.sections.general.content')}
+                {t('telegramAgreement.sections.functionality.content')}
               </p>
 
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.userObligations.title')}</h2>
@@ -38,14 +43,14 @@ const TelegramAgreement: React.FC = () => {
                 ))}
               </ul>
 
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.dataProcessing.title')}</h2>
-              <p className="text-gray-700 mb-6">
-                {t('telegramAgreement.sections.dataProcessing.content')}
-              </p>
-
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.liability.title')}</h2>
               <p className="text-gray-700 mb-6">
                 {t('telegramAgreement.sections.liability.content')}
+              </p>
+
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.dataProcessing.title')}</h2>
+              <p className="text-gray-700 mb-6">
+                {t('telegramAgreement.sections.dataProcessing.content')}
               </p>
 
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('telegramAgreement.sections.changes.title')}</h2>
