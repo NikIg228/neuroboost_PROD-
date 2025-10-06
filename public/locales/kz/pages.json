@@ -292,6 +292,18 @@
         "description": "Сб-Жс: келісім бойынша"
       }
     ],
+    "social": {
+      "telegram": {
+        "title": "Telegram",
+        "linkText": "@neurboosthelpbot",
+        "subtitle": "Telegram арқылы жазыңыз"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "linkText": "Бізге жазу",
+        "subtitle": "WhatsApp-та жазыңыз"
+      }
+    },
     "whyUs": {
       "title": "Неге бізді таңдау керек",
       "responseTime": "жауап уақыты",

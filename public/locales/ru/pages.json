@@ -292,6 +292,18 @@
         "description": "Сб-Вс: по договоренности"
       }
     ],
+    "social": {
+      "telegram": {
+        "title": "Telegram",
+        "linkText": "@neurboosthelpbot",
+        "subtitle": "Напишите нам в Telegram"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "linkText": "Написать нам",
+        "subtitle": "Напишите нам в WhatsApp"
+      }
+    },
     "whyUs": {
       "title": "Почему выбирают нас",
       "responseTime": "время отклика",

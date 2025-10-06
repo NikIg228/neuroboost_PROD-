@@ -5,10 +5,10 @@ import { useCurrency, Currency } from '@/contexts/CurrencyContext';
 const CurrencyToggle: React.FC = () => {
   const { currency, setCurrency } = useCurrency();
 
-  const currencies: { code: Currency; label: string; flag: string }[] = [
-    { code: 'KZT', label: 'Тенге', flag: '🇰🇿' },
-    { code: 'RUB', label: 'Рубль', flag: '🇷🇺' },
-    { code: 'USD', label: 'Доллар', flag: '🇺🇸' }
+  const currencies: { code: Currency; label: string; flag: string; symbol: string }[] = [
+    { code: 'KZT', label: 'Тенге', flag: '🇰🇿', symbol: '₸' },
+    { code: 'RUB', label: 'Рубль', flag: '🇷🇺', symbol: '₽' },
+    { code: 'USD', label: 'Доллар', flag: '🇺🇸', symbol: '$' }
   ];
 
   return (
@@ -25,10 +25,11 @@ const CurrencyToggle: React.FC = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           aria-pressed={currency === curr.code}
+          aria-label={`${curr.label} (${curr.code})`}
         >
           <span className="text-xs">{curr.flag}</span>
-          <span className="hidden sm:inline">{curr.label}</span>
-          <span className="sm:hidden">{curr.code}</span>
+          <span className="hidden sm:inline text-base">{curr.symbol}</span>
+          <span className="sm:hidden text-base">{curr.symbol}</span>
         </motion.button>
       ))}
     </div>

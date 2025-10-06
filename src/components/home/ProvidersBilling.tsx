@@ -5,14 +5,14 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const providers = [
-  { name: 'OpenAI (ChatGPT)', logoAlt: 'OpenAI', src: '/logo dlya nb/openai-logo.svg' },
-  { name: 'Anthropic (Claude)', logoAlt: 'Anthropic', src: '/logo dlya nb/anthropic-logo.svg' },
-  { name: 'Google Gemini', logoAlt: 'Google Gemini', src: '/logo dlya nb/google-gemini.svg' },
-  { name: 'Mistral AI', logoAlt: 'Mistral AI', src: '/logo dlya nb/mistral-ai.svg' },
-  { name: 'ElevenLabs', logoAlt: 'ElevenLabs', src: '/logo dlya nb/elevenlabs-logo.svg' },
-  { name: 'Perplexity AI', logoAlt: 'Perplexity AI', src: '/logo dlya nb/perplexity-ai.svg' },
-  { name: 'Jasper AI', logoAlt: 'Jasper AI', src: '/logo dlya nb/jasper-ai.svg' },
-  { name: 'Manus AI', logoAlt: 'Manus AI', src: '/logo dlya nb/manus-ai.svg' },
+  { name: 'OpenAI (ChatGPT)', logoAlt: 'OpenAI', src: '/logo%20dlya%20nb/openai-logo.svg' },
+  { name: 'Anthropic (Claude)', logoAlt: 'Anthropic', src: '/logo%20dlya%20nb/anthropic-logo.svg' },
+  { name: 'Google Gemini', logoAlt: 'Google Gemini', src: '/logo%20dlya%20nb/google-gemini.svg' },
+  { name: 'Mistral AI', logoAlt: 'Mistral AI', src: '/logo%20dlya%20nb/mistral-ai.svg' },
+  { name: 'ElevenLabs', logoAlt: 'ElevenLabs', src: '/logo%20dlya%20nb/elevenlabs-logo.svg' },
+  { name: 'Perplexity AI', logoAlt: 'Perplexity AI', src: '/logo%20dlya%20nb/perplexity-ai.svg' },
+  { name: 'Jasper AI', logoAlt: 'Jasper AI', src: '/logo%20dlya%20nb/jasper-ai.svg' },
+  { name: 'Manus AI', logoAlt: 'Manus AI', src: '/logo%20dlya%20nb/manus-ai.svg' },
 ];
 
 const ProvidersBilling: React.FC = () => {

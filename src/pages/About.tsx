@@ -108,7 +108,7 @@ const About: React.FC = () => {
                   </div>
                   <div className="text-center">
                     <Award className="h-12 w-12 text-purple-600 mx-auto mb-3" />
-                    <div className="text-2xl font-bold text-gray-900">100+</div>
+                    <div className="text-2xl font-bold text-gray-900">1000+</div>
                     <div className="text-gray-600">{t('about.stats.projects')}</div>
                   </div>
                   <div className="text-center">

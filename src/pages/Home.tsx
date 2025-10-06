@@ -58,7 +58,7 @@ const Home: React.FC = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-visible">
         {/* Лёгкий фон: градиент + мягкие размытия вместо тяжёлых канвас-анимаций */}
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-900" style={{ zIndex: 0 }}></div>
         
@@ -68,7 +68,7 @@ const Home: React.FC = () => {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative" style={{ zIndex: 10 }}>
           <PremiumAnimatedSection className="text-center" delay={0.3}>
-            <div ref={heroRef} className="bg-white/10 backdrop-blur-xl rounded-3xl sm:rounded-[2rem] p-6 sm:p-8 lg:p-12 shadow-2xl border border-white/20 relative overflow-hidden">
+            <div ref={heroRef} className="bg-white/10 backdrop-blur-xl rounded-3xl sm:rounded-[2rem] p-10 sm:p-14 lg:p-20 shadow-2xl border border-white/20 relative overflow-visible">
               {/* Декоративные элементы */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-3xl"></div>
               <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-pink-400/20 to-orange-400/20 rounded-full blur-2xl"></div>
@@ -89,12 +89,11 @@ const Home: React.FC = () => {
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white mb-6 sm:mb-8 leading-tight">
                   <motion.span
                     initial={{ opacity: 0, y: 20, filter: 'blur(6px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)', textShadow: '0 0 0px rgba(255,255,255,0.0)' }}
                     transition={{ duration: 0.9, ease: 'easeOut', delay: 0.6 }}
-                    className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent inline-block py-1 overflow-visible"
-                    style={{
-                      backgroundSize: '200% 100%'
-                    }}
+                    whileHover={{ scale: 1.005 }}
+                    className="text-gradient-animated text-glow-breath inline-block py-3 overflow-visible"
+                    style={{ willChange: 'background-position' }}
                   >
                     {/* Исправленный текст без эффекта печатной машинки */}
                     {t('hero.title')}
@@ -650,7 +649,7 @@ const Home: React.FC = () => {
                 <Star className="h-5 w-5 text-yellow-300" />
               </motion.div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent py-2 overflow-visible">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-cyan-300 via-sky-300 to-fuchsia-400 bg-clip-text text-transparent py-2 overflow-visible">
               {t('cta_section.title')}
             </h2>
               

@@ -292,6 +292,18 @@
         "description": "Sat-Sun: by appointment"
       }
     ],
+    "social": {
+      "telegram": {
+        "title": "Telegram",
+        "linkText": "@neurboosthelpbot",
+        "subtitle": "Message us on Telegram"
+      },
+      "whatsapp": {
+        "title": "WhatsApp",
+        "linkText": "Message us",
+        "subtitle": "Message us on WhatsApp"
+      }
+    },
     "whyUs": {
       "title": "Why Choose Us",
       "responseTime": "response time",

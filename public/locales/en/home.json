@@ -50,7 +50,7 @@
   "cta_section": {
     "badge": "Exclusive offer",
     "title": "Ready to start digital transformation?",
-    "subtitle": "Get a free consultation and learn how AI can help you with automation, sales improvement, and increased efficiency!",
+    "subtitle": "Get a free consultation and 20% off your first integration — discover how AI will boost sales and automate processes!",
     "button": "Get consultation",
     "catalog_button": "View catalog",
     "info": "Free consultation • Personal approach • Result guarantee",
@@ -127,7 +127,7 @@
       },
       "accounting": {
         "title": "Accounting and Reporting",
-        "description": "Accounting and reporting: we keep track of consumption, provide invoices/acts upon request. You pay API costs +15% for technical support. No hidden markups!"
+        "description": "We record all consumption data and provide invoices and acts upon request.\nYou pay only actual API expenses + 5% for technical support.\nNo hidden fees — everything is transparent!"
       },
       "flow": {
         "you": "You",

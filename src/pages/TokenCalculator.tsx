@@ -20,7 +20,7 @@ const providers: AIProvider[] = [
     name: 'calculator:providers.openai-gpt4.name',
     inputPricePerToken: 0.01,
     outputPricePerToken: 0.03,
-    logo: '/logo dlya nb/openai-logo.svg',
+    logo: '/logo%20dlya%20nb/openai-logo.svg',
     description: 'calculator:providers.openai-gpt4.description'
   },
   {
@@ -28,7 +28,7 @@ const providers: AIProvider[] = [
     name: 'calculator:providers.openai-gpt3.5.name',
     inputPricePerToken: 0.0005,
     outputPricePerToken: 0.0015,
-    logo: '/logo dlya nb/openai-logo.svg',
+    logo: '/logo%20dlya%20nb/openai-logo.svg',
     description: 'calculator:providers.openai-gpt3.5.description'
   },
   {
@@ -36,7 +36,7 @@ const providers: AIProvider[] = [
     name: 'calculator:providers.anthropic-claude.name',
     inputPricePerToken: 0.015,
     outputPricePerToken: 0.075,
-    logo: '/logo dlya nb/anthropic-logo.svg',
+    logo: '/logo%20dlya%20nb/anthropic-logo.svg',
     description: 'calculator:providers.anthropic-claude.description'
   },
   {
@@ -44,7 +44,7 @@ const providers: AIProvider[] = [
     name: 'calculator:providers.google-gemini.name',
     inputPricePerToken: 0.0005,
     outputPricePerToken: 0.0015,
-    logo: '/logo dlya nb/google-gemini.svg',
+    logo: '/logo%20dlya%20nb/google-gemini.svg',
     description: 'calculator:providers.google-gemini.description'
   },
   {
@@ -52,7 +52,7 @@ const providers: AIProvider[] = [
     name: 'calculator:providers.mistral-large.name',
     inputPricePerToken: 0.008,
     outputPricePerToken: 0.024,
-    logo: '/logo dlya nb/mistral-ai.svg',
+    logo: '/logo%20dlya%20nb/mistral-ai.svg',
     description: 'calculator:providers.mistral-large.description'
   }
 ];

@@ -1,6 +1,8 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* stylelint-enable at-rule-no-unknown */
 
 /* Smooth scroll styles */
 html {
@@ -140,6 +142,18 @@ body {
   }
 }
 
+/* Мягкое перетекание градиента заголовка */
+@keyframes gradient-shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+.animate-gradient-slow {
+  animation: gradient-shimmer 8s ease-in-out infinite alternate;
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+}
+
 @keyframes marquee-right {
   0% {
     transform: translateX(-100%);
@@ -221,4 +235,33 @@ body {
   html {
     scroll-padding-top: 50px;
   }
+}
+
+/* Яркая анимированная заливка текста с широкой поддержкой браузеров */
+.text-gradient-animated {
+  background-image: linear-gradient(90deg, #60a5fa, #a855f7, #ec4899);
+  background-size: 300% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradient-shimmer 8s ease-in-out infinite alternate;
+}
+
+/* Лёгкое дыхание свечения текста */
+@keyframes text-glow-breath {
+  0% {
+    text-shadow: 0 0 0px rgba(255,255,255,0.0), 0 0 0px rgba(96,165,250,0.0), 0 0 0px rgba(168,85,247,0.0);
+  }
+  50% {
+    text-shadow: 0 0 8px rgba(255,255,255,0.15), 0 0 14px rgba(96,165,250,0.15), 0 0 18px rgba(168,85,247,0.12);
+  }
+  100% {
+    text-shadow: 0 0 0px rgba(255,255,255,0.0), 0 0 0px rgba(96,165,250,0.0), 0 0 0px rgba(168,85,247,0.0);
+  }
+}
+
+.text-glow-breath {
+  animation: text-glow-breath 7s ease-in-out infinite;
 }
