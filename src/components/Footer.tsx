@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigateWithScroll } from '@/utils/navigation';
-import { Brain, Mail, Phone, MessageCircle, Shield } from 'lucide-react';
+import { Brain, Mail, Phone, MessageCircle } from 'lucide-react';
 import ConsultationModal from './ConsultationModal';
 import { useTranslation } from 'react-i18next';
 
@@ -26,13 +26,6 @@ const Footer: React.FC = () => {
   const handleLinkClick = (path: string) => {
     navigateWithScroll(path);
   };
-
-  const paymentSystems = [
-    { name: <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" width="60" height="auto" />
- },
-    { name: <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="MasterCard" width="60" />
- },
-  ];
 
   return (
     <>
@@ -166,26 +159,6 @@ const Footer: React.FC = () => {
                   </button>
                 </li>
               </ul>
-            </div>
-          </div>
-
-          {/* Payment Systems Section */}
-          <div className="border-t border-gray-800 mt-8 pt-8">
-            <div className="flex flex-col md:flex-row items-center justify-between">
-              <div className="flex items-center space-x-6 mb-4 md:mb-0">
-                <span className="text-gray-400 text-sm">{t('payment.accepted')}</span>
-                <div className="flex items-center space-x-4">
-                  {paymentSystems.map((system, index) => (
-                    <div key={index} className="flex items-center space-x-1 text-gray-400">
-                      <span className="text-sm">{system.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="flex items-center space-x-2 text-green-400">
-                <Shield className="h-4 w-4" />
-                <span className="text-sm font-medium">🔒 {t('payment.secured')}</span>
-              </div>
             </div>
           </div>
 

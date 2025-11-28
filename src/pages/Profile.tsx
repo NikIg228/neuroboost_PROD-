@@ -6,12 +6,13 @@ import { services } from '@/data/services'
 import { useCurrency } from '@/contexts/CurrencyContext'
 import AnimatedSection from '@/components/AnimatedSection'
 import PurchaseModal from '@/components/PurchaseModal'
-import { User, Mail, Lock, LogOut, Package, Calendar, DollarSign, Heart, Trash2 } from 'lucide-react'
+import { User, Mail, Lock, LogOut, Package, Calendar, DollarSign, Heart, Trash2, X } from 'lucide-react'
 import { Service } from '@/types/index'
 
 const Profile: React.FC = () => {
-  const { t } = useTranslation('profile');
-  const { user, signOut, updateProfile, updatePassword } = useAuth()
+  const { t } = useTranslation('profile')
+  const { t: tServices } = useTranslation('services')
+  const { user, signOut, updateProfile } = useAuth()
   const { formatPrice, convertPrice } = useCurrency()
   const [orders, setOrders] = useState<Order[]>([])
   const [favoriteServices, setFavoriteServices] = useState<Service[]>([])
@@ -22,16 +23,27 @@ const Profile: React.FC = () => {
   const [error, setError] = useState('')
   const [purchaseService, setPurchaseService] = useState<Service | null>(null)
   const [isPurchaseModalOpen, setIsPurchaseModalOpen] = useState(false)
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   
   const [profileData, setProfileData] = useState({
     name: user?.user_metadata?.name || '',
     email: user?.email || '',
-    password: ''
+    password: '',
+    confirmPassword: ''
   })
 
   useEffect(() => {
     fetchOrders()
     fetchFavorites()
+  }, [user])
+
+  useEffect(() => {
+    setProfileData({
+      name: user?.user_metadata?.name || '',
+      email: user?.email || '',
+      password: '',
+      confirmPassword: ''
+    })
   }, [user])
 
   const fetchOrders = async () => {
@@ -108,12 +120,18 @@ const Profile: React.FC = () => {
 
     try {
       const updates: any = {}
+      const emailChanged = profileData.email !== user?.email
+      const passwordChanged = Boolean(profileData.password)
+
+      if (profileData.password && profileData.password !== profileData.confirmPassword) {
+        throw new Error(t('profileInfo.passwordMismatch'))
+      }
       
       if (profileData.name !== user?.user_metadata?.name) {
         updates.name = profileData.name
       }
       
-      if (profileData.email !== user?.email) {
+      if (emailChanged) {
         updates.email = profileData.email
       }
 
@@ -122,13 +140,25 @@ const Profile: React.FC = () => {
         if (error) throw error
       }
 
-      if (profileData.password) {
-        const { error } = await updatePassword(profileData.password)
+      if (passwordChanged) {
+        const { error } = await supabase.auth.resetPasswordForEmail(profileData.email, {
+          redirectTo: `${window.location.origin}/reset-password`
+        })
         if (error) throw error
       }
 
-      setMessage(t('profileInfo.success'))
-      setProfileData({ ...profileData, password: '' })
+      if (emailChanged && passwordChanged) {
+        setMessage(t('profileInfo.bothConfirmation'))
+      } else if (emailChanged) {
+        setMessage(t('profileInfo.emailConfirmation'))
+      } else if (passwordChanged) {
+        setMessage(t('profileInfo.passwordConfirmation'))
+      } else {
+        setMessage(t('profileInfo.success'))
+      }
+
+      setProfileData({ ...profileData, password: '', confirmPassword: '' })
+      setIsEditModalOpen(false)
     } catch (err: any) {
       setError(err.message || t('profileInfo.error'))
     } finally {
@@ -189,10 +219,42 @@ const Profile: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {/* Profile Info */}
               <div>
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">
-                  {t('profileInfo.title')}
-                </h2>
+                <div className="flex items-center justify-between mb-4">
+                  <div>
+                    <h2 className="text-xl font-semibold text-gray-900">
+                      {t('profileInfo.title')}
+                    </h2>
+                  </div>
+                  <button
+                    onClick={() => setIsEditModalOpen(true)}
+                    className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg shadow hover:from-blue-700 hover:to-purple-700 transition-all"
+                  >
+                    {t('profileInfo.editButton')}
+                  </button>
+                </div>
                 
+                <div className="space-y-4">
+                  <div className="border border-gray-200 rounded-xl p-4 flex items-start gap-4">
+                    <div className="p-3 rounded-full bg-blue-50 text-blue-600">
+                      <User className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500 mb-1">{t('profileInfo.name')}</p>
+                      <p className="text-lg font-semibold text-gray-900">{profileData.name || '—'}</p>
+                    </div>
+                  </div>
+
+                  <div className="border border-gray-200 rounded-xl p-4 flex items-start gap-4">
+                    <div className="p-3 rounded-full bg-purple-50 text-purple-600">
+                      <Mail className="h-5 w-5" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-gray-500 mb-1">{t('profileInfo.email')}</p>
+                      <p className="text-lg font-semibold text-gray-900">{profileData.email || '—'}</p>
+                    </div>
+                  </div>
+                </div>
+
                 {message && (
                   <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
                     <p className="text-green-800 text-sm">{message}</p>
@@ -205,61 +267,6 @@ const Profile: React.FC = () => {
                   </div>
                 )}
 
-                <form onSubmit={handleProfileUpdate} className="space-y-4">
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t('profileInfo.name')}
-                    </label>
-                    <div className="relative">
-                      <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                      <input
-                        type="text"
-                        value={profileData.name}
-                        onChange={(e) => setProfileData({ ...profileData, name: e.target.value })}
-                        className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t('profileInfo.email')}
-                    </label>
-                    <div className="relative">
-                      <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                      <input
-                        type="email"
-                        value={profileData.email}
-                        onChange={(e) => setProfileData({ ...profileData, email: e.target.value })}
-                        className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      {t('profileInfo.newPassword')}
-                    </label>
-                    <div className="relative">
-                      <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-                      <input
-                        type="password"
-                        value={profileData.password}
-                        onChange={(e) => setProfileData({ ...profileData, password: e.target.value })}
-                        className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                        placeholder={t('profileInfo.newPasswordPlaceholder')}
-                      />
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-2 px-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 transition-all"
-                  >
-                    {loading ? t('profileInfo.saving') : t('profileInfo.saveChanges')}
-                  </button>
-                </form>
               </div>
 
               {/* User Stats */}
@@ -317,7 +324,7 @@ const Profile: React.FC = () => {
                 {favoriteServices.map((service) => (
                   <div key={service.id} className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow">
                     <div className="flex justify-between items-start mb-3">
-                      <h3 className="font-semibold text-gray-900 text-sm">{service.title}</h3>
+                      <h3 className="font-semibold text-gray-900 text-sm">{tServices(service.title)}</h3>
                       <button
                         onClick={() => handleRemoveFavorite(service.id)}
                         className="text-red-500 hover:text-red-700 transition-colors"
@@ -325,7 +332,7 @@ const Profile: React.FC = () => {
                         <Trash2 className="h-4 w-4" />
                       </button>
                     </div>
-                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">{service.description}</p>
+                    <p className="text-gray-600 text-sm mb-3 line-clamp-2">{tServices(service.description)}</p>
                     <div className="flex justify-between items-center">
                       <span className="text-lg font-bold text-blue-600">{formatPrice(convertPrice(parseInt(service.price.replace(/\D/g, ''))))}</span>
                       <button
@@ -414,6 +421,120 @@ const Profile: React.FC = () => {
         isOpen={isPurchaseModalOpen}
         onClose={() => setIsPurchaseModalOpen(false)}
       />
+
+      {isEditModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-6 relative">
+            <button
+              onClick={() => {
+                setIsEditModalOpen(false)
+                setProfileData({
+                  name: user?.user_metadata?.name || '',
+                  email: user?.email || '',
+                  password: '',
+                  confirmPassword: ''
+                })
+              }}
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-600"
+              aria-label="Close"
+            >
+              <X className="h-5 w-5" />
+            </button>
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-1">{t('profileInfo.modalTitle')}</h3>
+            <p className="text-sm text-gray-500 mb-6">{t('profileInfo.modalDescription')}</p>
+
+            <form onSubmit={handleProfileUpdate} className="space-y-4">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('profileInfo.name')}
+                </label>
+                <div className="relative">
+                  <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <input
+                    type="text"
+                    value={profileData.name}
+                    onChange={(e) => setProfileData({ ...profileData, name: e.target.value })}
+                    className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('profileInfo.email')}
+                </label>
+                <div className="relative">
+                  <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <input
+                    type="email"
+                    value={profileData.email}
+                    onChange={(e) => setProfileData({ ...profileData, email: e.target.value })}
+                    className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('profileInfo.newPassword')}
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <input
+                    type="password"
+                    value={profileData.password}
+                    onChange={(e) => setProfileData({ ...profileData, password: e.target.value })}
+                    className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder={t('profileInfo.newPasswordPlaceholder')}
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {t('profileInfo.confirmPassword')}
+                </label>
+                <div className="relative">
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+                  <input
+                    type="password"
+                    value={profileData.confirmPassword}
+                    onChange={(e) => setProfileData({ ...profileData, confirmPassword: e.target.value })}
+                    className="pl-10 w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder={t('profileInfo.confirmPasswordPlaceholder')}
+                  />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-end gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsEditModalOpen(false)
+                    setProfileData({
+                      name: user?.user_metadata?.name || '',
+                      email: user?.email || '',
+                      password: '',
+                      confirmPassword: ''
+                    })
+                  }}
+                  className="px-4 py-2 rounded-lg border border-gray-200 text-gray-600 hover:bg-gray-50 transition-colors"
+                >
+                  {t('profileInfo.cancel')}
+                </button>
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:from-blue-700 hover:to-purple-700 disabled:opacity-50 transition-all"
+                >
+                  {loading ? t('profileInfo.saving') : t('profileInfo.saveChanges')}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

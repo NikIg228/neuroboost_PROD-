@@ -42,7 +42,7 @@ const PartnersSection: React.FC = () => {
           <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           
-          <div className="flex animate-scroll hover:pause-scroll">
+          <div className="flex w-max animate-scroll hover:pause-scroll">
             {doublePartners.map((partner, index) => (
               <div
                 key={`mobile-${partner.name}-${index}`}
@@ -72,7 +72,7 @@ const PartnersSection: React.FC = () => {
           <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           
-          <div className="flex animate-scroll-reverse hover:pause-scroll">
+          <div className="flex w-max animate-scroll-reverse hover:pause-scroll">
             {doublePartners.map((partner, index) => (
               <div
                 key={`mobile-reverse-${partner.name}-${index}`}
@@ -103,7 +103,7 @@ const PartnersSection: React.FC = () => {
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           
-          <div className="flex animate-scroll hover:pause-scroll">
+          <div className="flex w-max animate-scroll hover:pause-scroll">
             {doublePartners.map((partner, index) => (
               <div
                 key={`${partner.name}-${index}`}
@@ -134,7 +134,7 @@ const PartnersSection: React.FC = () => {
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-gray-50 to-transparent z-10 pointer-events-none"></div>
           
-          <div className="flex animate-scroll-reverse hover:pause-scroll">
+          <div className="flex w-max animate-scroll-reverse hover:pause-scroll">
             {doublePartners.map((partner, index) => (
               <div
                 key={`reverse-${partner.name}-${index}`}

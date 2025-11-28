@@ -24,6 +24,7 @@ import TelegramAgreement from './pages/TelegramAgreement';
 import Register from './pages/Register';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
+import ResetPassword from './pages/ResetPassword';
 import Academy from './pages/Academy';
 import TokenCalculator from './pages/TokenCalculator';
 
@@ -50,6 +51,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="/reset-password" element={<ResetPassword />} />
                 <Route path="/catalog" element={<Catalog />} />
                 <Route path="/lk" element={
                   <ProtectedRoute>

@@ -17,6 +17,7 @@ const providers = [
 
 const ProvidersBilling: React.FC = () => {
   const { t } = useTranslation('home');
+  const loopedProviders = [...providers, ...providers];
   
   return (
     <section className="py-16 sm:py-20 bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 relative overflow-hidden">
@@ -51,8 +52,8 @@ const ProvidersBilling: React.FC = () => {
 
 				{/* Лента - движется влево */}
 				<div className="overflow-hidden py-2">
-					<div className="flex items-center gap-12 sm:gap-16 whitespace-nowrap animate-marquee-left">
-						{[...providers, ...providers, ...providers].map((p, idx) => (
+					<div className="flex w-max items-center gap-12 sm:gap-16 animate-marquee-left">
+						{loopedProviders.map((p, idx) => (
 							<div key={`row-${p.name}-${idx}`} className="flex items-center shrink-0">
 								<img
 									src={p.src}

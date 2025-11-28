@@ -7,10 +7,20 @@
     "email": "Email",
     "newPassword": "New password (leave empty if you don't want to change)",
     "newPasswordPlaceholder": "New password",
+    "confirmPassword": "Confirm new password",
+    "confirmPasswordPlaceholder": "Repeat new password",
     "saveChanges": "Save Changes",
     "saving": "Saving...",
     "success": "Profile updated successfully",
-    "error": "Error updating profile"
+    "error": "Error updating profile",
+    "editButton": "Edit data",
+    "modalTitle": "Update profile data",
+    "modalDescription": "Enter the new values. If you change email or password, confirm the action through the link in the email.",
+    "cancel": "Cancel",
+    "emailConfirmation": "We sent an email to confirm the new address.",
+    "passwordConfirmation": "We sent an email with a secure link to finish changing your password.",
+    "bothConfirmation": "We sent emails to confirm the new email and to complete the password change.",
+    "passwordMismatch": "Passwords do not match"
   },
   "stats": {
     "title": "Statistics",

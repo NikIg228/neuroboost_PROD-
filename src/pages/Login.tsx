@@ -48,7 +48,7 @@ const Login: React.FC = () => {
           setError(error.message)
         }
       } else {
-        navigateWithScroll('/lk')
+        navigateWithScroll('/')
       }
     } catch (err) {
       setError(t('login.errors.general'))
@@ -73,15 +73,9 @@ const Login: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8">
-          {error && (
-            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-800 text-sm">{error}</p>
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} className="space-y-6">
             <GoogleButton
-              onSuccess={() => navigateWithScroll('/catalog')}
+              onSuccess={() => navigateWithScroll('/')}
               onError={(error) => setError(error)}
             />
 
@@ -139,19 +133,11 @@ const Login: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center">
-              <input
-                id="rememberMe"
-                name="rememberMe"
-                type="checkbox"
-                checked={formData.rememberMe}
-                onChange={handleChange}
-                className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded"
-              />
-              <label htmlFor="rememberMe" className="ml-2 block text-sm text-gray-700">
-                {t('login.rememberMe')}
-              </label>
-            </div>
+            {error && (
+              <div className="mt-2 p-4 bg-red-50 border border-red-200 rounded-lg">
+                <p className="text-red-800 text-sm">{error}</p>
+              </div>
+            )}
 
             <button
               type="submit"

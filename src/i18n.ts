@@ -24,6 +24,7 @@ i18n
       'auth', 
       'legal',
       'pages',
+      'profile',
       'services',
       'tariffs',
       'components'

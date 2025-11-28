@@ -18,7 +18,7 @@ const GoogleButton: React.FC<GoogleButtonProps> = ({ onSuccess, onError }) => {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/catalog`
+          redirectTo: `${window.location.origin}/`
         }
       });
 

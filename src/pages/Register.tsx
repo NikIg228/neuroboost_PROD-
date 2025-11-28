@@ -84,21 +84,9 @@ const Register: React.FC = () => {
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8">
-          {message && (
-            <div className="mb-4 p-4 bg-green-50 border border-green-200 rounded-lg">
-              <p className="text-green-800 text-sm">{message}</p>
-            </div>
-          )}
-
-          {error && (
-            <div className="mb-4 p-4 bg-red-50 border border-red-200 rounded-lg">
-              <p className="text-red-800 text-sm">{error}</p>
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} className="space-y-6">
             <GoogleButton
-              onSuccess={() => navigateWithScroll('/catalog')}
+              onSuccess={() => navigateWithScroll('/')}
               onError={(error) => setError(error)}
             />
 
@@ -200,6 +188,20 @@ const Register: React.FC = () => {
                 </button>
               </div>
             </div>
+
+            {(message || error) && (
+              <div
+                className={`mt-2 p-4 border rounded-lg ${
+                  error
+                    ? 'bg-red-50 border-red-200'
+                    : 'bg-green-50 border-green-200'
+                }`}
+              >
+                <p className={`text-sm ${error ? 'text-red-800' : 'text-green-800'}`}>
+                  {error || message}
+                </p>
+              </div>
+            )}
 
             <button
               type="submit"

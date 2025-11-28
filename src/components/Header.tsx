@@ -13,7 +13,7 @@ const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const navigateWithScroll = useNavigateWithScroll(navigate);
-  const { user, signOut } = useAuth();
+  const { user } = useAuth();
   const { setIsOpen: setChatbotOpen } = useChatbot();
   const { t } = useTranslation('header');
 
@@ -31,9 +31,6 @@ const Header: React.FC = () => {
     { path: '/about', label: t('nav.about') },
     { path: '/contact', label: t('nav.contact') }
   ];
-
-  const handleSignOut = async () => { await signOut(); };
-
 
   // Аккуратное открытие чат-бота: сначала закрываем меню и снимаем lock, потом открываем чат
   const handleChatbotOpen = () => {
@@ -197,30 +194,18 @@ const Header: React.FC = () => {
                 <div className="hidden md:flex items-center space-x-3 md:space-x-4">
                   <button
                     onClick={() => handleLinkClick('/lk')}
-                    className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors hidden md:inline"
+                    className="hidden md:inline px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-xl transition-all hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     {t('auth.profile')}
-                  </button>
-                  <button
-                    onClick={handleSignOut}
-                    className="text-sm font-medium text-gray-700 hover:text-red-600 transition-colors hidden md:inline"
-                  >
-                    {t('auth.logout')}
                   </button>
                 </div>
               ) : (
                 <div className="hidden md:flex items-center space-x-3 md:space-x-4">
                   <button
                     onClick={() => handleLinkClick('/login')}
-                    className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors hidden md:inline"
+                    className="hidden md:inline px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-xl transition-all hover:from-blue-700 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
                   >
                     {t('auth.login')}
-                  </button>
-                  <button
-                    onClick={() => handleLinkClick('/register')}
-                    className="hidden md:inline px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-medium rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all "
-                  >
-                    {t('auth.register')}
                   </button>
                 </div>
               )}
@@ -334,35 +319,19 @@ const Header: React.FC = () => {
                 </div>
                 <div className="space-y-3 pb-4">
                   {user ? (
-                    <>
-                      <button
-                        onClick={() => handleLinkClick('/lk')}
-                        className="w-full px-4 py-3 text-base font-medium text-gray-700 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors"
-                      >
-                        {t('auth.profile')}
-                      </button>
-                      <button
-                        onClick={handleSignOut}
-                        className="w-full px-4 py-3 text-base font-medium text-white bg-red-600 rounded-xl hover:bg-red-700 transition-colors"
-                      >
-                        {t('auth.logout')}
-                      </button>
-                    </>
+                    <button
+                      onClick={() => handleLinkClick('/lk')}
+                      className="w-full px-4 py-3 text-base font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all"
+                    >
+                      {t('auth.profile')}
+                    </button>
                   ) : (
-                    <>
-                      <button
-                        onClick={() => handleLinkClick('/login')}
-                        className="w-full px-4 py-3 text-base font-medium text-gray-700 border border-gray-300 rounded-xl hover:bg-gray-50 transition-colors"
-                      >
-                        {t('auth.login')}
-                      </button>
-                      <button
-                        onClick={() => handleLinkClick('/register')}
-                        className="w-full px-4 py-3 text-base font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all"
-                      >
-                        {t('auth.register')}
-                      </button>
-                    </>
+                    <button
+                      onClick={() => handleLinkClick('/login')}
+                      className="w-full px-4 py-3 text-base font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all"
+                    >
+                      {t('auth.login')}
+                    </button>
                   )}
                 </div>
               </div>
