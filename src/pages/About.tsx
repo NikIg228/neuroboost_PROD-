@@ -64,12 +64,6 @@ const About: React.FC = () => {
     }
   ];
 
-  const team = t('about.team.members', { returnObjects: true }) as Array<{
-    name: string;
-    position: string;
-    experience: string;
-    description: string;
-  }>;
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -141,28 +135,6 @@ const About: React.FC = () => {
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 mb-3">{value.title}</h3>
                   <p className="text-gray-600">{value.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Team Section */}
-        <AnimatedSection delay={400}>
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
-              {t('about.team.title')}
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {team.map((member, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow text-center">
-                  <div className="w-20 h-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Users className="h-10 w-10 text-white" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-blue-600 font-medium mb-2">{member.position}</p>
-                  <p className="text-sm text-gray-500 mb-3">{member.experience}</p>
-                  <p className="text-gray-600">{member.description}</p>
                 </div>
               ))}
             </div>

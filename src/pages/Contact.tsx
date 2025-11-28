@@ -262,21 +262,6 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
 
-                {/* WhatsApp */}
-                <div className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-shadow">
-                  <div className="flex items-start">
-                    <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-lg p-3 mr-4">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-6 w-6 text-white fill-current"><path d="M20.52 3.48A11.89 11.89 0 0012.06 0C5.46 0 .1 5.36.1 11.96c0 2.11.56 4.16 1.62 5.98L0 24l6.22-1.63a12 12 0 005.84 1.48h.01c6.6 0 11.96-5.36 11.96-11.96 0-3.2-1.25-6.21-3.51-8.41zM12.07 22a9.93 9.93 0 01-5.06-1.39l-.36-.21-3.69.97.99-3.6-.24-.37a9.95 9.95 0 01-1.56-5.44c0-5.5 4.47-9.97 9.98-9.97 2.66 0 5.17 1.04 7.06 2.94a9.93 9.93 0 012.93 7.05C21.12 17.53 16.64 22 12.07 22zm5.64-7.47c-.31-.16-1.83-.9-2.11-1.01-.28-.1-.48-.16-.67.17-.2.31-.76 1-.93 1.21-.17.2-.34.22-.65.06-.31-.15-1.29-.48-2.45-1.53-.9-.8-1.5-1.79-1.68-2.09-.17-.31-.02-.47.13-.63.13-.13.31-.34.45-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.02-.52-.06-.16-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.08-.79.37-.27.29-1.04 1.01-1.04 2.46 0 1.45 1.07 2.85 1.22 3.04.15.2 2.11 3.23 5.11 4.52.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.83-.74 2.09-1.47.26-.73.26-1.35.18-1.48-.08-.14-.28-.22-.59-.38z"/></svg>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-900 mb-1">{t('contact.social.whatsapp.title')}</h3>
-                      <p className="font-medium mb-1">
-                        <a href="https://wa.me/77075062900?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%9C%D0%BD%D0%B5%20%D0%BD%D1%83%D0%B6%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8F!" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">{t('contact.social.whatsapp.linkText')}</a>
-                      </p>
-                      <p className="text-gray-600 text-sm">{t('contact.social.whatsapp.subtitle')}</p>
-                    </div>
-                  </div>
-                </div>
               </div>
 
               {/* Блок прямых контактов удалён во избежание дубликатов; используйте переводные данные выше */}

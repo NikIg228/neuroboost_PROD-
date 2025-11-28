@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '@/contexts/AuthContext';
 import { useNavigateWithScroll } from '@/utils/navigation';
-import { Brain, Mail, Phone, MessageCircle } from 'lucide-react';
+import { Brain, MessageCircle } from 'lucide-react';
 import ConsultationModal from './ConsultationModal';
 import { useTranslation } from 'react-i18next';
 
@@ -59,17 +59,6 @@ const Footer: React.FC = () => {
                 <span className="text-xl font-bold">{t('company.name')}</span>
               </motion.div>
               <p className="text-gray-400 mb-4 max-w-md">{t('company.description')}</p>
-              <div className="space-y-2 mb-4">
-                <div className="flex items-center text-gray-400">
-                  <Mail className="h-4 w-4 mr-2" />
-                  <span>{t('contact.email')}</span>
-                </div>
-                <div className="flex items-center text-gray-400">
-                  <Phone className="h-4 w-4 mr-2" />
-                  <span>{t('contact.phone')}</span>
-                </div>
-              </div>
-              
               <button
                 onClick={handleConsultation}
                 className="flex items-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-all mb-4"
